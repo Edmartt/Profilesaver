@@ -50,7 +50,13 @@ public class Inicio extends javax.swing.JFrame {
         pan_tab = new javax.swing.JPanel();
         scroll = new javax.swing.JScrollPane();
         tb_mostrar = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
+        txt_femail = new javax.swing.JTextField();
+        txt_fname = new javax.swing.JTextField();
+        txt_fusername = new javax.swing.JTextField();
+        txt_fpass = new javax.swing.JPasswordField();
+        lbl_press = new javax.swing.JLabel();
+        btn_mod = new javax.swing.JButton();
+        pan_sup = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -59,7 +65,7 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pan_slide.setBackground(new java.awt.Color(24, 75, 228));
+        pan_slide.setBackground(new java.awt.Color(27, 76, 152));
         pan_slide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_slide.setBackground(new java.awt.Color(255, 32, 0));
@@ -69,7 +75,7 @@ public class Inicio extends javax.swing.JFrame {
         lbl_slide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu2.png"))); // NOI18N
         lbl_slide.setText("<html>\n--<br/>\n--<br/>\n--<br/>\n</html>");
         lbl_slide.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pan_slide.add(lbl_slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 25, 25));
+        pan_slide.add(lbl_slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 25, 25));
 
         btn_add.setBackground(new java.awt.Color(254, 254, 254));
         btn_add.setFont(new java.awt.Font("L M Mono Caps10", 1, 15)); // NOI18N
@@ -78,7 +84,7 @@ public class Inicio extends javax.swing.JFrame {
         btn_add.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 1));
         btn_add.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_add.setFocusPainted(false);
-        pan_slide.add(btn_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -190, 170, 50));
+        pan_slide.add(btn_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 170, 50));
 
         btn_set.setBackground(new java.awt.Color(254, 254, 254));
         btn_set.setFont(new java.awt.Font("L M Mono Caps10", 1, 15)); // NOI18N
@@ -87,7 +93,7 @@ public class Inicio extends javax.swing.JFrame {
         btn_set.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 1));
         btn_set.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_set.setFocusPainted(false);
-        pan_slide.add(btn_set, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -400, 170, 50));
+        pan_slide.add(btn_set, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 170, 50));
 
         btn_ver.setBackground(new java.awt.Color(254, 254, 254));
         btn_ver.setFont(new java.awt.Font("L M Mono Caps10", 1, 15)); // NOI18N
@@ -96,17 +102,18 @@ public class Inicio extends javax.swing.JFrame {
         btn_ver.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 1));
         btn_ver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_ver.setFocusPainted(false);
-        pan_slide.add(btn_ver, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -260, 170, 50));
+        pan_slide.add(btn_ver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 170, 50));
 
         jButton4.setBackground(new java.awt.Color(254, 254, 254));
         jButton4.setText("jButton1");
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pan_slide.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -330, 170, 50));
+        pan_slide.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 170, 50));
 
         lbl_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user.png"))); // NOI18N
-        pan_slide.add(lbl_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 90, 80));
+        pan_slide.add(lbl_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 90, 80));
 
-        jPanel1.add(pan_slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 50, 550));
+        jPanel1.add(pan_slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 200, 550));
+        pan_slide.getAccessibleContext().setAccessibleName("");
 
         pan_form.setBackground(new java.awt.Color(254, 254, 254));
         pan_form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -186,12 +193,24 @@ public class Inicio extends javax.swing.JFrame {
             tb_mostrar.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        pan_tab.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 730, 580));
+        pan_tab.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 740, 270));
+        pan_tab.add(txt_femail, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 250, -1));
+        pan_tab.add(txt_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 250, -1));
+        pan_tab.add(txt_fusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 250, -1));
+        pan_tab.add(txt_fpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 250, -1));
+
+        lbl_press.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        lbl_press.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_press.setText("O");
+        pan_tab.add(lbl_press, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 400, 30, 30));
+
+        btn_mod.setText("Modificar");
+        pan_tab.add(btn_mod, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, 100, 40));
 
         jPanel1.add(pan_tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 600));
 
-        jPanel2.setBackground(new java.awt.Color(27, 76, 152));
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
+        pan_sup.setBackground(new java.awt.Color(27, 76, 152));
+        jPanel1.add(pan_sup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
@@ -235,6 +254,7 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_add;
+    public javax.swing.JButton btn_mod;
     public javax.swing.JButton btn_reg;
     public javax.swing.JButton btn_set;
     public javax.swing.JButton btn_ver;
@@ -244,16 +264,21 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     public javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    public javax.swing.JLabel lbl_press;
     public javax.swing.JLabel lbl_slide;
     public javax.swing.JLabel lbl_user;
     public javax.swing.JLabel lbl_user_id;
     public javax.swing.JPanel pan_form;
     public javax.swing.JPanel pan_slide;
+    private javax.swing.JPanel pan_sup;
     public javax.swing.JPanel pan_tab;
     public javax.swing.JScrollPane scroll;
     public javax.swing.JTable tb_mostrar;
     public javax.swing.JTextField txt_email;
+    public javax.swing.JTextField txt_femail;
+    public javax.swing.JTextField txt_fname;
+    public javax.swing.JPasswordField txt_fpass;
+    public javax.swing.JTextField txt_fusername;
     public javax.swing.JPasswordField txt_pass;
     public javax.swing.JTextField txt_url;
     public javax.swing.JTextField txt_username;

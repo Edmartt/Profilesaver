@@ -48,7 +48,7 @@ public class MetodosEventos {
     }
 
     public void showPanel(Inicio init) {
-        init.lbl_slide.setLocation(175, 0);
+        init.lbl_slide.setLocation(170, 10);
 //        init.barra.setSize(200,30);
 //        init.barra2.setSize(200,30);
         init.pan_slide.setSize(200, 550);

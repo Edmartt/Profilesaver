@@ -21,7 +21,7 @@ import style.StyleInicio;
  * @author sam
  */
 public class Controller implements ActionListener, MouseListener {
-    
+
     private Login log;
     private Inicio init;
     private Usuario user;
@@ -31,7 +31,7 @@ public class Controller implements ActionListener, MouseListener {
     private WebSite web;
     private TablaWebSite tb;
     private StyleInicio stylein;
-    
+
     public Controller() {
         this.reg = new Registro();
         this.event = new MetodosEventos();
@@ -47,11 +47,11 @@ public class Controller implements ActionListener, MouseListener {
         this.user = new Usuario();
         this.log.setVisible(true);
         this.web = new WebSite();
-        
+
         buttons();
-        
+
     }
-    
+
     private void buttons() {
         log.btn_log.addActionListener(this);
         log.lbl_crear.addMouseListener(this);
@@ -61,9 +61,9 @@ public class Controller implements ActionListener, MouseListener {
         init.btn_add.addActionListener(this);
         init.btn_ver.addActionListener(this);
         this.init.tb_mostrar.addMouseListener(this);
-        
+
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.log.btn_log) {
@@ -71,58 +71,61 @@ public class Controller implements ActionListener, MouseListener {
             this.init.lbl_user_id.setText(String.valueOf(this.user.getUserId()));
         } else if (ae.getSource() == this.reg.btn_reg) {
             event.registrarEvento(reg, sql, user);
-            
+
         } else if (ae.getSource() == init.btn_reg) {
-            web.agregarWeb(init);            
+            web.agregarWeb(init);
         } else if (ae.getSource() == init.btn_add) {
+
             init.pan_form.setVisible(true);
+            event.hidePanel(init);
             init.pan_tab.setVisible(false);
-            
+
         } else if (ae.getSource() == init.btn_ver) {
+
             TablaWebSite.ajustarTabla(init);
             init.pan_tab.setVisible(true);
             tb.mostrarWebs(init);
-            init.pan_form.setVisible(false);
             event.hidePanel(init);
-            
+            init.pan_form.setVisible(false);
+
         }
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent me) {
-        
+
         int pos = this.init.lbl_slide.getX();
         if (me.getSource() == this.log.lbl_crear) {
             reg.setVisible(true);
-            
+
         }
         if (me.getSource() == init.lbl_slide && pos > 20) {
             event.hidePanel(init);
-            
+
         } else if (me.getSource() == init.lbl_slide && pos <= 20) {
             event.showPanel(init);
-            
+
         } else if (me.getSource() == init.tb_mostrar) {
             event.hidePanel(init);
-            
+
         }
-        
+
     }
-    
+
     @Override
     public void mousePressed(MouseEvent me) {
     }
-    
+
     @Override
     public void mouseReleased(MouseEvent me) {
     }
-    
+
     @Override
     public void mouseEntered(MouseEvent me) {
     }
-    
+
     @Override
     public void mouseExited(MouseEvent me) {
     }
-    
+
 }

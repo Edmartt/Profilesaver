@@ -19,10 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSetMetaData;
-import javax.security.auth.callback.PasswordCallback;
 import javax.swing.BorderFactory;
-import javax.swing.JPasswordField;
-import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -126,15 +123,13 @@ public class TablaWebSite {
 
     private String asteriscos(int lenght) {
         if (lenght > PasswordCellRenderer.ASTERISCOS.length()) {
-            StringBuilder sb=new StringBuilder(lenght);
+            StringBuilder sb = new StringBuilder(lenght);
             for (int i = 0; i < lenght; i++) {
                 sb.append('*');
             }
             return sb.toString();
-        }
-        
-        else {
-            return PasswordCellRenderer.ASTERISCOS.substring(0,lenght);
+        } else {
+            return PasswordCellRenderer.ASTERISCOS.substring(0, lenght);
         }
 
     }
