@@ -81,7 +81,7 @@ public class Controller implements ActionListener, MouseListener {
         } else if (ae.getSource() == init.btn_ver) {
             TablaWebSite.ajustarTabla(init);
             init.pan_tab.setVisible(true);
-            tb.mostrarWebs(init);
+            tb.mostrarWebs(init);;
             init.pan_form.setVisible(false);
             event.hidePanel(init);
             
