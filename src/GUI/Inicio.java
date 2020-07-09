@@ -65,7 +65,7 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pan_slide.setBackground(new java.awt.Color(27, 76, 152));
+        pan_slide.setBackground(new java.awt.Color(17, 138, 178));
         pan_slide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_slide.setBackground(new java.awt.Color(255, 32, 0));
@@ -79,7 +79,7 @@ public class Inicio extends javax.swing.JFrame {
 
         btn_add.setBackground(new java.awt.Color(254, 254, 254));
         btn_add.setFont(new java.awt.Font("L M Mono Caps10", 1, 15)); // NOI18N
-        btn_add.setForeground(new java.awt.Color(24, 75, 228));
+        btn_add.setForeground(new java.awt.Color(7, 59, 76));
         btn_add.setText("Añadir");
         btn_add.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 1));
         btn_add.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -88,7 +88,7 @@ public class Inicio extends javax.swing.JFrame {
 
         btn_set.setBackground(new java.awt.Color(254, 254, 254));
         btn_set.setFont(new java.awt.Font("L M Mono Caps10", 1, 15)); // NOI18N
-        btn_set.setForeground(new java.awt.Color(24, 75, 228));
+        btn_set.setForeground(new java.awt.Color(7, 59, 76));
         btn_set.setText("Ajustes");
         btn_set.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 1));
         btn_set.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -97,7 +97,7 @@ public class Inicio extends javax.swing.JFrame {
 
         btn_ver.setBackground(new java.awt.Color(254, 254, 254));
         btn_ver.setFont(new java.awt.Font("L M Mono Caps10", 1, 15)); // NOI18N
-        btn_ver.setForeground(new java.awt.Color(24, 75, 228));
+        btn_ver.setForeground(new java.awt.Color(7, 59, 76));
         btn_ver.setText("Guardados");
         btn_ver.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 1));
         btn_ver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -179,7 +179,7 @@ public class Inicio extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tb_mostrar.setSelectionBackground(new java.awt.Color(24, 75, 228));
+        tb_mostrar.setSelectionBackground(new java.awt.Color(7, 59, 76));
         tb_mostrar.setSelectionForeground(new java.awt.Color(254, 254, 254));
         tb_mostrar.setShowVerticalLines(false);
         tb_mostrar.getTableHeader().setReorderingAllowed(false);
@@ -193,23 +193,23 @@ public class Inicio extends javax.swing.JFrame {
             tb_mostrar.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        pan_tab.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 740, 270));
-        pan_tab.add(txt_femail, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 250, -1));
-        pan_tab.add(txt_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 250, -1));
-        pan_tab.add(txt_fusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 250, -1));
-        pan_tab.add(txt_fpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 250, -1));
+        pan_tab.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 750, 280));
+        pan_tab.add(txt_femail, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 250, 40));
+        pan_tab.add(txt_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 250, 40));
+        pan_tab.add(txt_fusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 250, 40));
+        pan_tab.add(txt_fpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 250, 40));
 
         lbl_press.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         lbl_press.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_press.setText("O");
-        pan_tab.add(lbl_press, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 400, 30, 30));
+        lbl_press.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/show password.png"))); // NOI18N
+        pan_tab.add(lbl_press, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 390, 40, 50));
 
         btn_mod.setText("Modificar");
         pan_tab.add(btn_mod, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, 100, 40));
 
         jPanel1.add(pan_tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 600));
 
-        pan_sup.setBackground(new java.awt.Color(27, 76, 152));
+        pan_sup.setBackground(new java.awt.Color(17, 138, 178));
         jPanel1.add(pan_sup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));

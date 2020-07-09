@@ -8,11 +8,13 @@ import Model.MetodosEventos;
 import Model.SQL;
 import Model.TablaWebSite;
 import Model.Usuario;
+import Model.WebSQL;
 import Model.WebSite;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 import javax.swing.border.SoftBevelBorder;
 import style.StyleInicio;
 
@@ -28,6 +30,7 @@ public class Controller implements ActionListener, MouseListener {
     private Registro reg;
     private SQL sql;
     private MetodosEventos event;
+    private WebSQL websql;//métodos para SQL Website
     private WebSite web;
     private TablaWebSite tb;
     private StyleInicio stylein;
@@ -39,6 +42,8 @@ public class Controller implements ActionListener, MouseListener {
         this.log = new Login();
         this.init = new Inicio();
         this.stylein = new StyleInicio();
+        this.websql = new WebSQL();
+        this.web = new WebSite();
         stylein.setImage(init);
         this.init.pan_tab.setVisible(false);
         this.tb = new TablaWebSite();
@@ -46,7 +51,6 @@ public class Controller implements ActionListener, MouseListener {
         this.init.pan_slide.setBorder(new SoftBevelBorder(0, null, null, null, Color.black));
         this.user = new Usuario();
         this.log.setVisible(true);
-        this.web = new WebSite();
 
         buttons();
 
@@ -60,7 +64,12 @@ public class Controller implements ActionListener, MouseListener {
         init.btn_reg.addActionListener(this);
         init.btn_add.addActionListener(this);
         init.btn_ver.addActionListener(this);
+        this.init.btn_mod.addActionListener(this);
         this.init.tb_mostrar.addMouseListener(this);
+        this.init.lbl_press.addMouseListener(this);
+        this.init.pan_tab.addMouseListener(this);
+        this.init.pan_form.addMouseListener(this);
+        this.log.lbl_close.addMouseListener(this);
 
     }
 
@@ -73,20 +82,21 @@ public class Controller implements ActionListener, MouseListener {
             event.registrarEvento(reg, sql, user);
 
         } else if (ae.getSource() == init.btn_reg) {
-            web.agregarWeb(init);
+            websql.agregarWeb(init);
         } else if (ae.getSource() == init.btn_add) {
-
             init.pan_form.setVisible(true);
             event.hidePanel(init);
             init.pan_tab.setVisible(false);
 
         } else if (ae.getSource() == init.btn_ver) {
-
+            event.hidePanel(init);
             TablaWebSite.ajustarTabla(init);
             init.pan_tab.setVisible(true);
             tb.mostrarWebs(init);
-            event.hidePanel(init);
+
             init.pan_form.setVisible(false);
+        } else if (ae.getSource() == init.btn_mod) {
+            websql.actualizarDatos(init);
 
         }
     }
@@ -107,17 +117,37 @@ public class Controller implements ActionListener, MouseListener {
 
         } else if (me.getSource() == init.tb_mostrar) {
             event.hidePanel(init);
+            web.mostrarDatos(init);
+
+        } else if (me.getSource() == init.pan_form) {
+            event.hidePanel(init);
+
+        } else if (me.getSource() == init.pan_tab) {
+            event.hidePanel(init);
+
+        } else if (me.getSource() == log.lbl_close) {
+            int resp = JOptionPane.showConfirmDialog(null, "Desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
+            if (resp == 0) {
+                System.exit(0);
+            }
 
         }
-
     }
 
     @Override
     public void mousePressed(MouseEvent me) {
+        if (me.getSource() == init.lbl_press) {
+            init.txt_fpass.setEchoChar((char) 0);
+
+        }
     }
 
     @Override
     public void mouseReleased(MouseEvent me) {
+        if (me.getSource() == init.lbl_press) {
+            init.txt_fpass.setEchoChar('•');
+
+        }
     }
 
     @Override

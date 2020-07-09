@@ -80,7 +80,7 @@ public class TablaWebSite {
 
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setForeground(Color.WHITE);
-        headerRenderer.setBackground(new Color(21, 21, 255));
+        headerRenderer.setBackground(new Color(17,138,178));
         /*Fin de modificación*/
         for (int i = 0; i < tabla.getModel().getColumnCount(); i++) {
             tabla.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
@@ -104,7 +104,7 @@ public class TablaWebSite {
 
     class PasswordCellRenderer extends DefaultTableCellRenderer {
 
-        private static final String ASTERISCOS = "***********";
+        private static final String ASTERISCOS = "********************";
 
         @Override
         public Component getTableCellRendererComponent(JTable arg0, Object arg1, boolean arg2, boolean arg3, int arg4, int arg5) {

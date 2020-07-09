@@ -18,7 +18,7 @@ import javax.swing.ImageIcon;
  */
 public class StyleInicio {
     
-    ImageIcon us,men;
+    ImageIcon us,men,show;
 
     public static void changeColor(Login log) {
         log.pan_login.setBackground(new Color(254, 254, 254, 100));
@@ -31,6 +31,8 @@ public class StyleInicio {
         init.lbl_user.setIcon(new ImageIcon(us.getImage().getScaledInstance(init.lbl_user.getWidth(), init.lbl_user.getHeight(), Image.SCALE_AREA_AVERAGING)));
         men=new ImageIcon(getClass().getResource("/img/menu.png"));
         init.lbl_slide.setIcon(new ImageIcon(men.getImage().getScaledInstance(init.lbl_slide.getWidth(), init.lbl_slide.getHeight(),Image.SCALE_AREA_AVERAGING)));
+         show=new ImageIcon(getClass().getResource("/img/show password.png"));
+        init.lbl_press.setIcon(new ImageIcon(show.getImage().getScaledInstance(init.lbl_press.getWidth(), init.lbl_press.getHeight(),Image.SCALE_AREA_AVERAGING)));
     }
 
     public static void setPlaceholder(Login log) {
