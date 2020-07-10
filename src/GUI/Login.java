@@ -65,7 +65,7 @@ public class Login extends javax.swing.JFrame {
         btn_log.setFont(new java.awt.Font("L M Mono Caps10", 1, 18)); // NOI18N
         btn_log.setForeground(new java.awt.Color(7, 59, 76));
         btn_log.setText("Login");
-        pan_login.add(btn_log, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 81, -1));
+        pan_login.add(btn_log, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 350, 81, -1));
 
         lbl_crear.setFont(new java.awt.Font("L M Roman Caps10", 1, 13)); // NOI18N
         lbl_crear.setForeground(new java.awt.Color(254, 254, 254));

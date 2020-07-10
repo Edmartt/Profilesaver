@@ -11,13 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/sam/NetBeansProjects/JavaApplication2/ProfileSaver/src/style/StyleLogin.java</file>
-            <file>file:/home/sam/NetBeansProjects/JavaApplication2/ProfileSaver/src/GUI/Login.java</file>
-            <file>file:/home/sam/NetBeansProjects/JavaApplication2/ProfileSaver/src/GUI/Inicio.java</file>
-            <file>file:/home/sam/NetBeansProjects/JavaApplication2/ProfileSaver/src/style/StyleInicio.java</file>
-            <file>file:/home/sam/NetBeansProjects/JavaApplication2/ProfileSaver/src/Model/TablaWebSite.java</file>
-            <file>file:/home/sam/NetBeansProjects/JavaApplication2/ProfileSaver/src/controller/Controller.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
