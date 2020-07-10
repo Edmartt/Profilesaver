@@ -78,6 +78,7 @@ public class Controller implements ActionListener, MouseListener {
         if (ae.getSource() == this.log.btn_log) {
             event.loguearse(this.log, this.sql, this.user, this.init);
             this.init.lbl_user_id.setText(String.valueOf(this.user.getUserId()));
+            this.init.lbl_username.setText(user.getUsername());
         } else if (ae.getSource() == this.reg.btn_reg) {
             event.registrarEvento(reg, sql, user);
 
