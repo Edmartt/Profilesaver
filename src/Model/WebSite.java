@@ -1,15 +1,12 @@
 package Model;
 
-import Model.Usuario;
 import Extras.Conexion;
-import Extras.SHA256;
 import GUI.Inicio;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 import java.sql.ResultSet;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -76,45 +73,18 @@ public class WebSite {
         this.web_pass = web_pass;
     }
 
-    /**
-     * Método que se encarga de establecer conexión con la BD con el fin de
-     * ingresar datos de los sitios web que se quieran guardar de forma
-     * persistente
-     *
-     * @param init
-     */
-    public void agregarWeb(Inicio init) {
-        con = Conexion.getConnection();
-
-        try {
-            
-            ps = con.prepareStatement("INSERT INTO Website(user_id,web_name,web_username,web_email,web_pass) VALUES(?,?,?,?,?)");
-            ps.setInt(1, Integer.parseInt(init.lbl_user_id.getText()));
-            ps.setString(2, init.txt_url.getText());
-            ps.setString(3, init.txt_username.getText());
-            ps.setString(4, init.txt_email.getText());
-            ps.setString(5, new String(init.txt_pass.getPassword()));
-            int res = ps.executeUpdate();
-            if (res > 0) {
-                JOptionPane.showMessageDialog(null, "Perfil agregado");
-
-            } else {
-                System.out.println("Ha ocurrido un error");
-
-            }
-
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-
-    }
 
     public void consultarWebs() {
 
         con = Conexion.getConnection();
-       
-        
 
+    }
+
+    public void mostrarDatos(Inicio init) {
+        init.txt_fname.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 2).toString().trim());
+        init.txt_fusername.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 3).toString().trim());
+        init.txt_femail.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 4).toString().trim());
+        init.txt_fpass.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 5).toString().trim());
     }
 
     public int contar() {

@@ -19,10 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSetMetaData;
-import javax.security.auth.callback.PasswordCallback;
 import javax.swing.BorderFactory;
-import javax.swing.JPasswordField;
-import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -83,7 +80,7 @@ public class TablaWebSite {
 
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setForeground(Color.WHITE);
-        headerRenderer.setBackground(new Color(21, 21, 255));
+        headerRenderer.setBackground(new Color(17,138,178));
         /*Fin de modificación*/
         for (int i = 0; i < tabla.getModel().getColumnCount(); i++) {
             tabla.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
@@ -107,7 +104,7 @@ public class TablaWebSite {
 
     class PasswordCellRenderer extends DefaultTableCellRenderer {
 
-        private static final String ASTERISCOS = "***********";
+        private static final String ASTERISCOS = "********************";
 
         @Override
         public Component getTableCellRendererComponent(JTable arg0, Object arg1, boolean arg2, boolean arg3, int arg4, int arg5) {
@@ -126,15 +123,13 @@ public class TablaWebSite {
 
     private String asteriscos(int lenght) {
         if (lenght > PasswordCellRenderer.ASTERISCOS.length()) {
-            StringBuilder sb=new StringBuilder(lenght);
+            StringBuilder sb = new StringBuilder(lenght);
             for (int i = 0; i < lenght; i++) {
                 sb.append('*');
             }
             return sb.toString();
-        }
-        
-        else {
-            return PasswordCellRenderer.ASTERISCOS.substring(0,lenght);
+        } else {
+            return PasswordCellRenderer.ASTERISCOS.substring(0, lenght);
         }
 
     }

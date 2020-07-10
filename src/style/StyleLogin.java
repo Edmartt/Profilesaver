@@ -20,7 +20,7 @@ public class StyleLogin {
     ImageIcon back;
 
     public static void changeColor(Login log) {
-        log.pan_login.setBackground(new Color(254, 254, 254, 100));
+        log.pan_login.setBackground(new Color(17, 138, 178));
         log.lbl_crear.setBackground(new Color(0, 0, 0, 150));
         log.lbl_rec.setBackground(new Color(0, 0, 0, 150));
     }
@@ -32,8 +32,8 @@ public class StyleLogin {
     }
 
     public static void setPlaceholder(Login log) {
-        PlaceHolder usuario = new PlaceHolder(log.txt_name, new Color(0, 0, 0,90),new Color(0,0,0,150),"Usuario", false, "Bitstream Vera Serif",12);
-        PlaceHolder password = new PlaceHolder(log.txt_pass, new Color(0, 0, 0,90),new Color(0,0,0,150),"Password", false, "Bitstream Vera Serif",12);
+        PlaceHolder usuario = new PlaceHolder(log.txt_name, new Color(0, 0, 0, 90), new Color(0, 0, 0, 150), "Usuario", false, "Bitstream Vera Serif", 12);
+        PlaceHolder password = new PlaceHolder(log.txt_pass, new Color(0, 0, 0, 90), new Color(0, 0, 0, 150), "Password", false, "Bitstream Vera Serif", 12);
 
     }
 

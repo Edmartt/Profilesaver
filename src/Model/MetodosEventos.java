@@ -39,18 +39,18 @@ public class MetodosEventos {
     }
 
     public void hidePanel(Inicio init) {
+
         init.lbl_slide.setLocation(10, 10);
-//        init.barra.setSize(0,0);
-//        init.barra2.setSize(0,0);
+
         init.pan_slide.setSize(50, 550);
+
         hideButtons(init);
 
     }
 
     public void showPanel(Inicio init) {
-        init.lbl_slide.setLocation(175, 0);
-//        init.barra.setSize(200,30);
-//        init.barra2.setSize(200,30);
+        init.lbl_slide.setLocation(170, 10);
+
         init.pan_slide.setSize(200, 550);
         showButtons(init);
 
@@ -65,10 +65,10 @@ public class MetodosEventos {
     }
 
     private void showButtons(Inicio init) {
-        init.btn_add.setLocation(10, 190);
-        init.btn_ver.setLocation(10, 260);
-        init.jButton4.setLocation(10, 330);
-        init.btn_set.setLocation(10, 400);
+        init.btn_add.setLocation(0, 190);
+        init.btn_ver.setLocation(0, 260);
+        init.jButton4.setLocation(0, 330);
+        init.btn_set.setLocation(0, 400);
 
     }
 

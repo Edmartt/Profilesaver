@@ -20,6 +20,32 @@ import java.sql.Connection;
  */
 public class SQL {
 
+    public static boolean comprobar(String password, int used_id) {
+        com.mysql.jdbc.Connection con = null;
+        PreparedStatement ps;
+        ResultSet rs;
+        String sql = "SELECT * FROM Usuario WHERE user_id=?";
+        boolean band = false;
+        Conexion.getConnection();
+        try {
+            ps = Conexion.getConnection().prepareStatement(sql);
+            ps.setInt(1, used_id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                if (rs.getString("password").equals(Usuario.password1)) {
+                    band = true;
+                    return band;
+                }
+            } else {
+                band = false;
+                return band;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return band;
+    }
+
     Connection con = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
