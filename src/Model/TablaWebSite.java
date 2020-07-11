@@ -54,9 +54,10 @@ public class TablaWebSite {
         ajustarCabecera(init.tb_mostrar);
 
         con = Conexion.getConnection();
-        String sql = "SELECT web_id,user_id,web_name,web_username,web_email,web_pass FROM Website";
+        String sql = "SELECT web_id,user_id,web_name,web_username,web_email,web_pass FROM Website WHERE user_id=?";
         try {
             ps = con.prepareStatement(sql);
+            ps.setInt(1, Integer.parseInt(init.lbl_user_id.getText()));
             rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
             int col = rsmd.getColumnCount();

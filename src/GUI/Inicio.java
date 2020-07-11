@@ -56,6 +56,8 @@ public class Inicio extends javax.swing.JFrame {
         txt_pass1 = new javax.swing.JPasswordField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         pan_tab = new javax.swing.JPanel();
         scroll = new javax.swing.JScrollPane();
         tb_mostrar = new javax.swing.JTable();
@@ -126,6 +128,7 @@ public class Inicio extends javax.swing.JFrame {
         jButton4.setFont(btn_add.getFont());
         jButton4.setForeground(btn_add.getForeground());
         jButton4.setText("Logs");
+        jButton4.setBorder(null);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.setFocusPainted(false);
         pan_slide.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 200, 50));
@@ -145,61 +148,61 @@ public class Inicio extends javax.swing.JFrame {
 
         jSeparator1.setBackground(new java.awt.Color(1, 1, 1));
         jSeparator1.setOpaque(true);
-        pan_form.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 290, 2));
+        pan_form.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 290, 2));
 
         jSeparator2.setBackground(new java.awt.Color(1, 1, 1));
         jSeparator2.setOpaque(true);
-        pan_form.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 290, 2));
+        pan_form.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 290, 2));
 
         jSeparator3.setBackground(new java.awt.Color(1, 1, 1));
         jSeparator3.setOpaque(true);
-        pan_form.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 290, 2));
+        pan_form.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 290, 2));
 
         jSeparator4.setBackground(new java.awt.Color(1, 1, 1));
         jSeparator4.setOpaque(true);
-        pan_form.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 290, 2));
+        pan_form.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 290, 2));
 
         jSeparator5.setBackground(new java.awt.Color(1, 1, 1));
         jSeparator5.setOpaque(true);
-        pan_form.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 290, 2));
+        pan_form.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 290, 2));
 
         jLabel1.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
         jLabel1.setText("Confirmar Password");
-        pan_form.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, 30));
+        pan_form.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, 30));
 
         txt_url.setBorder(null);
         txt_url.setOpaque(false);
-        pan_form.add(txt_url, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 290, 40));
+        pan_form.add(txt_url, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 290, 40));
 
         txt_username.setBorder(null);
         txt_username.setOpaque(false);
-        pan_form.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 290, 40));
+        pan_form.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 290, 40));
 
         txt_email.setBorder(null);
         txt_email.setOpaque(false);
-        pan_form.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 290, 40));
+        pan_form.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 290, 40));
 
         jLabel2.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
         jLabel2.setText("Nombre de Sitio");
-        pan_form.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
+        pan_form.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
         jLabel3.setText("Nombre de Usuario");
-        pan_form.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
+        pan_form.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
         jLabel4.setText("Email");
-        pan_form.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
+        pan_form.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
 
         txt_pass.setBorder(null);
         txt_pass.setOpaque(false);
-        pan_form.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 290, 40));
+        pan_form.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 290, 40));
 
         btn_reg.setBackground(new java.awt.Color(17, 138, 178));
         btn_reg.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 14)); // NOI18N
         btn_reg.setForeground(new java.awt.Color(254, 254, 254));
         btn_reg.setText("Registrar");
-        pan_form.add(btn_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 120, 40));
+        pan_form.add(btn_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 480, 120, 40));
 
         jLabel10.setFont(new java.awt.Font("Expansiva", 1, 14)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -208,16 +211,23 @@ public class Inicio extends javax.swing.JFrame {
 
         txt_pass1.setBorder(null);
         txt_pass1.setOpaque(false);
-        pan_form.add(txt_pass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 290, 40));
+        pan_form.add(txt_pass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 290, 40));
 
         jLabel11.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
         jLabel11.setText("Password");
-        pan_form.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
+        pan_form.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Expansiva", 1, 14)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Registro de Nuevo Perfil");
         pan_form.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 260, 30));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setWrapStyleWord(true);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        pan_form.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 290, 80));
 
         jPanel1.add(pan_form, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 600, 520));
 
@@ -428,11 +438,13 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JTextArea jTextArea1;
     public javax.swing.JLabel lbl_press;
     public javax.swing.JLabel lbl_slide;
     public javax.swing.JLabel lbl_user;
