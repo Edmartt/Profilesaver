@@ -41,20 +41,25 @@ public class TablaWebSite {
         model.addColumn("Nombre de usuario");
         model.addColumn("Email");
         model.addColumn("Password");
+        model.addColumn("Notas");
 
         init.tb_mostrar.getColumnModel().getColumn(0).setMaxWidth(0);
         init.tb_mostrar.getColumnModel().getColumn(0).setMinWidth(0);
         init.tb_mostrar.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
         init.tb_mostrar.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
-        init.tb_mostrar.getColumnModel().getColumn(1).setMaxWidth(1);
-        init.tb_mostrar.getColumnModel().getColumn(1).setMinWidth(1);
-        init.tb_mostrar.getTableHeader().getColumnModel().getColumn(1).setMinWidth(1);
-        init.tb_mostrar.getTableHeader().getColumnModel().getColumn(1).setMaxWidth(1);
+        init.tb_mostrar.getColumnModel().getColumn(1).setMaxWidth(0);
+        init.tb_mostrar.getColumnModel().getColumn(1).setMinWidth(0);
+        init.tb_mostrar.getTableHeader().getColumnModel().getColumn(1).setMinWidth(0);
+        init.tb_mostrar.getTableHeader().getColumnModel().getColumn(1).setMaxWidth(0);
+        init.tb_mostrar.getColumnModel().getColumn(6).setMaxWidth(0);
+        init.tb_mostrar.getColumnModel().getColumn(6).setMinWidth(0);
+        init.tb_mostrar.getTableHeader().getColumnModel().getColumn(6).setMinWidth(0);
+        init.tb_mostrar.getTableHeader().getColumnModel().getColumn(6).setMaxWidth(0);
         init.tb_mostrar.getColumnModel().getColumn(5).setCellRenderer(new PasswordCellRenderer());
         ajustarCabecera(init.tb_mostrar);
 
         con = Conexion.getConnection();
-        String sql = "SELECT web_id,user_id,web_name,web_username,web_email,web_pass FROM Website WHERE user_id=?";
+        String sql = "SELECT web_id,user_id,web_name,web_username,web_email,web_pass,nota FROM Website WHERE user_id=?";
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, Integer.parseInt(init.lbl_user_id.getText()));
@@ -81,7 +86,7 @@ public class TablaWebSite {
 
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setForeground(Color.WHITE);
-        headerRenderer.setBackground(new Color(17,138,178));
+        headerRenderer.setBackground(new Color(17, 138, 178));
         /*Fin de modificación*/
         for (int i = 0; i < tabla.getModel().getColumnCount(); i++) {
             tabla.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
