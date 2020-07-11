@@ -57,7 +57,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txa_rnota = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
         pan_tab = new javax.swing.JPanel();
         scroll = new javax.swing.JScrollPane();
@@ -223,11 +223,11 @@ public class Inicio extends javax.swing.JFrame {
         jLabel12.setText("Registro de Nuevo Perfil");
         pan_form.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 260, 30));
 
-        jTextArea1.setColumns(10);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setWrapStyleWord(true);
-        jScrollPane2.setViewportView(jTextArea1);
+        txa_rnota.setColumns(10);
+        txa_rnota.setLineWrap(true);
+        txa_rnota.setRows(5);
+        txa_rnota.setWrapStyleWord(true);
+        jScrollPane2.setViewportView(txa_rnota);
 
         pan_form.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 290, 80));
 
@@ -365,7 +365,9 @@ public class Inicio extends javax.swing.JFrame {
         btn_del.setRequestFocusEnabled(false);
         pan_tab.add(btn_del, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 100, 40));
 
-        txa_nota.setColumns(20);
+        txa_nota.setColumns(10);
+        txa_nota.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        txa_nota.setLineWrap(true);
         txa_nota.setRows(5);
         jScrollPane1.setViewportView(txa_nota);
 
@@ -452,7 +454,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextArea jTextArea1;
     public javax.swing.JLabel lbl_press;
     public javax.swing.JLabel lbl_slide;
     public javax.swing.JLabel lbl_user;
@@ -465,6 +466,7 @@ public class Inicio extends javax.swing.JFrame {
     public javax.swing.JScrollPane scroll;
     public javax.swing.JTable tb_mostrar;
     public javax.swing.JTextArea txa_nota;
+    public javax.swing.JTextArea txa_rnota;
     public javax.swing.JTextField txt_email;
     public javax.swing.JTextField txt_femail;
     public javax.swing.JTextField txt_fname;
