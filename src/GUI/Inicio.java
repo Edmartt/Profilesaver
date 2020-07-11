@@ -38,6 +38,11 @@ public class Inicio extends javax.swing.JFrame {
         lbl_user = new javax.swing.JLabel();
         lbl_username = new javax.swing.JLabel();
         pan_form = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         txt_url = new javax.swing.JTextField();
         txt_username = new javax.swing.JTextField();
@@ -47,6 +52,10 @@ public class Inicio extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txt_pass = new javax.swing.JPasswordField();
         btn_reg = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txt_pass1 = new javax.swing.JPasswordField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         pan_tab = new javax.swing.JPanel();
         scroll = new javax.swing.JScrollPane();
         tb_mostrar = new javax.swing.JTable();
@@ -61,7 +70,6 @@ public class Inicio extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         pan_sup = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,30 +136,83 @@ public class Inicio extends javax.swing.JFrame {
         pan_form.setBackground(new java.awt.Color(254, 254, 254));
         pan_form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("L M Roman Caps10", 1, 13)); // NOI18N
-        jLabel1.setText("Password");
-        pan_form.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
-        pan_form.add(txt_url, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 290, 40));
-        pan_form.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 290, 40));
-        pan_form.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 290, 40));
+        jSeparator1.setBackground(new java.awt.Color(1, 1, 1));
+        jSeparator1.setOpaque(true);
+        pan_form.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 290, 2));
 
-        jLabel2.setFont(new java.awt.Font("L M Roman Caps10", 1, 13)); // NOI18N
-        jLabel2.setText("URL");
-        pan_form.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+        jSeparator2.setBackground(new java.awt.Color(1, 1, 1));
+        jSeparator2.setOpaque(true);
+        pan_form.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 290, 2));
 
-        jLabel3.setFont(new java.awt.Font("L M Roman Caps10", 1, 13)); // NOI18N
+        jSeparator3.setBackground(new java.awt.Color(1, 1, 1));
+        jSeparator3.setOpaque(true);
+        pan_form.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 290, 2));
+
+        jSeparator4.setBackground(new java.awt.Color(1, 1, 1));
+        jSeparator4.setOpaque(true);
+        pan_form.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 290, 2));
+
+        jSeparator5.setBackground(new java.awt.Color(1, 1, 1));
+        jSeparator5.setOpaque(true);
+        pan_form.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 290, 2));
+
+        jLabel1.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
+        jLabel1.setText("Confirmar Password");
+        pan_form.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, 30));
+
+        txt_url.setBorder(null);
+        txt_url.setOpaque(false);
+        pan_form.add(txt_url, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 290, 40));
+
+        txt_username.setBorder(null);
+        txt_username.setOpaque(false);
+        pan_form.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 290, 40));
+
+        txt_email.setBorder(null);
+        txt_email.setOpaque(false);
+        pan_form.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 290, 40));
+
+        jLabel2.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
+        jLabel2.setText("Nombre de Sitio");
+        pan_form.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
         jLabel3.setText("Nombre de Usuario");
-        pan_form.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        pan_form.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("L M Roman Caps10", 1, 13)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
         jLabel4.setText("Email");
-        pan_form.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
-        pan_form.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 290, 40));
+        pan_form.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
 
+        txt_pass.setBorder(null);
+        txt_pass.setOpaque(false);
+        pan_form.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 290, 40));
+
+        btn_reg.setBackground(new java.awt.Color(17, 138, 178));
+        btn_reg.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 14)); // NOI18N
+        btn_reg.setForeground(new java.awt.Color(254, 254, 254));
         btn_reg.setText("Registrar");
-        pan_form.add(btn_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 320, 120, 40));
+        pan_form.add(btn_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 120, 40));
 
-        jPanel1.add(pan_form, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 600, 390));
+        jLabel10.setFont(new java.awt.Font("Expansiva", 1, 14)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Registro de Nuevo Perfil");
+        pan_form.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 260, 30));
+
+        txt_pass1.setBorder(null);
+        txt_pass1.setOpaque(false);
+        pan_form.add(txt_pass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 290, 40));
+
+        jLabel11.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
+        jLabel11.setText("Password");
+        pan_form.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Expansiva", 1, 14)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Registro de Nuevo Perfil");
+        pan_form.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 260, 30));
+
+        jPanel1.add(pan_form, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 600, 520));
 
         pan_tab.setBackground(new java.awt.Color(254, 254, 254));
         pan_tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -200,7 +261,7 @@ public class Inicio extends javax.swing.JFrame {
             tb_mostrar.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        pan_tab.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 750, 190));
+        pan_tab.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 600, 190));
 
         txt_femail.setFont(new java.awt.Font("L M Sans Quot8", 1, 14)); // NOI18N
         txt_femail.setForeground(new java.awt.Color(254, 254, 254));
@@ -247,33 +308,29 @@ public class Inicio extends javax.swing.JFrame {
         lbl_user_id.setOpaque(true);
         pan_tab.add(lbl_user_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 40, 40));
 
-        jLabel5.setFont(new java.awt.Font("L M Mono Prop10", 3, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel5.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(1, 1, 1));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Password");
         pan_tab.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 250, 30));
 
-        jLabel6.setFont(new java.awt.Font("L M Mono Prop10", 3, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel6.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(1, 1, 1));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Nombre del Sitio");
         pan_tab.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 209, 250, 30));
 
-        jLabel7.setFont(new java.awt.Font("L M Mono Prop10", 3, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel7.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(1, 1, 1));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Nombre de Usuario");
         pan_tab.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 250, 30));
 
-        jLabel8.setFont(new java.awt.Font("L M Mono Prop10", 3, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel8.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(1, 1, 1));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Correo");
         pan_tab.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 250, 30));
-
-        jLabel9.setBackground(new java.awt.Color(17, 138, 178));
-        jLabel9.setOpaque(true);
-        pan_tab.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 800, 280));
 
         jPanel1.add(pan_tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 600));
 
@@ -283,6 +340,7 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -328,6 +386,9 @@ public class Inicio extends javax.swing.JFrame {
     public javax.swing.JButton btn_ver;
     public javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -335,8 +396,12 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     public javax.swing.JLabel lbl_press;
     public javax.swing.JLabel lbl_slide;
     public javax.swing.JLabel lbl_user;
@@ -354,6 +419,7 @@ public class Inicio extends javax.swing.JFrame {
     public javax.swing.JPasswordField txt_fpass;
     public javax.swing.JTextField txt_fusername;
     public javax.swing.JPasswordField txt_pass;
+    public javax.swing.JPasswordField txt_pass1;
     public javax.swing.JTextField txt_url;
     public javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables
