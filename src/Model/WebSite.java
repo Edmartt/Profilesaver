@@ -72,7 +72,6 @@ public class WebSite {
         this.web_pass = web_pass;
     }
 
-
     public void consultarWebs() {
 
         con = Conexion.getConnection();
@@ -84,6 +83,9 @@ public class WebSite {
         init.txt_fusername.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 3).toString().trim());
         init.txt_femail.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 4).toString().trim());
         init.txt_fpass.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 5).toString().trim());
+
+        init.txa_nota.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 6).toString().trim());
+
     }
 
     public int contar() {
