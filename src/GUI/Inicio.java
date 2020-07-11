@@ -58,6 +58,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel13 = new javax.swing.JLabel();
         pan_tab = new javax.swing.JPanel();
         scroll = new javax.swing.JScrollPane();
         tb_mostrar = new javax.swing.JTable();
@@ -138,7 +139,7 @@ public class Inicio extends javax.swing.JFrame {
 
         lbl_username.setForeground(new java.awt.Color(254, 254, 254));
         lbl_username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pan_slide.add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 140, 140, 30));
+        pan_slide.add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, 30));
 
         jPanel1.add(pan_slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 200, 550));
         pan_slide.getAccessibleContext().setAccessibleName("");
@@ -222,12 +223,18 @@ public class Inicio extends javax.swing.JFrame {
         jLabel12.setText("Registro de Nuevo Perfil");
         pan_form.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 260, 30));
 
-        jTextArea1.setColumns(20);
+        jTextArea1.setColumns(10);
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jTextArea1.setWrapStyleWord(true);
         jScrollPane2.setViewportView(jTextArea1);
 
         pan_form.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 290, 80));
+
+        jLabel13.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("Notas:");
+        pan_form.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 50, 30));
 
         jPanel1.add(pan_form, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 600, 520));
 
@@ -428,6 +435,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
