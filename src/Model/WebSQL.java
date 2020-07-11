@@ -18,9 +18,9 @@ public class WebSQL {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public void actualizarDatos(Inicio init ) {
+    public void actualizarDatos(Inicio init) {
         con = Conexion.getConnection();
-        String sql="UPDATE Website SET web_name=?,web_username=?,web_email=?,web_pass=? WHERE web_id=?";
+        String sql = "UPDATE Website SET web_name=?,web_username=?,web_email=?,web_pass=?,nota=? WHERE web_id=?";
 
         try {
             ps = con.prepareStatement(sql);
@@ -28,12 +28,12 @@ public class WebSQL {
             ps.setString(2, init.txt_fusername.getText());
             ps.setString(3, init.txt_femail.getText());
             ps.setString(4, new String(init.txt_fpass.getPassword()));
-            ps.setInt(5, Integer.parseInt(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 1).toString().trim()));
-            System.out.println(new String(init.txt_pass.getPassword())); 
-            int res=ps.executeUpdate();
-            if (res>0) {
+            ps.setString(5, init.txa_nota.getText());
+            ps.setInt(6, Integer.parseInt(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 0).toString().trim()));
+            int res = ps.executeUpdate();
+            if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Datos actualizados");
-                
+
             }
 
         } catch (SQLException e) {
@@ -52,13 +52,13 @@ public class WebSQL {
     public void agregarWeb(Inicio init) {
         con = Conexion.getConnection();
         try {
-           ps = con.prepareStatement("INSERT INTO Website(user_id,web_name,web_username,web_email,web_pass,nota) VALUES(?,?,?,?,?,?)");
+            ps = con.prepareStatement("INSERT INTO Website(user_id,web_name,web_username,web_email,web_pass,nota) VALUES(?,?,?,?,?,?)");
             ps.setInt(1, Integer.parseInt(init.lbl_user_id.getText()));
             ps.setString(2, init.txt_url.getText());
             ps.setString(3, init.txt_username.getText());
             ps.setString(4, init.txt_email.getText());
-           ps.setString(5, new String(init.txt_pass.getPassword()));
-           ps.setString(6, init.txa_rnota.getText());
+            ps.setString(5, new String(init.txt_pass.getPassword()));
+            ps.setString(6, init.txa_rnota.getText());
             int res = ps.executeUpdate();
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Perfil agregado");
