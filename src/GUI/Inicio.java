@@ -224,6 +224,7 @@ public class Inicio extends javax.swing.JFrame {
         pan_form.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 260, 30));
 
         txa_rnota.setColumns(10);
+        txa_rnota.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         txa_rnota.setLineWrap(true);
         txa_rnota.setRows(5);
         txa_rnota.setWrapStyleWord(true);
