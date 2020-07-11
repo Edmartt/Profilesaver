@@ -52,12 +52,13 @@ public class WebSQL {
     public void agregarWeb(Inicio init) {
         con = Conexion.getConnection();
         try {
-           ps = con.prepareStatement("INSERT INTO Website(user_id,web_name,web_username,web_email,web_pass) VALUES(?,?,?,?,?)");
+           ps = con.prepareStatement("INSERT INTO Website(user_id,web_name,web_username,web_email,web_pass,notas) VALUES(?,?,?,?,?,?)");
             ps.setInt(1, Integer.parseInt(init.lbl_user_id.getText()));
             ps.setString(2, init.txt_url.getText());
             ps.setString(3, init.txt_username.getText());
             ps.setString(4, init.txt_email.getText());
            ps.setString(5, new String(init.txt_pass.getPassword()));
+           ps.setString(6, init.txa_rnota.getText());
             int res = ps.executeUpdate();
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Perfil agregado");
