@@ -52,7 +52,7 @@ public class WebSQL {
     public void agregarWeb(Inicio init) {
         con = Conexion.getConnection();
         try {
-           ps = con.prepareStatement("INSERT INTO Website(user_id,web_name,web_username,web_email,web_pass,notas) VALUES(?,?,?,?,?,?)");
+           ps = con.prepareStatement("INSERT INTO Website(user_id,web_name,web_username,web_email,web_pass,nota) VALUES(?,?,?,?,?,?)");
             ps.setInt(1, Integer.parseInt(init.lbl_user_id.getText()));
             ps.setString(2, init.txt_url.getText());
             ps.setString(3, init.txt_username.getText());
