@@ -69,5 +69,14 @@ public class WebSQL {
             System.out.println(e);
         }
     }
+    
+    
+    
+    public void eliminarWeb() {
+        con = Conexion.getConnection();
+        String sql = "DELETE FROM Website WHERE web_id=?";
+       
+
+    }
 
 }

@@ -26,8 +26,6 @@ public class WebSite {
     public WebSite() {
 
     }
-
-    public static int[] vector;
     PreparedStatement ps = null;
     Connection con = null;
     ResultSet rs = null;
@@ -72,12 +70,6 @@ public class WebSite {
         this.web_pass = web_pass;
     }
 
-    public void consultarWebs() {
-
-        con = Conexion.getConnection();
-
-    }
-
     public void mostrarDatos(Inicio init) {
         init.txt_fname.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 2).toString().trim());
         init.txt_fusername.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 3).toString().trim());
@@ -88,47 +80,4 @@ public class WebSite {
 
     }
 
-    public int contar() {
-        con = Conexion.getConnection();
-        int count = 0;
-        String sql = "SELECT COUNT(web_id) FROM Website WHERE user_id=?";
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, user.getUserId());
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                count = rs.getInt(1);
-                return count;
-
-            }
-
-        } catch (SQLException e) {
-        }
-        return count;
-    }
-
-    public void eliminarWeb() {
-        con = Conexion.getConnection();
-        String sql = "DELETE FROM Website WHERE web_id=?";
-        System.out.println("Elija un sitio a eliminar: ");
-        int sel = in.nextInt();
-        try {
-            for (int i = 0; i < vector.length; i++) {
-                if (sel == vector[i]) {
-                    ps = con.prepareStatement(sql);
-                    ps.setString(1, sql);
-                    int res = ps.executeUpdate();
-                    if (res > 0) {
-                        System.out.println("Se ha eliminado el sitio");
-                        i = vector.length + 1;
-                    }
-
-                }
-            }
-
-        } catch (SQLException e) {
-
-        }
-
-    }
 }

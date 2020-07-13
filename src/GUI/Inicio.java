@@ -274,6 +274,7 @@ public class Inicio extends javax.swing.JFrame {
         });
         tb_mostrar.setSelectionBackground(new java.awt.Color(7, 59, 76));
         tb_mostrar.setSelectionForeground(new java.awt.Color(254, 254, 254));
+        tb_mostrar.setShowHorizontalLines(false);
         tb_mostrar.setShowVerticalLines(false);
         tb_mostrar.getTableHeader().setReorderingAllowed(false);
         scroll.setViewportView(tb_mostrar);
@@ -286,7 +287,7 @@ public class Inicio extends javax.swing.JFrame {
             tb_mostrar.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        pan_tab.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 600, 170));
+        pan_tab.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 600, 190));
 
         txt_femail.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
         txt_femail.setForeground(new java.awt.Color(1, 1, 1));
@@ -300,14 +301,14 @@ public class Inicio extends javax.swing.JFrame {
         txt_fname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_fname.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txt_fname.setOpaque(false);
-        pan_tab.add(txt_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 210, 40));
+        pan_tab.add(txt_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 210, 40));
 
         txt_fusername.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
         txt_fusername.setForeground(new java.awt.Color(1, 1, 1));
         txt_fusername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_fusername.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txt_fusername.setOpaque(false);
-        pan_tab.add(txt_fusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 210, 40));
+        pan_tab.add(txt_fusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 210, 40));
 
         lbl_press.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         lbl_press.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -343,13 +344,13 @@ public class Inicio extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(7, 59, 76));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Nombre del Sitio");
-        pan_tab.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 250, 30));
+        pan_tab.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 250, 30));
 
         jLabel7.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(7, 59, 76));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Nombre de Usuario");
-        pan_tab.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 250, 30));
+        pan_tab.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 250, 30));
 
         jLabel8.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(7, 59, 76));
