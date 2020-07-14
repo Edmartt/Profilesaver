@@ -15,7 +15,6 @@ public class Usuario {
     private String email;
     private String password;
     public static String password1;
-    //----------------------------
     private PreparedStatement ps = null;
     private Connection con = null;
     private Inicio init;
