@@ -62,7 +62,7 @@ public class TablaWebSite {
         String sql = "SELECT web_id,user_id,web_name,web_username,web_email,web_pass,nota FROM Website WHERE user_id=?";
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, Integer.parseInt(init.lbl_user_id.getText()));
+            ps.setInt(1, Integer.parseInt(Inicio.lbl_user_id.getText()));
             rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
             int col = rsmd.getColumnCount();
