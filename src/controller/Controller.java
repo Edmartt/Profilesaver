@@ -64,26 +64,27 @@ public class Controller implements ActionListener, MouseListener {
         init.btn_reg.addActionListener(this);
         init.btn_add.addActionListener(this);
         init.btn_ver.addActionListener(this);
-        this.init.btn_mod.addActionListener(this);
-        this.init.tb_mostrar.addMouseListener(this);
-        this.init.lbl_press.addMouseListener(this);
-        this.init.pan_tab.addMouseListener(this);
-        this.init.pan_form.addMouseListener(this);
-        this.log.lbl_close.addMouseListener(this);
-
+        init.btn_mod.addActionListener(this);
+        init.tb_mostrar.addMouseListener(this);
+        init.lbl_press.addMouseListener(this);
+        init.pan_tab.addMouseListener(this);
+        init.pan_form.addMouseListener(this);
+        init.btn_del.addActionListener(this);
+        log.lbl_close.addMouseListener(this);
+        
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.log.btn_log) {
             event.loguearse(this.log, this.sql, this.user, this.init);
-            this.init.lbl_user_id.setText(String.valueOf(this.user.getUserId()));
+            Inicio.lbl_user_id.setText(String.valueOf(this.user.getUserId()));
             this.init.lbl_username.setText(user.getUsername());
         } else if (ae.getSource() == this.reg.btn_reg) {
-            event.registrarEvento(reg, sql, user);
+            event.registrar(reg, sql, user);
 
         } else if (ae.getSource() == init.btn_reg) {
-            websql.agregarWeb(init);
+            event.registrarWeb(init, web, websql);
         } else if (ae.getSource() == init.btn_add) {
             init.pan_form.setVisible(true);
             event.hidePanel(init);
@@ -99,7 +100,11 @@ public class Controller implements ActionListener, MouseListener {
         } else if (ae.getSource() == init.btn_mod) {
             websql.actualizarDatos(init);
 
+        } else if (ae.getSource()==init.btn_del) {
+            websql.eliminarWeb(init);
+            
         }
+        
     }
 
     @Override
