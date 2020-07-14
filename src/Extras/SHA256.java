@@ -5,12 +5,18 @@
  */
 package Extras;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author sam
+ */
+/**
+ * Nos provee de un único método para lograr cifrado SHA2
  */
 public class SHA256 {
     public static String getSHA256(String input){
@@ -21,9 +27,8 @@ public class SHA256 {
             digest.update(input.getBytes("utf-8"));
             toReturn=String.format("%064x", new BigInteger(1,digest.digest()));
         }
-        catch(Exception e){
-            e.printStackTrace();
-        
+        catch(UnsupportedEncodingException | NoSuchAlgorithmException e){
+            JOptionPane.showMessageDialog(null, e);
             }
         
         

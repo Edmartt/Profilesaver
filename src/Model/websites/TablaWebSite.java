@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Model.websites;
 
 import javax.swing.JTable;
 import java.sql.PreparedStatement;
@@ -24,6 +24,11 @@ import javax.swing.BorderFactory;
 /**
  *
  * @author sam
+ */
+/**
+ * En esta clase se moldea la tabla que mostrará los datos de los perfiles de sitios
+ * guardados por el usuario. Tiene métodos como mostrarWebs que se encargan de mostrar
+ * los datos en la tabla y ajustar tabla, entre otros, que dan estilo a la tabla.
  */
 public class TablaWebSite {
 

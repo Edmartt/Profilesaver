@@ -1,4 +1,4 @@
-package Model;
+package Model.websites;
 
 import Extras.Conexion;
 import GUI.Inicio;
@@ -12,30 +12,36 @@ import javax.swing.JOptionPane;
  *
  * @author sam
  */
+
+/**
+ * En esta clase se encuentran todos los métodos relacionados con
+ * consultas SQL de la clase Website. Los métodos que se pueden encontrar son
+ * agregarWeb, actualizarWeb y eliminarWeb
+ */
 public class WebSQL {
 
     Connection con = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public void actualizarDatos(Inicio init) {
+    public void actualizarWeb(WebSite web,Inicio init) {
         con = Conexion.getConnection();
         String sql = "UPDATE Website SET web_name=?,web_username=?,web_email=?,web_pass=?,nota=? WHERE web_id=?";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, init.txt_fname.getText());
-            ps.setString(2, init.txt_fusername.getText());
-            ps.setString(3, init.txt_femail.getText());
-            ps.setString(4, new String(init.txt_fpass.getPassword()));
-            ps.setString(5, init.txa_nota.getText());
+            ps.setString(1, web.getWeb_name());
+            ps.setString(2, web.getWeb_username());
+            ps.setString(3, web.getWeb_email());
+            ps.setString(4, web.getWeb_pass());
+            ps.setString(5, web.getNota());
             ps.setInt(6, Integer.parseInt(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 0).toString().trim()));
             int res = ps.executeUpdate();
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Datos actualizados");
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }
     /**
@@ -77,7 +83,6 @@ public class WebSQL {
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Sitio Web Eliminado");
             }
-
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }

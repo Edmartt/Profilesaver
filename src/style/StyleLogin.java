@@ -15,6 +15,11 @@ import com.placeholder.PlaceHolder;
  *
  * @author sam
  */
+/**
+ * Esta clase contiene métodos para dar el estilo a la ventana Login.
+ * El estilo implica el color, transparencia, ajuste de imagen al
+ * tamaño de un jLabel, entre otros.
+ */
 public class StyleLogin {
 
     ImageIcon back;

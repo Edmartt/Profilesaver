@@ -1,5 +1,6 @@
-package Model;
+package Model.websites;
 
+import Model.Usuario.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.util.Scanner;
@@ -8,6 +9,13 @@ import java.sql.ResultSet;
 /**
  *
  * @author sam
+ */
+/**
+ * Esta clase se encarga de recibir los datos relacionados con los perfiles de los
+ * sitios que el usuario desea guardar en la base de datos. 
+ * Sirve como capa intermedia para pasar los datos obtenidos en los
+ * distintos campos de texto de la interfaz gráfica de usuario. Tiene sus
+ * correspondientes métodos getters y settes para este propósito
  */
 public class WebSite {
 

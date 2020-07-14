@@ -29,6 +29,11 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        pan_ajustes = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        btn_username = new javax.swing.JButton();
+        btn_email = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         pan_slide = new javax.swing.JPanel();
         lbl_slide = new javax.swing.JLabel();
         btn_add = new javax.swing.JButton();
@@ -85,6 +90,35 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pan_ajustes.setBackground(new java.awt.Color(254, 254, 254));
+        pan_ajustes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setBackground(new java.awt.Color(17, 138, 178));
+        jButton1.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(254, 254, 254));
+        jButton1.setText("Eliminar Usuario");
+        pan_ajustes.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 210, 80));
+
+        btn_username.setBackground(new java.awt.Color(17, 138, 178));
+        btn_username.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 14)); // NOI18N
+        btn_username.setForeground(new java.awt.Color(254, 254, 254));
+        btn_username.setText("Cambiar Nombre de Usuario");
+        pan_ajustes.add(btn_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 210, 80));
+
+        btn_email.setBackground(new java.awt.Color(17, 138, 178));
+        btn_email.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 14)); // NOI18N
+        btn_email.setForeground(new java.awt.Color(254, 254, 254));
+        btn_email.setText("Modificar Email");
+        pan_ajustes.add(btn_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 210, 80));
+
+        jButton5.setBackground(new java.awt.Color(17, 138, 178));
+        jButton5.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(254, 254, 254));
+        jButton5.setText("Modificar Password");
+        pan_ajustes.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 210, 80));
+
+        jPanel1.add(pan_ajustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 600, 550));
 
         pan_slide.setBackground(new java.awt.Color(17, 138, 178));
         pan_slide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -430,11 +464,15 @@ public class Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_add;
     public javax.swing.JButton btn_del;
+    public javax.swing.JButton btn_email;
     public javax.swing.JButton btn_mod;
     public javax.swing.JButton btn_reg;
     public javax.swing.JButton btn_set;
+    public javax.swing.JButton btn_username;
     public javax.swing.JButton btn_ver;
+    public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -461,6 +499,7 @@ public class Inicio extends javax.swing.JFrame {
     public javax.swing.JLabel lbl_user;
     public static javax.swing.JLabel lbl_user_id;
     public javax.swing.JLabel lbl_username;
+    private javax.swing.JPanel pan_ajustes;
     public javax.swing.JPanel pan_form;
     public javax.swing.JPanel pan_slide;
     private javax.swing.JPanel pan_sup;

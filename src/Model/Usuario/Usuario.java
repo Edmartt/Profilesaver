@@ -1,25 +1,23 @@
-package Model;
-
-import GUI.Inicio;
-import com.mysql.jdbc.Connection;
-import java.sql.PreparedStatement;
+package Model.Usuario;
 
 /**
  *
  * @author sam
  */
-public class Usuario {
 
+/**
+ * Esta clase se encarga de recibir los datos relacionados con los usuarios del sistema.
+ * Sirve como capa intermedia para pasar los datos obtenidos en los distintos campos
+ * de texto de la interfaz gráfica de usuario. Tiene sus correspondientes métodos
+ * getters y settes para este propósito
+ */
+public class Usuario {
     private int userId;
     private String username;
     private String email;
     private String password;
     public static String password1;
-    private PreparedStatement ps = null;
-    private Connection con = null;
-    private Inicio init;
-
-   
+    
     public int getUserId() {
         return userId;
     }

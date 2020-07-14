@@ -1,5 +1,9 @@
 package Model;
 
+import Model.websites.WebSQL;
+import Model.websites.WebSite;
+import Model.Usuario.UserSQL;
+import Model.Usuario.Usuario;
 import Extras.SHA256;
 import GUI.Inicio;
 import GUI.Login;
@@ -10,15 +14,25 @@ import javax.swing.JOptionPane;
  *
  * @author sam
  */
+
+/**
+ * La clase método eventos contiene métodos que llaman a otros métodos
+ * tales como los métodos de la clase WebSQL, con el propósito de no cargar
+ * de código la clase controlador y hacerla más legible.
+ * Algo más que tiene como objetivo esta clase, es asignar los datos obtenidos
+ * en los distintos campos de texto de la interfaz gráfica a los métodos setters y getters
+ * de las clases Website y Usuario
+ * 
+ */
 public class MetodosEventos {
 
-    public void loguearse(Login log, SQL sql, Usuario user, Inicio init) {
+    public void loguearse(Login log, UserSQL sql, Usuario user, Inicio init) {
         user.setUsername(log.txt_name.getText());
         user.setPassword(SHA256.getSHA256(log.txt_pass.getText()));
         sql.iniciarSesion(user, init, log);
     }
 
-    public void registrarUser(Registro reg, SQL sql, Usuario user) {
+    public void registrarUser(Registro reg, UserSQL sql, Usuario user) {
         user.setUsername(reg.txt_nreg.getText());
         user.setEmail(reg.txt_email.getText());
         char[] pass1 = reg.txt_passreg.getPassword();
@@ -41,9 +55,27 @@ public class MetodosEventos {
         web.setNota(init.txa_rnota.getText());
         if (new String(init.txt_pass.getPassword()).equals(new String(init.txt_pass1.getPassword()))) {
             websql.agregarWeb(web);
-        }       
-        else {
-            JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden");
+        } else {
+            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+        }
+    }
+
+    public void updateWebs(Inicio init, WebSQL websql, WebSite web) {
+        web.setWeb_name(init.txt_fname.getText());
+        web.setWeb_username(init.txt_fusername.getText());
+        web.setWeb_email(init.txt_femail.getText());
+        web.setWeb_pass(new String(init.txt_fpass.getPassword()));
+        web.setNota(init.txa_nota.getText());
+        int resp = JOptionPane.showConfirmDialog(null, "¿Desea actualizar los datos?", "Actualizar", JOptionPane.YES_NO_OPTION);
+        if (resp == 0) {
+            websql.actualizarWeb(web, init);
+        }
+    }
+
+    public void deleteWeb(WebSQL websql, Inicio init) {
+        int res = JOptionPane.showConfirmDialog(null, "¿Desea eliminar este perfil?", "Eliminar", JOptionPane.YES_NO_OPTION);
+        if (res == 0) {
+            websql.eliminarWeb(init);
         }
     }
 

@@ -16,6 +16,11 @@ import javax.swing.ImageIcon;
  *
  * @author sam
  */
+/**
+ * Esta clase contiene métodos para dar el estilo a la ventana Inicio.
+ * El estilo implica el color, transparencia, ajuste de imagen al
+ * tamaño de un jLabel, entre otros.
+ */
 public class StyleInicio {
     
     ImageIcon us,men,show;

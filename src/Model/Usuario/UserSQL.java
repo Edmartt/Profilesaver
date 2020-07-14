@@ -1,4 +1,4 @@
-package Model;
+package Model.Usuario;
 
 import GUI.Inicio;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
@@ -18,7 +18,11 @@ import java.sql.Connection;
  *
  * @author sam
  */
-public class SQL {
+/**
+ * Esta clase contiene todos los métodos relacionados con
+ * consultas SQL sobre datos del usuario del sistema
+ */
+public class UserSQL {
 
     public static boolean comprobar(String password, int used_id) {
         com.mysql.jdbc.Connection con = null;

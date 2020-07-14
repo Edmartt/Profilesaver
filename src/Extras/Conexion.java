@@ -11,6 +11,11 @@ import javax.swing.JOptionPane;
  *
  * @author sam
  */
+/**
+ * La clase Conexión nos provee de
+ * un único método que es el que nos permite
+ * conectarnos a nuestra bd
+ */
 public class Conexion {
     private static Connection con=null;
     
