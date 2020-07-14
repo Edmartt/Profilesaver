@@ -60,6 +60,7 @@ public class TablaWebSite {
 
         con = Conexion.getConnection();
         String sql = "SELECT web_id,user_id,web_name,web_username,web_email,web_pass,nota FROM Website WHERE user_id=?";
+        
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, Integer.parseInt(Inicio.lbl_user_id.getText()));
@@ -67,14 +68,12 @@ public class TablaWebSite {
             ResultSetMetaData rsmd = rs.getMetaData();
             int col = rsmd.getColumnCount();
             Object[] array = new Object[col];
-            while (rs.next()) {
 
+            while (rs.next()) {
                 for (int i = 0; i < col; i++) {
                     array[i] = rs.getObject(i + 1);
-
                 }
                 model.addRow(array);
-
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -83,7 +82,6 @@ public class TablaWebSite {
     }
 
     private void ajustarCabecera(JTable tabla) {
-
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
         headerRenderer.setForeground(Color.WHITE);
         headerRenderer.setBackground(new Color(17, 138, 178));
@@ -91,27 +89,20 @@ public class TablaWebSite {
         for (int i = 0; i < tabla.getModel().getColumnCount(); i++) {
             tabla.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
         }
-
     }
 
     public static void ajustarTabla(Inicio init) {
-
         init.scroll.getViewport().setBackground(Color.WHITE); //Fondo del contenedor de la tabla
-
         init.tb_mostrar.getTableHeader().setFont(new Font("Liberation Sans", Font.BOLD, 13));
         init.tb_mostrar.getTableHeader().setOpaque(true);
-
         init.tb_mostrar.setRowHeight(25);
         init.tb_mostrar.setDefaultEditor(Object.class, null); //Evita la edición de la tabla
-
         init.scroll.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0)); //Quita los bordes visibles de la tabla y de su contenedor
-
     }
 
     class PasswordCellRenderer extends DefaultTableCellRenderer {
-
         private static final String ASTERISCOS = "********************";
-
+        
         @Override
         public Component getTableCellRendererComponent(JTable arg0, Object arg1, boolean arg2, boolean arg3, int arg4, int arg5) {
             int lenght = 0;
@@ -119,12 +110,10 @@ public class TablaWebSite {
                 lenght = ((String) arg1).length();
             } else if (arg1 instanceof char[]) {
                 lenght = ((char[]) arg1).length;
-
             }
             setText(asteriscos(lenght));
             return this;
         }
-
     }
 
     private String asteriscos(int lenght) {
@@ -137,7 +126,5 @@ public class TablaWebSite {
         } else {
             return PasswordCellRenderer.ASTERISCOS.substring(0, lenght);
         }
-
     }
-
 }
