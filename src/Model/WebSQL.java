@@ -33,15 +33,11 @@ public class WebSQL {
             int res = ps.executeUpdate();
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Datos actualizados");
-
             }
-
         } catch (SQLException e) {
             System.out.println(e);
         }
-
     }
-
     /**
      * Método que se encarga de establecer conexión con la BD con el fin de
      * ingresar datos de los sitios web que se quieran guardar de forma
@@ -80,14 +76,10 @@ public class WebSQL {
 
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Sitio Web Eliminado");
-
             }
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
-
         }
-
     }
-
 }
