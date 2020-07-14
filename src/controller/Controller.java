@@ -76,11 +76,13 @@ public class Controller implements ActionListener, MouseListener {
         init.pan_form.addMouseListener(this);
         init.btn_del.addActionListener(this);
         log.lbl_close.addMouseListener(this);
+        init.btn_set.addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == log.btn_log) {
+            init.pan_ajustes.setVisible(false);
             event.loguearse(log, sql, user, init);
             Inicio.lbl_user_id.setText(String.valueOf(user.getUserId()));
             init.lbl_username.setText(user.getUsername());
@@ -95,13 +97,15 @@ public class Controller implements ActionListener, MouseListener {
             init.pan_form.setVisible(true);
             event.hidePanel(init);
             init.pan_tab.setVisible(false);
-            
+            init.pan_ajustes.setVisible(false);
+                        
         } else if (ae.getSource() == init.btn_ver) {
             event.hidePanel(init);
             TablaWebSite.ajustarTabla(init);
             init.pan_tab.setVisible(true);
             tb.mostrarWebs(init); 
             init.pan_form.setVisible(false);
+            init.pan_ajustes.setVisible(false);
             
         } else if (ae.getSource() == init.btn_mod) {
             event.updateWebs(init, websql, web);
@@ -111,6 +115,12 @@ public class Controller implements ActionListener, MouseListener {
             event.deleteWeb(websql, init);
             tb.mostrarWebs(init);
         } 
+        else if (ae.getSource()==init.btn_set) {
+            init.pan_form.setVisible(false);
+            init.pan_tab.setVisible(false);
+            init.pan_ajustes.setVisible(true);
+            
+        }
     }
     
     @Override
