@@ -459,7 +459,7 @@ public class Inicio extends javax.swing.JFrame {
     public javax.swing.JLabel lbl_press;
     public javax.swing.JLabel lbl_slide;
     public javax.swing.JLabel lbl_user;
-    public javax.swing.JLabel lbl_user_id;
+    public static javax.swing.JLabel lbl_user_id;
     public javax.swing.JLabel lbl_username;
     public javax.swing.JPanel pan_form;
     public javax.swing.JPanel pan_slide;
