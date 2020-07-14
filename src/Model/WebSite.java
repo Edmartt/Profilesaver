@@ -1,6 +1,5 @@
 package Model;
 
-import GUI.Inicio;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.util.Scanner;
@@ -20,10 +19,6 @@ public class WebSite {
     private String web_email;
     private String web_pass;
     private String rnota;
-
-    public WebSite() {
-
-    }
     PreparedStatement ps = null;
     Connection con = null;
     ResultSet rs = null;
@@ -67,23 +62,12 @@ public class WebSite {
     public void setWeb_pass(String web_pass) {
         this.web_pass = web_pass;
     }
-    
-    public String getNota(){
+
+    public String getNota() {
         return rnota;
     }
-    
-    public void setNota(String nota){
-        this.rnota=nota;
+
+    public void setNota(String nota) {
+        this.rnota = nota;
     }
-
-    public void mostrarDatos(Inicio init) {
-        init.txt_fname.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 2).toString().trim());
-        init.txt_fusername.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 3).toString().trim());
-        init.txt_femail.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 4).toString().trim());
-        init.txt_fpass.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 5).toString().trim());
-        init.txa_nota.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 6).toString().trim());
-        
-
-    }
-
 }
