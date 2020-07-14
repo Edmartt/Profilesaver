@@ -20,7 +20,7 @@ public class MetodosEventos {
 
     }
 
-    public void registrarEvento(Registro reg, SQL sql, Usuario user) {
+    public void registrar(Registro reg, SQL sql, Usuario user) {
         user.setUsername(reg.txt_nreg.getText());
         user.setEmail(reg.txt_email.getText());
         char[] pass1 = reg.txt_passreg.getPassword();
@@ -36,6 +36,16 @@ public class MetodosEventos {
 
         }
 
+    }
+
+    public void registrarWeb(Inicio init,WebSite web,WebSQL websql) {
+        web.setWeb_name(init.txt_url.getText());
+        web.setWeb_username(init.txt_username.getText());
+        web.setWeb_email(init.txt_email.getText());
+        web.setWeb_pass(new String(init.txt_pass.getPassword()));
+        web.setNota(init.txa_rnota.getText());
+        websql.agregarWeb(web);
+        
     }
 
     public void hidePanel(Inicio init) {
