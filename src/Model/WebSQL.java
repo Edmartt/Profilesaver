@@ -47,18 +47,18 @@ public class WebSQL {
      * ingresar datos de los sitios web que se quieran guardar de forma
      * persistente
      *
-     * @param init
+     * @param web
      */
-    public void agregarWeb(Inicio init) {
+    public void agregarWeb(WebSite web) {
         con = Conexion.getConnection();
         try {
             ps = con.prepareStatement("INSERT INTO Website(user_id,web_name,web_username,web_email,web_pass,nota) VALUES(?,?,?,?,?,?)");
-            ps.setInt(1, Integer.parseInt(init.lbl_user_id.getText()));
-            ps.setString(2, init.txt_url.getText());
-            ps.setString(3, init.txt_username.getText());
-            ps.setString(4, init.txt_email.getText());
-            ps.setString(5, new String(init.txt_pass.getPassword()));
-            ps.setString(6, init.txa_rnota.getText());
+            ps.setInt(1, Integer.parseInt(Inicio.lbl_user_id.getText()));
+            ps.setString(2, web.getWeb_name());
+            ps.setString(3, web.getWeb_username());
+            ps.setString(4, web.getWeb_email());
+            ps.setString(5, web.getWeb_pass());
+            ps.setString(6, web.getNota());
             int res = ps.executeUpdate();
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Perfil agregado");
@@ -69,13 +69,24 @@ public class WebSQL {
             System.out.println(e);
         }
     }
-    
-    
-    
-    public void eliminarWeb() {
+
+    public void eliminarWeb(Inicio init) {
         con = Conexion.getConnection();
         String sql = "DELETE FROM Website WHERE web_id=?";
-       
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, Integer.parseInt(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 0).toString()));
+            int res = ps.executeUpdate();
+
+            if (res > 0) {
+                JOptionPane.showMessageDialog(null, "Sitio Web Eliminado");
+
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+
+        }
 
     }
 
