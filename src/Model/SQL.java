@@ -127,7 +127,7 @@ public class SQL {
                 limpiar(log);
                 log.dispose();
                 init.setVisible(true);
-                init.lbl_user_id.setVisible(false);
+                Inicio.lbl_user_id.setVisible(false);
 
             } else {
                 System.out.println("El usuario o contrase\u00f1a podr\u00edan estar errados.");
