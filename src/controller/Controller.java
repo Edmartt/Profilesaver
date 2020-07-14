@@ -71,7 +71,6 @@ public class Controller implements ActionListener, MouseListener {
         init.pan_form.addMouseListener(this);
         init.btn_del.addActionListener(this);
         log.lbl_close.addMouseListener(this);
-        
     }
 
     @Override
@@ -81,7 +80,7 @@ public class Controller implements ActionListener, MouseListener {
             Inicio.lbl_user_id.setText(String.valueOf(this.user.getUserId()));
             this.init.lbl_username.setText(user.getUsername());
         } else if (ae.getSource() == this.reg.btn_reg) {
-            event.registrar(reg, sql, user);
+            event.registrarUser(reg, sql, user);
 
         } else if (ae.getSource() == init.btn_reg) {
             event.registrarWeb(init, web, websql);
@@ -100,37 +99,30 @@ public class Controller implements ActionListener, MouseListener {
         } else if (ae.getSource() == init.btn_mod) {
             websql.actualizarDatos(init);
 
-        } else if (ae.getSource()==init.btn_del) {
+        } else if (ae.getSource() == init.btn_del) {
             websql.eliminarWeb(init);
-            
+
         }
-        
+
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
-
         int pos = this.init.lbl_slide.getX();
         if (me.getSource() == this.log.lbl_crear) {
             reg.setVisible(true);
-
         }
         if (me.getSource() == init.lbl_slide && pos > 20) {
             event.hidePanel(init);
-
         } else if (me.getSource() == init.lbl_slide && pos <= 20) {
             event.showPanel(init);
-
         } else if (me.getSource() == init.tb_mostrar) {
             event.hidePanel(init);
-            web.mostrarDatos(init);
-
+            event.mostrarDatos(init);
         } else if (me.getSource() == init.pan_form) {
             event.hidePanel(init);
-
         } else if (me.getSource() == init.pan_tab) {
             event.hidePanel(init);
-
         } else if (me.getSource() == log.lbl_close) {
             int resp = JOptionPane.showConfirmDialog(null, "Desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
             if (resp == 0) {
@@ -144,7 +136,6 @@ public class Controller implements ActionListener, MouseListener {
     public void mousePressed(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
             init.txt_fpass.setEchoChar((char) 0);
-
         }
     }
 
@@ -152,7 +143,6 @@ public class Controller implements ActionListener, MouseListener {
     public void mouseReleased(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
             init.txt_fpass.setEchoChar('•');
-
         }
     }
 

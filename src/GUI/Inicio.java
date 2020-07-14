@@ -161,11 +161,11 @@ public class Inicio extends javax.swing.JFrame {
 
         jSeparator4.setBackground(new java.awt.Color(1, 1, 1));
         jSeparator4.setOpaque(true);
-        pan_form.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 290, 2));
+        pan_form.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 290, 2));
 
         jSeparator5.setBackground(new java.awt.Color(1, 1, 1));
         jSeparator5.setOpaque(true);
-        pan_form.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 290, 2));
+        pan_form.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 290, 2));
 
         jLabel1.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
         jLabel1.setText("Confirmar Password");
@@ -197,7 +197,7 @@ public class Inicio extends javax.swing.JFrame {
 
         txt_pass.setBorder(null);
         txt_pass.setOpaque(false);
-        pan_form.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 290, 40));
+        pan_form.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 290, 40));
 
         btn_reg.setBackground(new java.awt.Color(17, 138, 178));
         btn_reg.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 14)); // NOI18N
@@ -212,7 +212,7 @@ public class Inicio extends javax.swing.JFrame {
 
         txt_pass1.setBorder(null);
         txt_pass1.setOpaque(false);
-        pan_form.add(txt_pass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 290, 40));
+        pan_form.add(txt_pass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 290, 40));
 
         jLabel11.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
         jLabel11.setText("Password");
