@@ -3,6 +3,8 @@ package controller;
 import GUI.Inicio;
 import java.awt.event.ActionListener;
 import GUI.Login;
+import GUI.ModEmail;
+import GUI.ModUsername;
 import GUI.Registro;
 import Model.MetodosEventos;
 import Model.Usuario.UserSQL;
@@ -23,12 +25,12 @@ import style.StyleInicio;
  * @author sam
  */
 /**
- * Esta clase es la encargada de gestionar las acciones llevadas a cabo por el usuario
- * del sitema, tales como clicks de botones, movimientos de mouse, que deberían dar una respuesta
- * concreta a la acción, lo que desata eventos.
+ * Esta clase es la encargada de gestionar las acciones llevadas a cabo por el
+ * usuario del sitema, tales como clicks de botones, movimientos de mouse, que
+ * deberían dar una respuesta concreta a la acción, lo que desata eventos.
  */
 public class Controller implements ActionListener, MouseListener {
-    
+
     private Login log;
     private Inicio init;
     private Usuario user;
@@ -39,7 +41,9 @@ public class Controller implements ActionListener, MouseListener {
     private WebSite web;
     private TablaWebSite tb;
     private StyleInicio stylein;
-    
+    private ModUsername mod;
+    private ModEmail modEm;
+
     public Controller() {
         this.reg = new Registro();
         this.event = new MetodosEventos();
@@ -49,6 +53,8 @@ public class Controller implements ActionListener, MouseListener {
         this.stylein = new StyleInicio();
         this.websql = new WebSQL();
         this.web = new WebSite();
+        mod = new ModUsername();
+        modEm = new ModEmail();
         stylein.setImage(init);
         this.init.pan_tab.setVisible(false);
         this.tb = new TablaWebSite();
@@ -56,11 +62,11 @@ public class Controller implements ActionListener, MouseListener {
         this.init.pan_slide.setBorder(new SoftBevelBorder(0, null, null, null, Color.black));
         this.user = new Usuario();
         this.log.setVisible(true);
-        
+
         buttons();
-        
+
     }
-    
+
     private void buttons() {
         log.btn_log.addActionListener(this);
         log.lbl_crear.addMouseListener(this);
@@ -77,8 +83,12 @@ public class Controller implements ActionListener, MouseListener {
         init.btn_del.addActionListener(this);
         log.lbl_close.addMouseListener(this);
         init.btn_set.addActionListener(this);
+        mod.btn_cambiar.addActionListener(this);
+        init.btn_username.addActionListener(this);
+        init.btn_email.addActionListener(this);
+        modEm.btn_cambiar.addActionListener(this);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == log.btn_log) {
@@ -86,43 +96,51 @@ public class Controller implements ActionListener, MouseListener {
             event.loguearse(log, sql, user, init);
             Inicio.lbl_user_id.setText(String.valueOf(user.getUserId()));
             init.lbl_username.setText(user.getUsername());
-            
+
         } else if (ae.getSource() == reg.btn_reg) {
             event.registrarUser(reg, sql, user);
-            
+
         } else if (ae.getSource() == init.btn_reg) {
             event.registrarWeb(init, web, websql);
-            
+
         } else if (ae.getSource() == init.btn_add) {
             init.pan_form.setVisible(true);
             event.hidePanel(init);
             init.pan_tab.setVisible(false);
             init.pan_ajustes.setVisible(false);
-                        
+
         } else if (ae.getSource() == init.btn_ver) {
             event.hidePanel(init);
             TablaWebSite.ajustarTabla(init);
             init.pan_tab.setVisible(true);
-            tb.mostrarWebs(init); 
+            tb.mostrarWebs(init);
             init.pan_form.setVisible(false);
             init.pan_ajustes.setVisible(false);
-            
+
         } else if (ae.getSource() == init.btn_mod) {
             event.updateWebs(init, websql, web);
             tb.mostrarWebs(init);
-            
+
         } else if (ae.getSource() == init.btn_del) {
             event.deleteWeb(websql, init);
             tb.mostrarWebs(init);
-        } 
-        else if (ae.getSource()==init.btn_set) {
+        } else if (ae.getSource() == init.btn_set) {
             init.pan_form.setVisible(false);
             init.pan_tab.setVisible(false);
             init.pan_ajustes.setVisible(true);
-            
+        } else if (ae.getSource() == mod.btn_cambiar) {
+            event.updateUsername(mod, sql, user, init);
+        } else if (ae.getSource() == init.btn_username) {
+            mod.txt_modname.setText(init.lbl_username.getText());
+            mod.setVisible(true);
+        } else if (ae.getSource() == modEm.btn_cambiar) {
+            event.updateEmail(sql, user, init, modEm);
+        } else if (ae.getSource() == init.btn_email) {
+            modEm.txt_modemail.setText(sql.getDatos().get(1).toString());
+            modEm.setVisible(true);
         }
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent me) {
         int pos = this.init.lbl_slide.getX();
@@ -144,30 +162,30 @@ public class Controller implements ActionListener, MouseListener {
             int resp = JOptionPane.showConfirmDialog(null, "¿Desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
             if (resp == 0) {
                 System.exit(0);
-            }      
+            }
         }
     }
-    
+
     @Override
     public void mousePressed(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
             init.txt_fpass.setEchoChar((char) 0);
         }
     }
-    
+
     @Override
     public void mouseReleased(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
             init.txt_fpass.setEchoChar('•');
         }
     }
-    
+
     @Override
     public void mouseEntered(MouseEvent me) {
     }
-    
+
     @Override
     public void mouseExited(MouseEvent me) {
     }
-    
+
 }
