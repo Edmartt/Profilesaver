@@ -355,7 +355,6 @@ public class Inicio extends javax.swing.JFrame {
 
         lbl_press.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         lbl_press.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_press.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/show password.png"))); // NOI18N
         pan_tab.add(lbl_press, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, 30, 40));
 
         txt_fpass.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
