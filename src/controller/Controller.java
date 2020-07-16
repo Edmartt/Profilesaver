@@ -45,23 +45,23 @@ public class Controller implements ActionListener, MouseListener {
     private ModEmail modEm;
 
     public Controller() {
-        this.reg = new Registro();
-        this.event = new MetodosEventos();
-        this.sql = new UserSQL();
-        this.log = new Login();
-        this.init = new Inicio();
-        this.stylein = new StyleInicio();
-        this.websql = new WebSQL();
-        this.web = new WebSite();
+        reg = new Registro();
+        event = new MetodosEventos();
+        sql = new UserSQL();
+        log = new Login();
+        init = new Inicio();
+        stylein = new StyleInicio();
+        websql = new WebSQL();
+        web = new WebSite();
         mod = new ModUsername();
         modEm = new ModEmail();
         stylein.setImage(init);
-        this.init.pan_tab.setVisible(false);
-        this.tb = new TablaWebSite();
-        this.init.pan_form.setVisible(false);
-        this.init.pan_slide.setBorder(new SoftBevelBorder(0, null, null, null, Color.black));
-        this.user = new Usuario();
-        this.log.setVisible(true);
+        init.pan_tab.setVisible(false);
+        tb = new TablaWebSite();
+        init.pan_form.setVisible(false);
+        init.pan_slide.setBorder(new SoftBevelBorder(0, null, null, null, Color.black));
+        user = new Usuario();
+        log.setVisible(true);
 
         buttons();
 
