@@ -7,6 +7,8 @@ import Model.Usuario.Usuario;
 import Extras.SHA256;
 import GUI.Inicio;
 import GUI.Login;
+import GUI.ModEmail;
+import GUI.ModUsername;
 import GUI.Registro;
 import javax.swing.JOptionPane;
 
@@ -14,15 +16,14 @@ import javax.swing.JOptionPane;
  *
  * @author sam
  */
-
 /**
- * La clase método eventos contiene métodos que llaman a otros métodos
- * tales como los métodos de la clase WebSQL, con el propósito de no cargar
- * de código la clase controlador y hacerla más legible.
- * Algo más que tiene como objetivo esta clase, es asignar los datos obtenidos
- * en los distintos campos de texto de la interfaz gráfica a los métodos setters y getters
- * de las clases Website y Usuario
- * 
+ * La clase método eventos contiene métodos que llaman a otros métodos tales
+ * como los métodos de la clase WebSQL, con el propósito de no cargar de código
+ * la clase controlador y hacerla más legible. Algo más que tiene como objetivo
+ * esta clase, es asignar los datos obtenidos en los distintos campos de texto
+ * de la interfaz gráfica a los métodos setters y getters de las clases Website
+ * y Usuario
+ *
  */
 public class MetodosEventos {
 
@@ -45,6 +46,25 @@ public class MetodosEventos {
         } else {
             JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
         }
+    }
+
+    public void updateUsername(ModUsername mod, UserSQL usersql, Usuario user, Inicio init) {
+        user.setUserId(Integer.parseInt(Inicio.lbl_user_id.getText()));
+        user.setUsername(mod.txt_confname.getText());
+        int resp = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el nombre de usuario?", "Modificar", JOptionPane.YES_NO_OPTION);
+        if (resp == 0) {
+            usersql.modUsername(user);
+        }
+    }
+
+    public void updateEmail(UserSQL usersql, Usuario user, Inicio init, ModEmail mod) {
+        user.setUserId(Integer.parseInt(Inicio.lbl_user_id.getText()));
+        user.setEmail(mod.txt_modemail.getText());
+        int resp = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el Email?", "Modificar", JOptionPane.YES_NO_OPTION);
+        if (resp == 0) {
+            usersql.modEmail(user);
+        }
+
     }
 
     public void registrarWeb(Inicio init, WebSite web, WebSQL websql) {
