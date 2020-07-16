@@ -4,6 +4,7 @@ import GUI.Inicio;
 import java.awt.event.ActionListener;
 import GUI.Login;
 import GUI.ModEmail;
+import GUI.ModPassword;
 import GUI.ModUsername;
 import GUI.Registro;
 import Model.MetodosEventos;
@@ -43,6 +44,7 @@ public class Controller implements ActionListener, MouseListener {
     private StyleInicio stylein;
     private ModUsername mod;
     private ModEmail modEm;
+    private ModPassword modpass;
 
     public Controller() {
         reg = new Registro();
@@ -55,6 +57,7 @@ public class Controller implements ActionListener, MouseListener {
         web = new WebSite();
         mod = new ModUsername();
         modEm = new ModEmail();
+        modpass=new ModPassword();
         stylein.setImage(init);
         init.pan_tab.setVisible(false);
         tb = new TablaWebSite();
@@ -83,10 +86,11 @@ public class Controller implements ActionListener, MouseListener {
         init.btn_del.addActionListener(this);
         log.lbl_close.addMouseListener(this);
         init.btn_set.addActionListener(this);
-        mod.btn_cambiar.addActionListener(this);
+        mod.btn_camuser.addActionListener(this);
         init.btn_username.addActionListener(this);
         init.btn_email.addActionListener(this);
-        modEm.btn_cambiar.addActionListener(this);
+        modEm.btn_cambemail.addActionListener(this);
+        modpass.btn_campass.addActionListener(this);
     }
 
     @Override
@@ -128,16 +132,20 @@ public class Controller implements ActionListener, MouseListener {
             init.pan_form.setVisible(false);
             init.pan_tab.setVisible(false);
             init.pan_ajustes.setVisible(true);
-        } else if (ae.getSource() == mod.btn_cambiar) {
+        } else if (ae.getSource() == mod.btn_camuser) {
             event.updateUsername(mod, sql, user, init);
         } else if (ae.getSource() == init.btn_username) {
             mod.txt_modname.setText(init.lbl_username.getText());
             mod.setVisible(true);
-        } else if (ae.getSource() == modEm.btn_cambiar) {
+        } else if (ae.getSource() == modEm.btn_cambemail) {
             event.updateEmail(sql, user, init, modEm);
         } else if (ae.getSource() == init.btn_email) {
             modEm.txt_modemail.setText(sql.getDatos().get(1).toString());
             modEm.setVisible(true);
+        }
+        else if(ae.getSource()==modEm.btn_cambemail) {
+            //aquí voy
+            
         }
     }
 

@@ -159,20 +159,20 @@ public class UserSQL {
         }
     }
 
-    public void modPassword(int userId, String password, Usuario usuario) {
+    public void modPassword(Usuario user) {
         con = Conexion.getConnection();
         try {
             ps = con.prepareStatement("UPDATE Usuario SET password=? WHERE user_id=?");
-            ps.setString(1, SHA256.getSHA256(password));
-            ps.setInt(2, userId);
+            ps.setString(1, SHA256.getSHA256(user.getPassword()));
+            ps.setInt(2, user.getUserId());
             int res = ps.executeUpdate();
             if (res > 0) {
-                System.out.println("Contrase\u00f1a actualizada correctamente");
+                JOptionPane.showMessageDialog(null, "Password modificado");
             } else {
-                System.out.println("Error al actualizar");
+                JOptionPane.showMessageDialog(null, "Erro al realizar la modificación");
             }
         } catch (SQLException e) {
-            System.out.println(e);
+           JOptionPane.showMessageDialog(null, e);
         }
     }
 

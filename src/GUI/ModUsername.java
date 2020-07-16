@@ -33,7 +33,7 @@ public class ModUsername extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txt_confname = new javax.swing.JTextField();
-        btn_cambiar = new javax.swing.JButton();
+        btn_camuser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,8 +64,8 @@ public class ModUsername extends javax.swing.JFrame {
 
         txt_confname.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
 
-        btn_cambiar.setFont(new java.awt.Font("AvantGarde LT Medium", 3, 12)); // NOI18N
-        btn_cambiar.setText("Modificar");
+        btn_camuser.setFont(new java.awt.Font("AvantGarde LT Medium", 3, 12)); // NOI18N
+        btn_camuser.setText("Modificar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -86,7 +86,7 @@ public class ModUsername extends javax.swing.JFrame {
                 .addGap(51, 51, 51))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(199, 199, 199)
-                .addComponent(btn_cambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_camuser, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -104,7 +104,7 @@ public class ModUsername extends javax.swing.JFrame {
                     .addComponent(txt_confname, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(btn_cambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_camuser, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
 
@@ -165,7 +165,7 @@ public class ModUsername extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btn_cambiar;
+    public javax.swing.JButton btn_camuser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
