@@ -13,16 +13,22 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
+import java.util.ArrayList;
 
 /**
  *
  * @author sam
  */
 /**
- * Esta clase contiene todos los métodos relacionados con
- * consultas SQL sobre datos del usuario del sistema
+ * Esta clase contiene todos los métodos relacionados con consultas SQL sobre
+ * datos del usuario del sistema
  */
 public class UserSQL {
+
+    Connection con = null;
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    public static String un;
 
     public static boolean comprobar(String password, int used_id) {
         com.mysql.jdbc.Connection con = null;
@@ -49,48 +55,60 @@ public class UserSQL {
         }
         return band;
     }
+    
+    public ArrayList getDatos(){
+        con= Conexion.getConnection();
+        ArrayList datos= new ArrayList(10);
+        String sql="SELECT * FROM Usuario WHERE user_id=?";
+        try {
+            ps=con.prepareStatement(sql);
+            ps.setString(1, Inicio.lbl_user_id.getText());
+            rs=ps.executeQuery();
+            if (rs.next()) {
+                datos.add(rs.getString("username"));
+                datos.add(rs.getString("email"));
+                return datos;
+            }
+        } catch (SQLException e) {
+        }
+    
+        return datos;
+    }
 
-    Connection con = null;
-    PreparedStatement ps = null;
-    ResultSet rs = null;
-
-    public void modUsername(String username, int userId, Usuario usuario) {
+    public void modUsername(Usuario user) {
         con = Conexion.getConnection();
         try {
-
             ps = con.prepareStatement("UPDATE Usuario SET username=? WHERE user_id=?");
-            ps.setString(1, username);
-            ps.setInt(2, userId);
+            ps.setString(1, user.getUsername());
+            ps.setInt(2, user.getUserId());
             int res = ps.executeUpdate();
             if (res > 0) {
-                System.out.println("");
-                System.out.println("Nombre de usuario actualizado correctamente");
+                JOptionPane.showMessageDialog(null, "Nombre de usuario actualizado");
             } else {
                 System.out.println("Ha ocurrido un error al actualizar.");
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }
 
     public void eliminarUser(int userId) {
     }
 
-    public void modEmail(int userId, String email, Usuario usuario) {
+    public void modEmail(Usuario user) {
         con = Conexion.getConnection();
         try {
-
             ps = con.prepareStatement("UPDATE Usuario SET email=? WHERE user_id=?");
-            ps.setString(1, email);
-            ps.setInt(2, userId);
+            ps.setString(1, user.getEmail());
+            ps.setInt(2, user.getUserId());
             int res = ps.executeUpdate();
             if (res > 0) {
-                System.out.println("");
-                System.out.println("Correo actualizado correctamente");
+                JOptionPane.showMessageDialog(null, "Email actualizado");
             } else {
-                System.out.println("Ha ocurrido un error al actualizar");
+                JOptionPane.showMessageDialog(null, "Ha ocurrido un error al actualizar");
             }
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
     }
 
@@ -126,7 +144,6 @@ public class UserSQL {
             rs = ps.executeQuery();
             if (rs.next()) {
                 user.setUserId(rs.getInt("user_id"));
-
                 JOptionPane.showMessageDialog(null, "Sesi\u00f3n Iniciada");
                 limpiar(log);
                 log.dispose();
@@ -135,6 +152,7 @@ public class UserSQL {
 
             } else {
                 System.out.println("El usuario o contrase\u00f1a podr\u00edan estar errados.");
+                limpiar(log);
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
