@@ -33,7 +33,7 @@ public class Inicio extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btn_username = new javax.swing.JButton();
         btn_email = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btn_password = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         pan_slide = new javax.swing.JPanel();
         lbl_slide = new javax.swing.JLabel();
@@ -113,11 +113,11 @@ public class Inicio extends javax.swing.JFrame {
         btn_email.setText("Modificar Email");
         pan_ajustes.add(btn_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 210, 80));
 
-        jButton5.setBackground(new java.awt.Color(17, 138, 178));
-        jButton5.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(254, 254, 254));
-        jButton5.setText("Modificar Password");
-        pan_ajustes.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 210, 80));
+        btn_password.setBackground(new java.awt.Color(17, 138, 178));
+        btn_password.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 14)); // NOI18N
+        btn_password.setForeground(new java.awt.Color(254, 254, 254));
+        btn_password.setText("Modificar Password");
+        pan_ajustes.add(btn_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 210, 80));
 
         jLabel14.setBackground(new java.awt.Color(17, 138, 178));
         jLabel14.setFont(new java.awt.Font("AvantGarde LT Medium", 2, 24)); // NOI18N
@@ -475,13 +475,13 @@ public class Inicio extends javax.swing.JFrame {
     public javax.swing.JButton btn_del;
     public javax.swing.JButton btn_email;
     public javax.swing.JButton btn_mod;
+    public javax.swing.JButton btn_password;
     public javax.swing.JButton btn_reg;
     public javax.swing.JButton btn_set;
     public javax.swing.JButton btn_username;
     public javax.swing.JButton btn_ver;
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton4;
-    public javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

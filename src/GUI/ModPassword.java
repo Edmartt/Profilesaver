@@ -69,13 +69,13 @@ public class ModPassword extends javax.swing.JFrame {
         btn_campass.setFont(new java.awt.Font("AvantGarde LT Medium", 3, 12)); // NOI18N
         btn_campass.setText("Modificar");
         jPanel1.add(btn_campass, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 230, 92, 44));
-        jPanel1.add(txt_curpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 69, 225, -1));
-        jPanel1.add(txt_conpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 225, -1));
+        jPanel1.add(txt_curpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 69, 225, 40));
+        jPanel1.add(txt_conpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 225, 40));
 
         jLabel3.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 15)); // NOI18N
         jLabel3.setText("Confirmar Password");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 160, 38));
-        jPanel1.add(txt_newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 225, -1));
+        jPanel1.add(txt_newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 225, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 310));
 

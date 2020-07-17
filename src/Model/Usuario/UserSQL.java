@@ -67,6 +67,7 @@ public class UserSQL {
             if (rs.next()) {
                 datos.add(rs.getString("username"));
                 datos.add(rs.getString("email"));
+                datos.add(rs.getString("password"));
                 return datos;
             }
         } catch (SQLException e) {
