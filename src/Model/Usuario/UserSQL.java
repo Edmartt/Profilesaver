@@ -170,7 +170,7 @@ public class UserSQL {
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Password modificado");
             } else {
-                JOptionPane.showMessageDialog(null, "Erro al realizar la modificación");
+                JOptionPane.showMessageDialog(null, "Error al realizar la modificación");
             }
         } catch (SQLException e) {
            JOptionPane.showMessageDialog(null, e);

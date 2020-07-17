@@ -77,6 +77,9 @@ public class MetodosEventos {
                 usersql.modPassword(user);
             }
         }
+        else{
+            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+        }
 
     }
 

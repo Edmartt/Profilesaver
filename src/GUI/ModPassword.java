@@ -29,6 +29,7 @@ public class ModPassword extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        lbl_cerrarpass = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btn_campass = new javax.swing.JButton();
@@ -38,6 +39,7 @@ public class ModPassword extends javax.swing.JFrame {
         txt_newpass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
@@ -45,18 +47,26 @@ public class ModPassword extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(17, 138, 178));
 
+        lbl_cerrarpass.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        lbl_cerrarpass.setForeground(new java.awt.Color(254, 254, 254));
+        lbl_cerrarpass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_cerrarpass.setText("X");
+        lbl_cerrarpass.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 463, Short.MAX_VALUE)
+                .addComponent(lbl_cerrarpass, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addComponent(lbl_cerrarpass, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 50));
 
         jLabel1.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 15)); // NOI18N
         jLabel1.setText("Password Actual");
@@ -188,6 +198,7 @@ public class ModPassword extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    public javax.swing.JLabel lbl_cerrarpass;
     public javax.swing.JPasswordField txt_conpass;
     public javax.swing.JPasswordField txt_curpass;
     public javax.swing.JPasswordField txt_newpass;

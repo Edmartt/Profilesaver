@@ -92,6 +92,9 @@ public class Controller implements ActionListener, MouseListener {
         init.btn_password.addActionListener(this);
         modEm.btn_cambemail.addActionListener(this);
         modpass.btn_campass.addActionListener(this);
+        mod.lbl_cerraruser.addMouseListener(this);
+        modEm.lbl_cerrarmail.addMouseListener(this);
+        modpass.lbl_cerrarpass.addMouseListener(this);
     }
 
     @Override
@@ -172,6 +175,21 @@ public class Controller implements ActionListener, MouseListener {
             int resp = JOptionPane.showConfirmDialog(null, "¿Desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
             if (resp == 0) {
                 System.exit(0);
+            }
+        } else if (me.getSource() == mod.lbl_cerraruser) {
+            int resp = JOptionPane.showConfirmDialog(null, "¿Desea cerrar esta Ventana?", "Cerrar", JOptionPane.YES_NO_OPTION);
+            if (resp == 0) {
+                mod.dispose();
+            }
+        } else if (me.getSource() == modEm.lbl_cerrarmail) {
+            int resp = JOptionPane.showConfirmDialog(null, "¿Desea cerrar esta Ventana?", "Cerrar", JOptionPane.YES_NO_OPTION);
+            if (resp == 0) {
+                modEm.dispose();
+            }
+        } else if (me.getSource() == modpass.lbl_cerrarpass) {
+            int resp = JOptionPane.showConfirmDialog(null, "¿Desea cerrar esta Ventana?", "Cerrar", JOptionPane.YES_NO_OPTION);
+            if (resp == 0) {
+                init.setVisible(true);
             }
         }
     }
