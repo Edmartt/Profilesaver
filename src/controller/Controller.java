@@ -150,7 +150,7 @@ public class Controller implements ActionListener, MouseListener {
             modpass.txt_curpass.setText(sql.getDatos().get(2).toString());
             modpass.setVisible(true);
         } else if (ae.getSource() == modpass.btn_campass) {
-            event.updatePassword(modpass, user, sql);
+            event.updatePassword(modpass, user, sql);//
         }
     }
 
