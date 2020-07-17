@@ -57,7 +57,7 @@ public class Controller implements ActionListener, MouseListener {
         web = new WebSite();
         mod = new ModUsername();
         modEm = new ModEmail();
-        modpass=new ModPassword();
+        modpass = new ModPassword();
         stylein.setImage(init);
         init.pan_tab.setVisible(false);
         tb = new TablaWebSite();
@@ -89,6 +89,7 @@ public class Controller implements ActionListener, MouseListener {
         mod.btn_camuser.addActionListener(this);
         init.btn_username.addActionListener(this);
         init.btn_email.addActionListener(this);
+        init.btn_password.addActionListener(this);
         modEm.btn_cambemail.addActionListener(this);
         modpass.btn_campass.addActionListener(this);
     }
@@ -142,10 +143,11 @@ public class Controller implements ActionListener, MouseListener {
         } else if (ae.getSource() == init.btn_email) {
             modEm.txt_modemail.setText(sql.getDatos().get(1).toString());
             modEm.setVisible(true);
-        }
-        else if(ae.getSource()==modEm.btn_cambemail) {
-            //aquí voy
-            
+        } else if (ae.getSource() == init.btn_password) {
+            modpass.txt_curpass.setText(sql.getDatos().get(2).toString());
+            modpass.setVisible(true);
+        } else if (ae.getSource() == modpass.btn_campass) {
+            event.updatePassword(modpass, user, sql);
         }
     }
 
