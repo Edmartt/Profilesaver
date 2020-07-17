@@ -8,6 +8,7 @@ import Extras.SHA256;
 import GUI.Inicio;
 import GUI.Login;
 import GUI.ModEmail;
+import GUI.ModPassword;
 import GUI.ModUsername;
 import GUI.Registro;
 import javax.swing.JOptionPane;
@@ -59,10 +60,22 @@ public class MetodosEventos {
 
     public void updateEmail(UserSQL usersql, Usuario user, Inicio init, ModEmail mod) {
         user.setUserId(Integer.parseInt(Inicio.lbl_user_id.getText()));
-        user.setEmail(mod.txt_modemail.getText());
+        user.setEmail(mod.txt_confemail.getText());
         int resp = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el Email?", "Modificar", JOptionPane.YES_NO_OPTION);
         if (resp == 0) {
             usersql.modEmail(user);
+        }
+
+    }
+
+    public void updatePassword(ModPassword modpass, Usuario user, UserSQL usersql) {
+        if (new String(modpass.txt_newpass.getPassword()).equals(new String(modpass.txt_conpass.getPassword()))) {
+            user.setPassword(new String(modpass.txt_conpass.getPassword()));
+            user.setUserId(Integer.parseInt(Inicio.lbl_user_id.getText()));
+            int resp = JOptionPane.showConfirmDialog(null, "¿Desea modificar su contraseña?", "Modificar", JOptionPane.YES_NO_OPTION);
+            if (resp == 0) {
+                usersql.modPassword(user);
+            }
         }
 
     }
