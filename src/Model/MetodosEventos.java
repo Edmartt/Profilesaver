@@ -53,6 +53,8 @@ public class MetodosEventos {
         user.setUserId(Integer.parseInt(Inicio.lbl_user_id.getText()));
         user.setUsername(mod.txt_confname.getText());
         int resp = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el nombre de usuario?", "Modificar", JOptionPane.YES_NO_OPTION);
+        init.toBack();
+        
         if (resp == 0) {
             usersql.modUsername(user);
         }

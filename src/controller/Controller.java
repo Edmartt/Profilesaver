@@ -138,11 +138,14 @@ public class Controller implements ActionListener, MouseListener {
             init.pan_ajustes.setVisible(true);
         } else if (ae.getSource() == mod.btn_camuser) {
             event.updateUsername(mod, sql, user, init);
+            mod.toFront();
         } else if (ae.getSource() == init.btn_username) {
             mod.txt_modname.setText(init.lbl_username.getText());
             mod.setVisible(true);
+            
         } else if (ae.getSource() == modEm.btn_cambemail) {
             event.updateEmail(sql, user, init, modEm);
+            modEm.toFront();
         } else if (ae.getSource() == init.btn_email) {
             modEm.txt_modemail.setText(sql.getDatos().get(1).toString());
             modEm.setVisible(true);
@@ -151,6 +154,7 @@ public class Controller implements ActionListener, MouseListener {
             modpass.setVisible(true);
         } else if (ae.getSource() == modpass.btn_campass) {
             event.updatePassword(modpass, user, sql);//
+            modpass.toFront();
         }
     }
 
@@ -177,20 +181,11 @@ public class Controller implements ActionListener, MouseListener {
                 System.exit(0);
             }
         } else if (me.getSource() == mod.lbl_cerraruser) {
-            int resp = JOptionPane.showConfirmDialog(null, "¿Desea cerrar esta Ventana?", "Cerrar", JOptionPane.YES_NO_OPTION);
-            if (resp == 0) {
-                mod.dispose();
-            }
+            mod.dispose();
         } else if (me.getSource() == modEm.lbl_cerrarmail) {
-            int resp = JOptionPane.showConfirmDialog(null, "¿Desea cerrar esta Ventana?", "Cerrar", JOptionPane.YES_NO_OPTION);
-            if (resp == 0) {
-                modEm.dispose();
-            }
+            modEm.dispose();
         } else if (me.getSource() == modpass.lbl_cerrarpass) {
-            int resp = JOptionPane.showConfirmDialog(null, "¿Desea cerrar esta Ventana?", "Cerrar", JOptionPane.YES_NO_OPTION);
-            if (resp == 0) {
-                init.setVisible(true);
-            }
+            modpass.dispose();
         }
     }
 

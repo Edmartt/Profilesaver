@@ -55,15 +55,15 @@ public class UserSQL {
         }
         return band;
     }
-    
-    public ArrayList getDatos(){
-        con= Conexion.getConnection();
-        ArrayList datos= new ArrayList(10);
-        String sql="SELECT * FROM Usuario WHERE user_id=?";
+
+    public ArrayList getDatos() {
+        con = Conexion.getConnection();
+        ArrayList datos = new ArrayList(10);
+        String sql = "SELECT * FROM Usuario WHERE user_id=?";
         try {
-            ps=con.prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             ps.setString(1, Inicio.lbl_user_id.getText());
-            rs=ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 datos.add(rs.getString("username"));
                 datos.add(rs.getString("email"));
@@ -72,7 +72,7 @@ public class UserSQL {
             }
         } catch (SQLException e) {
         }
-    
+
         return datos;
     }
 
@@ -150,7 +150,6 @@ public class UserSQL {
                 log.dispose();
                 init.setVisible(true);
                 Inicio.lbl_user_id.setVisible(false);
-
             } else {
                 System.out.println("El usuario o contrase\u00f1a podr\u00edan estar errados.");
                 limpiar(log);
@@ -173,7 +172,7 @@ public class UserSQL {
                 JOptionPane.showMessageDialog(null, "Error al realizar la modificación");
             }
         } catch (SQLException e) {
-           JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }
 
