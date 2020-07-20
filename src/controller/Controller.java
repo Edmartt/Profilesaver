@@ -138,6 +138,7 @@ public class Controller implements ActionListener, MouseListener {
             init.pan_ajustes.setVisible(true);
         } else if (ae.getSource() == mod.btn_camuser) {
             event.updateUsername(mod, sql, user, init);
+            init.lbl_username.setText(user.getUsername());
             mod.toFront();
         } else if (ae.getSource() == init.btn_username) {
             mod.txt_modname.setText(init.lbl_username.getText());
@@ -182,6 +183,7 @@ public class Controller implements ActionListener, MouseListener {
             }
         } else if (me.getSource() == mod.lbl_cerraruser) {
             mod.dispose();
+            
         } else if (me.getSource() == modEm.lbl_cerrarmail) {
             modEm.dispose();
         } else if (me.getSource() == modpass.lbl_cerrarpass) {

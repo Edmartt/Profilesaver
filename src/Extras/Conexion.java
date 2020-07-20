@@ -1,6 +1,6 @@
 
 package Extras;
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -23,7 +23,7 @@ public class Conexion {
         if(con==null){
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/websites","root","Yankeeman123*");
+                con=DriverManager.getConnection("jdbc:mysql://localhost/websites","root","Yankeeman123*");
                 System.out.println("Conexión realizada");
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "No hay conexión, verifique contraseña o BD");
