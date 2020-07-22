@@ -56,6 +56,7 @@ public class UserSQL {
         return band;
     }
 
+    @SuppressWarnings("unchecked")
     public ArrayList getDatos() {
         con = Conexion.getConnection();
         ArrayList datos = new ArrayList(10);

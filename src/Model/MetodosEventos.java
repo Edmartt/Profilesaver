@@ -30,7 +30,7 @@ public class MetodosEventos {
 
     public void loguearse(Login log, UserSQL sql, Usuario user, Inicio init) {
         user.setUsername(log.txt_name.getText());
-        user.setPassword(SHA256.getSHA256(log.txt_pass.getText()));
+        user.setPassword(SHA256.getSHA256(new String(log.txt_pass.getPassword())));
         sql.iniciarSesion(user, init, log);
     }
 
@@ -130,17 +130,17 @@ public class MetodosEventos {
     }
 
     private void hideButtons(Inicio init) {
-        init.btn_add.setLocation(-10, -190);
-        init.btn_ver.setLocation(-10, -260);
-        init.jButton4.setLocation(-10, -330);
-        init.btn_set.setLocation(-10, -400);
+        init.lbl_add.setLocation(-10, -190);
+        init.lbl_look.setLocation(-10, -260);
+        init.lbl_log.setLocation(-10, -330);
+        init.lbl_set.setLocation(-10, -400);
     }
 
     private void showButtons(Inicio init) {
-        init.btn_add.setLocation(0, 190);
-        init.btn_ver.setLocation(0, 260);
-        init.jButton4.setLocation(0, 330);
-        init.btn_set.setLocation(0, 400);
+        init.lbl_add.setLocation(0, 190);
+        init.lbl_look.setLocation(0, 260);
+        init.lbl_log.setLocation(0, 330);
+        init.lbl_set.setLocation(0, 400);
     }
 
     public void mostrarDatos(Inicio init) {

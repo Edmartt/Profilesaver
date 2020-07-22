@@ -19,8 +19,8 @@ import java.sql.ResultSet;
  */
 public class WebSite {
 
-    Usuario user;
-    Scanner in = new Scanner(System.in);
+    
+    
     private int web_id;
     private String web_name;
     private String web_username;

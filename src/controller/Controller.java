@@ -67,7 +67,6 @@ public class Controller implements ActionListener, MouseListener {
         log.setVisible(true);
 
         buttons();
-
     }
 
     private void buttons() {
@@ -76,8 +75,8 @@ public class Controller implements ActionListener, MouseListener {
         init.lbl_slide.addMouseListener(this);
         reg.btn_reg.addActionListener(this);
         init.btn_reg.addActionListener(this);
-        init.btn_add.addActionListener(this);
-        init.btn_ver.addActionListener(this);
+        init.lbl_add.addMouseListener(this);
+        init.lbl_look.addMouseListener(this);
         init.btn_mod.addActionListener(this);
         init.tb_mostrar.addMouseListener(this);
         init.lbl_press.addMouseListener(this);
@@ -85,7 +84,7 @@ public class Controller implements ActionListener, MouseListener {
         init.pan_form.addMouseListener(this);
         init.btn_del.addActionListener(this);
         log.lbl_close.addMouseListener(this);
-        init.btn_set.addActionListener(this);
+        init.lbl_set.addMouseListener(this);
         mod.btn_camuser.addActionListener(this);
         init.btn_username.addActionListener(this);
         init.btn_email.addActionListener(this);
@@ -111,20 +110,6 @@ public class Controller implements ActionListener, MouseListener {
         } else if (ae.getSource() == init.btn_reg) {
             event.registrarWeb(init, web, websql);
 
-        } else if (ae.getSource() == init.btn_add) {
-            init.pan_form.setVisible(true);
-            event.hidePanel(init);
-            init.pan_tab.setVisible(false);
-            init.pan_ajustes.setVisible(false);
-
-        } else if (ae.getSource() == init.btn_ver) {
-            event.hidePanel(init);
-            TablaWebSite.ajustarTabla(init);
-            init.pan_tab.setVisible(true);
-            tb.mostrarWebs(init);
-            init.pan_form.setVisible(false);
-            init.pan_ajustes.setVisible(false);
-
         } else if (ae.getSource() == init.btn_mod) {
             event.updateWebs(init, websql, web);
             tb.mostrarWebs(init);
@@ -132,10 +117,6 @@ public class Controller implements ActionListener, MouseListener {
         } else if (ae.getSource() == init.btn_del) {
             event.deleteWeb(websql, init);
             tb.mostrarWebs(init);
-        } else if (ae.getSource() == init.btn_set) {
-            init.pan_form.setVisible(false);
-            init.pan_tab.setVisible(false);
-            init.pan_ajustes.setVisible(true);
         } else if (ae.getSource() == mod.btn_camuser) {
             event.updateUsername(mod, sql, user, init);
             init.lbl_username.setText(user.getUsername());
@@ -143,7 +124,7 @@ public class Controller implements ActionListener, MouseListener {
         } else if (ae.getSource() == init.btn_username) {
             mod.txt_modname.setText(init.lbl_username.getText());
             mod.setVisible(true);
-            
+
         } else if (ae.getSource() == modEm.btn_cambemail) {
             event.updateEmail(sql, user, init, modEm);
             modEm.toFront();
@@ -167,6 +148,24 @@ public class Controller implements ActionListener, MouseListener {
         }
         if (me.getSource() == init.lbl_slide && pos > 20) {
             event.hidePanel(init);
+        } else if (me.getSource() == init.lbl_add) {
+            init.pan_form.setVisible(true);
+            event.hidePanel(init);
+            init.pan_tab.setVisible(false);
+            init.pan_ajustes.setVisible(false);
+
+        } else if (me.getSource() == init.lbl_look) {
+            event.hidePanel(init);
+            TablaWebSite.ajustarTabla(init);
+            init.pan_tab.setVisible(true);
+            tb.mostrarWebs(init);
+            init.pan_form.setVisible(false);
+            init.pan_ajustes.setVisible(false);
+
+        } else if (me.getSource() == init.lbl_set) {
+            init.pan_form.setVisible(false);
+            init.pan_tab.setVisible(false);
+            init.pan_ajustes.setVisible(true);
         } else if (me.getSource() == init.lbl_slide && pos <= 20) {
             event.showPanel(init);
         } else if (me.getSource() == init.tb_mostrar) {
@@ -183,7 +182,7 @@ public class Controller implements ActionListener, MouseListener {
             }
         } else if (me.getSource() == mod.lbl_cerraruser) {
             mod.dispose();
-            
+
         } else if (me.getSource() == modEm.lbl_cerrarmail) {
             modEm.dispose();
         } else if (me.getSource() == modpass.lbl_cerrarpass) {
