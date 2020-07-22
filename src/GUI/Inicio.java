@@ -36,11 +36,15 @@ public class Inicio extends javax.swing.JFrame {
         btn_password = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         pan_slide = new javax.swing.JPanel();
+        lbl_iconset = new javax.swing.JLabel();
+        lbl_iconlook = new javax.swing.JLabel();
         lbl_slide = new javax.swing.JLabel();
         lbl_user = new javax.swing.JLabel();
         lbl_username = new javax.swing.JLabel();
         lbl_set = new javax.swing.JLabel();
+        lbl_icoadd = new javax.swing.JLabel();
         lbl_add = new javax.swing.JLabel();
+        lbl_iconlog = new javax.swing.JLabel();
         lbl_look = new javax.swing.JLabel();
         lbl_log = new javax.swing.JLabel();
         pan_form = new javax.swing.JPanel();
@@ -131,6 +135,8 @@ public class Inicio extends javax.swing.JFrame {
 
         pan_slide.setBackground(new java.awt.Color(17, 138, 178));
         pan_slide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pan_slide.add(lbl_iconset, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 410, 30, 30));
+        pan_slide.add(lbl_iconlook, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 270, 30, 30));
 
         lbl_slide.setBackground(new java.awt.Color(255, 32, 0));
         lbl_slide.setFont(new java.awt.Font("Cantarell", 1, 12)); // NOI18N
@@ -142,42 +148,44 @@ public class Inicio extends javax.swing.JFrame {
         pan_slide.add(lbl_slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 25, 25));
 
         lbl_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user.png"))); // NOI18N
-        pan_slide.add(lbl_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 90, 80));
+        pan_slide.add(lbl_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 40, 90, 90));
 
         lbl_username.setForeground(new java.awt.Color(254, 254, 254));
         lbl_username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pan_slide.add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, 30));
 
-        lbl_set.setBackground(new java.awt.Color(7, 59, 76));
-        lbl_set.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 15)); // NOI18N
-        lbl_set.setForeground(new java.awt.Color(254, 254, 254));
+        lbl_set.setBackground(new java.awt.Color(254, 254, 254));
+        lbl_set.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
+        lbl_set.setForeground(new java.awt.Color(7, 59, 76));
         lbl_set.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_set.setText("Ajustes");
         lbl_set.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl_set.setOpaque(true);
         pan_slide.add(lbl_set, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 200, 50));
+        pan_slide.add(lbl_icoadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 200, 30, 30));
 
-        lbl_add.setBackground(new java.awt.Color(7, 59, 76));
-        lbl_add.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 15)); // NOI18N
-        lbl_add.setForeground(new java.awt.Color(254, 254, 254));
+        lbl_add.setBackground(new java.awt.Color(254, 254, 254));
+        lbl_add.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
+        lbl_add.setForeground(new java.awt.Color(7, 59, 76));
         lbl_add.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_add.setText("Añadir Nuevo Perfil");
         lbl_add.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl_add.setOpaque(true);
         pan_slide.add(lbl_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 200, 50));
+        pan_slide.add(lbl_iconlog, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 340, 30, 30));
 
-        lbl_look.setBackground(new java.awt.Color(7, 59, 76));
-        lbl_look.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 15)); // NOI18N
-        lbl_look.setForeground(new java.awt.Color(254, 254, 254));
+        lbl_look.setBackground(new java.awt.Color(254, 254, 254));
+        lbl_look.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
+        lbl_look.setForeground(new java.awt.Color(7, 59, 76));
         lbl_look.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_look.setText("Perfiles Guardados");
         lbl_look.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbl_look.setOpaque(true);
         pan_slide.add(lbl_look, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 200, 50));
 
-        lbl_log.setBackground(new java.awt.Color(7, 59, 76));
-        lbl_log.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 15)); // NOI18N
-        lbl_log.setForeground(new java.awt.Color(254, 254, 254));
+        lbl_log.setBackground(new java.awt.Color(254, 254, 254));
+        lbl_log.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 13)); // NOI18N
+        lbl_log.setForeground(new java.awt.Color(7, 59, 76));
         lbl_log.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_log.setText("Actividad de Usuario");
         lbl_log.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -501,6 +509,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     public javax.swing.JLabel lbl_add;
+    public javax.swing.JLabel lbl_icoadd;
+    public javax.swing.JLabel lbl_iconlog;
+    public javax.swing.JLabel lbl_iconlook;
+    public javax.swing.JLabel lbl_iconset;
     public javax.swing.JLabel lbl_log;
     public javax.swing.JLabel lbl_look;
     public javax.swing.JLabel lbl_press;
