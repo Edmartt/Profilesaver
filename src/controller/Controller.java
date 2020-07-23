@@ -15,6 +15,8 @@ import Model.websites.WebSQL;
 import Model.websites.WebSite;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
@@ -30,7 +32,7 @@ import style.StyleInicio;
  * usuario del sitema, tales como clicks de botones, movimientos de mouse, que
  * deberían dar una respuesta concreta a la acción, lo que desata eventos.
  */
-public class Controller implements ActionListener, MouseListener {
+public class Controller implements ActionListener, MouseListener, KeyListener {
 
     private Login log;
     private Inicio init;
@@ -62,6 +64,7 @@ public class Controller implements ActionListener, MouseListener {
         init.pan_tab.setVisible(false);
         tb = new TablaWebSite();
         init.pan_form.setVisible(false);
+        init.lbl_iconokay.setVisible(false);
         init.pan_slide.setBorder(new SoftBevelBorder(0, null, null, null, Color.black));
         user = new Usuario();
         log.setVisible(true);
@@ -72,7 +75,9 @@ public class Controller implements ActionListener, MouseListener {
     private void buttons() {
         log.btn_log.addActionListener(this);
         log.lbl_crear.addMouseListener(this);
-        init.lbl_slide.addMouseListener(this);
+        log.lbl_close.addMouseListener(this);
+        log.lbl_iconeye.addMouseListener(this);
+
         reg.btn_reg.addActionListener(this);
         init.btn_reg.addActionListener(this);
         init.lbl_add.addMouseListener(this);
@@ -83,7 +88,6 @@ public class Controller implements ActionListener, MouseListener {
         init.pan_tab.addMouseListener(this);
         init.pan_form.addMouseListener(this);
         init.btn_del.addActionListener(this);
-        log.lbl_close.addMouseListener(this);
         init.lbl_set.addMouseListener(this);
         mod.btn_camuser.addActionListener(this);
         init.btn_username.addActionListener(this);
@@ -94,6 +98,7 @@ public class Controller implements ActionListener, MouseListener {
         mod.lbl_cerraruser.addMouseListener(this);
         modEm.lbl_cerrarmail.addMouseListener(this);
         modpass.lbl_cerrarpass.addMouseListener(this);
+        init.txt_pass1.addKeyListener(this);
     }
 
     @Override
@@ -142,40 +147,44 @@ public class Controller implements ActionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        int pos = this.init.lbl_slide.getX();
+        //int pos = this.init.lbl_slide.getX();
         if (me.getSource() == this.log.lbl_crear) {
             reg.setVisible(true);
-        }
-        if (me.getSource() == init.lbl_slide && pos > 20) {
-            event.hidePanel(init);
-        } else if (me.getSource() == init.lbl_add) {
+        } //        if (me.getSource() == init.lbl_slide && pos > 20) {
+        //            event.hidePanel(init);
+        //        } 
+        else if (me.getSource() == init.lbl_add) {
             init.pan_form.setVisible(true);
-            event.hidePanel(init);
+            //event.hidePanel(init);
             init.pan_tab.setVisible(false);
             init.pan_ajustes.setVisible(false);
 
         } else if (me.getSource() == init.lbl_look) {
-            event.hidePanel(init);
-            TablaWebSite.ajustarTabla(init);
-            init.pan_tab.setVisible(true);
-            tb.mostrarWebs(init);
-            init.pan_form.setVisible(false);
-            init.pan_ajustes.setVisible(false);
-
-        } else if (me.getSource() == init.lbl_set) {
+        //            event.hidePanel(init);
+                    TablaWebSite.ajustarTabla(init);
+                    init.pan_tab.setVisible(true);
+                    tb.mostrarWebs(init);
+                    init.pan_form.setVisible(false);
+                    init.pan_ajustes.setVisible(false);
+        //
+                } 
+        else if (me.getSource() == init.lbl_set) {
             init.pan_form.setVisible(false);
             init.pan_tab.setVisible(false);
             init.pan_ajustes.setVisible(true);
-        } else if (me.getSource() == init.lbl_slide && pos <= 20) {
-            event.showPanel(init);
-        } else if (me.getSource() == init.tb_mostrar) {
-            event.hidePanel(init);
-            event.mostrarDatos(init);
-        } else if (me.getSource() == init.pan_form) {
-            event.hidePanel(init);
-        } else if (me.getSource() == init.pan_tab) {
-            event.hidePanel(init);
-        } else if (me.getSource() == log.lbl_close) {
+        } //else if (me.getSource() == init.lbl_slide && pos <= 20) {
+        //            event.showPanel(init);
+        //        } 
+        else if (me.getSource() == init.tb_mostrar) {
+        //            event.hidePanel(init);
+                    event.mostrarDatos(init);
+                } 
+        //else if (me.getSource() == init.pan_form) {
+        //            event.hidePanel(init);
+        //        } else if (me.getSource() == init.pan_tab) {
+        //            event.hidePanel(init);
+        //        } 
+        else if (me.getSource() == log.lbl_close) {
             int resp = JOptionPane.showConfirmDialog(null, "¿Desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
             if (resp == 0) {
                 System.exit(0);
@@ -210,6 +219,22 @@ public class Controller implements ActionListener, MouseListener {
 
     @Override
     public void mouseExited(MouseEvent me) {
+    }
+
+    @Override
+    public void keyTyped(KeyEvent ke) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent ke) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
+        if (ke.getSource() == init.txt_pass1) {
+            event.comparePass(init);
+        }
     }
 
 }

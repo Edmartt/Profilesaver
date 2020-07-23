@@ -60,6 +60,10 @@ public class TablaWebSite {
         init.tb_mostrar.getColumnModel().getColumn(6).setMinWidth(0);
         init.tb_mostrar.getTableHeader().getColumnModel().getColumn(6).setMinWidth(0);
         init.tb_mostrar.getTableHeader().getColumnModel().getColumn(6).setMaxWidth(0);
+             init.tb_mostrar.getColumnModel().getColumn(5).setMaxWidth(0);
+        init.tb_mostrar.getColumnModel().getColumn(5).setMinWidth(0);
+        init.tb_mostrar.getTableHeader().getColumnModel().getColumn(5).setMinWidth(0);
+        init.tb_mostrar.getTableHeader().getColumnModel().getColumn(5).setMaxWidth(0);
         init.tb_mostrar.getColumnModel().getColumn(5).setCellRenderer(new PasswordCellRenderer());
         ajustarCabecera(init.tb_mostrar);
 

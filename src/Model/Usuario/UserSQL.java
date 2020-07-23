@@ -142,8 +142,8 @@ public class UserSQL {
             ps = con.prepareStatement("SELECT * FROM Usuario WHERE username=? AND password=?");
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
-
             rs = ps.executeQuery();
+            
             if (rs.next()) {
                 user.setUserId(rs.getInt("user_id"));
                 JOptionPane.showMessageDialog(null, "Sesi\u00f3n Iniciada");
@@ -152,7 +152,7 @@ public class UserSQL {
                 init.setVisible(true);
                 Inicio.lbl_user_id.setVisible(false);
             } else {
-                System.out.println("El usuario o contrase\u00f1a podr\u00edan estar errados.");
+                JOptionPane.showMessageDialog(null,"El usuario o la contraseña podrían estar errados");
                 limpiar(log);
             }
         } catch (SQLException e) {
@@ -180,6 +180,5 @@ public class UserSQL {
     private void limpiar(Login log) {
         log.txt_name.setText(null);
         log.txt_pass.setText(null);
-
     }
 }

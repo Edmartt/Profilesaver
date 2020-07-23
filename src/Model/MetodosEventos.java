@@ -54,7 +54,7 @@ public class MetodosEventos {
         user.setUsername(mod.txt_confname.getText());
         int resp = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el nombre de usuario?", "Modificar", JOptionPane.YES_NO_OPTION);
         init.toBack();
-        
+
         if (resp == 0) {
             usersql.modUsername(user);
         }
@@ -67,7 +67,6 @@ public class MetodosEventos {
         if (resp == 0) {
             usersql.modEmail(user);
         }
-
     }
 
     public void updatePassword(ModPassword modpass, Usuario user, UserSQL usersql) {
@@ -78,11 +77,9 @@ public class MetodosEventos {
             if (resp == 0) {
                 usersql.modPassword(user);
             }
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
         }
-
     }
 
     public void registrarWeb(Inicio init, WebSite web, WebSQL websql) {
@@ -95,6 +92,16 @@ public class MetodosEventos {
             websql.agregarWeb(web);
         } else {
             JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+        }
+    }
+
+    public void comparePass(Inicio init) {
+        if (!new String(init.txt_pass.getPassword()).equals(new String(init.txt_pass1.getPassword()))) {
+            init.lbl_iconokay.setVisible(false);
+            init.lbl_alert.setText("Las contraseñas no coinciden");
+        } else {
+            init.lbl_alert.setText(null);
+            init.lbl_iconokay.setVisible(true);
         }
     }
 
@@ -117,31 +124,31 @@ public class MetodosEventos {
         }
     }
 
-    public void hidePanel(Inicio init) {
-        init.lbl_slide.setLocation(10, 10);
-        init.pan_slide.setSize(50, 550);
-        hideButtons(init);
-    }
-
-    public void showPanel(Inicio init) {
-        init.lbl_slide.setLocation(170, 10);
-        init.pan_slide.setSize(200, 550);
-        showButtons(init);
-    }
-
-    private void hideButtons(Inicio init) {
-        init.lbl_add.setLocation(-10, -190);
-        init.lbl_look.setLocation(-10, -260);
-        init.lbl_log.setLocation(-10, -330);
-        init.lbl_set.setLocation(-10, -400);
-    }
-
-    private void showButtons(Inicio init) {
-        init.lbl_add.setLocation(0, 190);
-        init.lbl_look.setLocation(0, 260);
-        init.lbl_log.setLocation(0, 330);
-        init.lbl_set.setLocation(0, 400);
-    }
+//    public void hidePanel(Inicio init) {
+//        init.lbl_slide.setLocation(10, 10);
+//        init.pan_slide.setSize(50, 550);
+//        hideButtons(init);
+//    }
+//
+//    public void showPanel(Inicio init) {
+//        init.lbl_slide.setLocation(170, 10);
+//        init.pan_slide.setSize(200, 550);
+//        showButtons(init);
+//    }
+//
+//    private void hideButtons(Inicio init) {
+//        init.lbl_add.setLocation(-10, -190);
+//        init.lbl_look.setLocation(-10, -260);
+//        init.lbl_log.setLocation(-10, -330);
+//        init.lbl_set.setLocation(-10, -400);
+//    }
+//
+//    private void showButtons(Inicio init) {
+//        init.lbl_add.setLocation(0, 190);
+//        init.lbl_look.setLocation(0, 260);
+//        init.lbl_log.setLocation(0, 330);
+//        init.lbl_set.setLocation(0, 400);
+//    }
 
     public void mostrarDatos(Inicio init) {
         init.txt_fname.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 2).toString().trim());

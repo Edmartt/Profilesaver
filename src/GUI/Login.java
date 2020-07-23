@@ -36,14 +36,20 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         pan_login = new javax.swing.JPanel();
+        sep1 = new javax.swing.JSeparator();
+        sep2 = new javax.swing.JSeparator();
         txt_name = new javax.swing.JTextField();
         btn_log = new javax.swing.JButton();
+        lbl_iconeye = new javax.swing.JLabel();
         lbl_crear = new javax.swing.JLabel();
         lbl_rec = new javax.swing.JLabel();
         txt_pass = new javax.swing.JPasswordField();
+        lbl_iconuser = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lbl_close = new javax.swing.JLabel();
+        lbl_logo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lbl_iconpass = new javax.swing.JLabel();
         lbl_fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,6 +65,19 @@ public class Login extends javax.swing.JFrame {
         pan_login.setMinimumSize(new java.awt.Dimension(400, 600));
         pan_login.setPreferredSize(new java.awt.Dimension(400, 600));
         pan_login.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        sep1.setBackground(new java.awt.Color(254, 254, 254));
+        sep1.setOpaque(true);
+        pan_login.add(sep1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 270, 2));
+
+        sep2.setBackground(new java.awt.Color(254, 254, 254));
+        sep2.setOpaque(true);
+        pan_login.add(sep2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 270, 2));
+
+        txt_name.setBackground(new java.awt.Color(17, 138, 178));
+        txt_name.setFont(new java.awt.Font("Cantarell", 1, 14)); // NOI18N
+        txt_name.setBorder(null);
+        txt_name.setOpaque(false);
         pan_login.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 270, 42));
 
         btn_log.setBackground(new java.awt.Color(254, 254, 254));
@@ -66,6 +85,10 @@ public class Login extends javax.swing.JFrame {
         btn_log.setForeground(new java.awt.Color(7, 59, 76));
         btn_log.setText("Login");
         pan_login.add(btn_log, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 350, 81, -1));
+
+        lbl_iconeye.setBackground(new java.awt.Color(17, 138, 178));
+        lbl_iconeye.setOpaque(true);
+        pan_login.add(lbl_iconeye, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 25, 15));
 
         lbl_crear.setFont(new java.awt.Font("L M Roman Caps10", 1, 13)); // NOI18N
         lbl_crear.setForeground(new java.awt.Color(254, 254, 254));
@@ -81,18 +104,25 @@ public class Login extends javax.swing.JFrame {
         lbl_rec.setText("Olvidé mi contraseña");
         lbl_rec.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pan_login.add(lbl_rec, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 400, 30));
+
+        txt_pass.setBorder(null);
+        txt_pass.setOpaque(false);
         pan_login.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 270, 42));
+        pan_login.add(lbl_iconuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 225, 30, 30));
 
         jPanel2.setBackground(new java.awt.Color(7, 59, 76));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_close.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 24)); // NOI18N
-        lbl_close.setForeground(new java.awt.Color(171, 84, 84));
+        lbl_close.setForeground(new java.awt.Color(204, 43, 43));
         lbl_close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_close.setText("X");
         lbl_close.setToolTipText("cerrar");
         lbl_close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(lbl_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 9, 30, 30));
+
+        lbl_logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(lbl_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 220, 140));
 
         pan_login.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 150));
 
@@ -101,6 +131,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("¿No tienes una cuenta?");
         pan_login.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 400, 40));
+        pan_login.add(lbl_iconpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 285, 30, 30));
 
         jPanel1.add(pan_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -7, 410, 610));
 
@@ -169,8 +200,14 @@ public class Login extends javax.swing.JFrame {
     public javax.swing.JLabel lbl_close;
     public javax.swing.JLabel lbl_crear;
     public javax.swing.JLabel lbl_fondo;
+    public javax.swing.JLabel lbl_iconeye;
+    public javax.swing.JLabel lbl_iconpass;
+    public javax.swing.JLabel lbl_iconuser;
+    public javax.swing.JLabel lbl_logo;
     public javax.swing.JLabel lbl_rec;
     public javax.swing.JPanel pan_login;
+    private javax.swing.JSeparator sep1;
+    private javax.swing.JSeparator sep2;
     public javax.swing.JTextField txt_name;
     public javax.swing.JPasswordField txt_pass;
     // End of variables declaration//GEN-END:variables
