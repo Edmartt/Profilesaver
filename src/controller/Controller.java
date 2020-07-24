@@ -22,6 +22,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import javax.swing.border.SoftBevelBorder;
 import style.StyleInicio;
+import style.StyleReg;
 
 /**
  *
@@ -33,7 +34,7 @@ import style.StyleInicio;
  * deberían dar una respuesta concreta a la acción, lo que desata eventos.
  */
 public class Controller implements ActionListener, MouseListener, KeyListener {
-
+    
     private Login log;
     private Inicio init;
     private Usuario user;
@@ -44,10 +45,11 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
     private WebSite web;
     private TablaWebSite tb;
     private StyleInicio stylein;
+    private StyleReg stylereg;
     private ModUsername mod;
     private ModEmail modEm;
     private ModPassword modpass;
-
+    
     public Controller() {
         reg = new Registro();
         event = new MetodosEventos();
@@ -55,30 +57,33 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         log = new Login();
         init = new Inicio();
         stylein = new StyleInicio();
+        stylereg = new StyleReg();
         websql = new WebSQL();
         web = new WebSite();
         mod = new ModUsername();
         modEm = new ModEmail();
         modpass = new ModPassword();
         stylein.setImage(init);
+        stylereg.setIcon(reg);
         init.pan_tab.setVisible(false);
         tb = new TablaWebSite();
         init.pan_form.setVisible(false);
         init.lbl_iconokay.setVisible(false);
+        reg.lbl_okay.setVisible(false);
         init.pan_slide.setBorder(new SoftBevelBorder(0, null, null, null, Color.black));
         user = new Usuario();
         log.setVisible(true);
-
+        
         buttons();
     }
-
+    
     private void buttons() {
         log.btn_log.addActionListener(this);
         log.lbl_crear.addMouseListener(this);
         log.lbl_close.addMouseListener(this);
         log.lbl_iconeye.addMouseListener(this);
-
         reg.btn_reg.addActionListener(this);
+        reg.lbl_closereg.addMouseListener(this);
         init.btn_reg.addActionListener(this);
         init.lbl_add.addMouseListener(this);
         init.lbl_look.addMouseListener(this);
@@ -99,8 +104,10 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         modEm.lbl_cerrarmail.addMouseListener(this);
         modpass.lbl_cerrarpass.addMouseListener(this);
         init.txt_pass1.addKeyListener(this);
+        init.lbl_off.addMouseListener(this);
+        reg.txt_passconf.addKeyListener(this);
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == log.btn_log) {
@@ -108,17 +115,17 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             event.loguearse(log, sql, user, init);
             Inicio.lbl_user_id.setText(String.valueOf(user.getUserId()));
             init.lbl_username.setText(user.getUsername());
-
+            
         } else if (ae.getSource() == reg.btn_reg) {
             event.registrarUser(reg, sql, user);
-
+            
         } else if (ae.getSource() == init.btn_reg) {
             event.registrarWeb(init, web, websql);
-
+            
         } else if (ae.getSource() == init.btn_mod) {
             event.updateWebs(init, websql, web);
             tb.mostrarWebs(init);
-
+            
         } else if (ae.getSource() == init.btn_del) {
             event.deleteWeb(websql, init);
             tb.mostrarWebs(init);
@@ -129,7 +136,7 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         } else if (ae.getSource() == init.btn_username) {
             mod.txt_modname.setText(init.lbl_username.getText());
             mod.setVisible(true);
-
+            
         } else if (ae.getSource() == modEm.btn_cambemail) {
             event.updateEmail(sql, user, init, modEm);
             modEm.toFront();
@@ -140,101 +147,94 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             modpass.txt_curpass.setText(sql.getDatos().get(2).toString());
             modpass.setVisible(true);
         } else if (ae.getSource() == modpass.btn_campass) {
-            event.updatePassword(modpass, user, sql);//
+            event.updatePassword(modpass, user, sql);
             modpass.toFront();
         }
     }
-
+    
     @Override
     public void mouseClicked(MouseEvent me) {
-        //int pos = this.init.lbl_slide.getX();
+        
         if (me.getSource() == this.log.lbl_crear) {
             reg.setVisible(true);
-        } //        if (me.getSource() == init.lbl_slide && pos > 20) {
-        //            event.hidePanel(init);
-        //        } 
-        else if (me.getSource() == init.lbl_add) {
+        } else if (me.getSource() == init.lbl_add) {
             init.pan_form.setVisible(true);
-            //event.hidePanel(init);
             init.pan_tab.setVisible(false);
             init.pan_ajustes.setVisible(false);
-
+            
         } else if (me.getSource() == init.lbl_look) {
-        //            event.hidePanel(init);
-                    TablaWebSite.ajustarTabla(init);
-                    init.pan_tab.setVisible(true);
-                    tb.mostrarWebs(init);
-                    init.pan_form.setVisible(false);
-                    init.pan_ajustes.setVisible(false);
-        //
-                } 
-        else if (me.getSource() == init.lbl_set) {
+            TablaWebSite.ajustarTabla(init);
+            init.pan_tab.setVisible(true);
+            tb.mostrarWebs(init);
+            init.pan_form.setVisible(false);
+            init.pan_ajustes.setVisible(false);
+            
+        } else if (me.getSource() == init.lbl_set) {
             init.pan_form.setVisible(false);
             init.pan_tab.setVisible(false);
             init.pan_ajustes.setVisible(true);
-        } //else if (me.getSource() == init.lbl_slide && pos <= 20) {
-        //            event.showPanel(init);
-        //        } 
-        else if (me.getSource() == init.tb_mostrar) {
-        //            event.hidePanel(init);
-                    event.mostrarDatos(init);
-                } 
-        //else if (me.getSource() == init.pan_form) {
-        //            event.hidePanel(init);
-        //        } else if (me.getSource() == init.pan_tab) {
-        //            event.hidePanel(init);
-        //        } 
-        else if (me.getSource() == log.lbl_close) {
+        } else if (me.getSource() == init.tb_mostrar) {
+            event.mostrarDatos(init);
+        } else if (me.getSource() == init.lbl_off) {
+            int resp = JOptionPane.showConfirmDialog(null, "¿Desea cerrar la sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION);
+            if (resp == 0) {
+                init.dispose();
+                log.setVisible(true);
+            }
+        } else if (me.getSource() == log.lbl_close) {
             int resp = JOptionPane.showConfirmDialog(null, "¿Desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
             if (resp == 0) {
                 System.exit(0);
             }
         } else if (me.getSource() == mod.lbl_cerraruser) {
             mod.dispose();
-
         } else if (me.getSource() == modEm.lbl_cerrarmail) {
             modEm.dispose();
         } else if (me.getSource() == modpass.lbl_cerrarpass) {
             modpass.dispose();
+        } else if (me.getSource() == reg.lbl_closereg) {
+            reg.dispose();
         }
     }
-
+    
     @Override
     public void mousePressed(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
             init.txt_fpass.setEchoChar((char) 0);
         }
     }
-
+    
     @Override
     public void mouseReleased(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
             init.txt_fpass.setEchoChar('•');
         }
     }
-
+    
     @Override
     public void mouseEntered(MouseEvent me) {
     }
-
+    
     @Override
     public void mouseExited(MouseEvent me) {
     }
-
+    
     @Override
     public void keyTyped(KeyEvent ke) {
-
+        
     }
-
+    
     @Override
     public void keyPressed(KeyEvent ke) {
     }
-
+    
     @Override
     public void keyReleased(KeyEvent ke) {
         if (ke.getSource() == init.txt_pass1) {
             event.comparePass(init);
+        } else if (ke.getSource() == reg.txt_passconf) {
+            event.comparePass(reg);
         }
     }
-
+    
 }

@@ -43,7 +43,10 @@ public class MetodosEventos {
         char[] pass2 = reg.txt_passconf.getPassword();
         String password3 = new String(pass2);
         if (user.getPassword().equals(SHA256.getSHA256(password3))) {
-            sql.crearUsuario(user, reg);
+            int resp = JOptionPane.showConfirmDialog(null, "¿Desea crear el usuario?", "Crear", JOptionPane.YES_NO_OPTION);
+            if (resp == 0) {
+                sql.crearUsuario(user, reg);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
         }
@@ -95,13 +98,26 @@ public class MetodosEventos {
         }
     }
 
-    public void comparePass(Inicio init) {
-        if (!new String(init.txt_pass.getPassword()).equals(new String(init.txt_pass1.getPassword()))) {
-            init.lbl_iconokay.setVisible(false);
-            init.lbl_alert.setText("Las contraseñas no coinciden");
-        } else {
-            init.lbl_alert.setText(null);
-            init.lbl_iconokay.setVisible(true);
+    public void comparePass(Object ini) {
+
+        if (ini instanceof Inicio) {
+            Inicio init = (Inicio) ini;
+            if (!new String(init.txt_pass.getPassword()).equals(new String(init.txt_pass1.getPassword()))) {
+                init.lbl_iconokay.setVisible(false);
+                init.lbl_alert.setText("Las contraseñas no coinciden");
+            } else {
+                init.lbl_alert.setText(null);
+                init.lbl_iconokay.setVisible(true);
+            }
+        } else if (ini instanceof Registro) {
+            Registro reg = (Registro) ini;
+            if (!new String(reg.txt_passreg.getPassword()).equals(new String(reg.txt_passconf.getPassword()))) {
+                reg.lbl_okay.setVisible(false);
+                reg.lbl_alert.setText("Las contraseñas no coinciden");
+            } else {
+                reg.lbl_alert.setText(null);
+                reg.lbl_okay.setVisible(true);
+            }
         }
     }
 
@@ -123,32 +139,6 @@ public class MetodosEventos {
             websql.eliminarWeb(init);
         }
     }
-
-//    public void hidePanel(Inicio init) {
-//        init.lbl_slide.setLocation(10, 10);
-//        init.pan_slide.setSize(50, 550);
-//        hideButtons(init);
-//    }
-//
-//    public void showPanel(Inicio init) {
-//        init.lbl_slide.setLocation(170, 10);
-//        init.pan_slide.setSize(200, 550);
-//        showButtons(init);
-//    }
-//
-//    private void hideButtons(Inicio init) {
-//        init.lbl_add.setLocation(-10, -190);
-//        init.lbl_look.setLocation(-10, -260);
-//        init.lbl_log.setLocation(-10, -330);
-//        init.lbl_set.setLocation(-10, -400);
-//    }
-//
-//    private void showButtons(Inicio init) {
-//        init.lbl_add.setLocation(0, 190);
-//        init.lbl_look.setLocation(0, 260);
-//        init.lbl_log.setLocation(0, 330);
-//        init.lbl_set.setLocation(0, 400);
-//    }
 
     public void mostrarDatos(Inicio init) {
         init.txt_fname.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 2).toString().trim());

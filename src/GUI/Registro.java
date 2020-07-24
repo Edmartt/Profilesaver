@@ -28,7 +28,6 @@ public class Registro extends javax.swing.JFrame {
     private void initComponents() {
 
         pan_reg = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         txt_email = new javax.swing.JTextField();
         txt_passconf = new javax.swing.JPasswordField();
         txt_passreg = new javax.swing.JPasswordField();
@@ -37,68 +36,103 @@ public class Registro extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        lbl_alert = new javax.swing.JLabel();
         btn_reg = new javax.swing.JButton();
+        lbl_okay = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        lbl_closereg = new javax.swing.JLabel();
+        btn_reg1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(600, 600));
-        setMinimumSize(new java.awt.Dimension(600, 600));
+        setMaximumSize(new java.awt.Dimension(600, 530));
+        setMinimumSize(new java.awt.Dimension(600, 530));
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pan_reg.setBackground(new java.awt.Color(254, 254, 254));
+        pan_reg.setPreferredSize(new java.awt.Dimension(600, 530));
         pan_reg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Lato Heavy", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Crear Nuevo Usuario de Sistema");
-        pan_reg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 410, 40));
-
+        txt_email.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        txt_email.setOpaque(false);
         txt_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_emailActionPerformed(evt);
             }
         });
-        pan_reg.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 230, 40));
-        pan_reg.add(txt_passconf, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 230, 40));
-        pan_reg.add(txt_passreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 230, 40));
+        pan_reg.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 260, 40));
 
+        txt_passconf.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        txt_passconf.setOpaque(false);
+        pan_reg.add(txt_passconf, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 260, 40));
+
+        txt_passreg.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        txt_passreg.setOpaque(false);
+        pan_reg.add(txt_passreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 260, 40));
+
+        txt_nreg.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        txt_nreg.setOpaque(false);
         txt_nreg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nregActionPerformed(evt);
             }
         });
-        pan_reg.add(txt_nreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 230, 40));
+        pan_reg.add(txt_nreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 260, 40));
 
         jLabel2.setFont(new java.awt.Font("Lato", 3, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Confirmar Password");
-        pan_reg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 140, 30));
+        pan_reg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 140, 30));
 
         jLabel3.setFont(new java.awt.Font("Lato", 3, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Nombre de Usuario");
-        pan_reg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 100, 130, 30));
+        pan_reg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 130, 30));
 
         jLabel4.setFont(new java.awt.Font("Lato", 3, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Correo");
-        pan_reg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 130, 30));
+        pan_reg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 130, 30));
 
         jLabel5.setFont(new java.awt.Font("Lato", 3, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Password");
-        pan_reg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 130, 30));
+        pan_reg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 130, 30));
 
-        btn_reg.setBackground(new java.awt.Color(33, 23, 192));
+        lbl_alert.setFont(new java.awt.Font("Cantarell", 3, 12)); // NOI18N
+        lbl_alert.setForeground(new java.awt.Color(226, 42, 35));
+        lbl_alert.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pan_reg.add(lbl_alert, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 330, 40));
+
+        btn_reg.setBackground(new java.awt.Color(17, 138, 178));
         btn_reg.setFont(new java.awt.Font("Lato Black", 0, 14)); // NOI18N
         btn_reg.setForeground(new java.awt.Color(254, 254, 254));
         btn_reg.setText("Registrar");
-        pan_reg.add(btn_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 110, 40));
+        pan_reg.add(btn_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 110, 40));
+        pan_reg.add(lbl_okay, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 30, 30));
 
-        jPanel1.setBackground(new java.awt.Color(33, 23, 192));
+        jPanel1.setBackground(new java.awt.Color(17, 138, 178));
         jPanel1.setForeground(new java.awt.Color(33, 23, 192));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        pan_reg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 70));
 
-        getContentPane().add(pan_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
+        lbl_closereg.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 24)); // NOI18N
+        lbl_closereg.setForeground(new java.awt.Color(254, 254, 254));
+        lbl_closereg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_closereg.setText("X");
+        lbl_closereg.setToolTipText("cerrar");
+        lbl_closereg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(lbl_closereg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
+        pan_reg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 40));
+
+        btn_reg1.setBackground(new java.awt.Color(192, 46, 58));
+        btn_reg1.setFont(new java.awt.Font("Lato Black", 0, 14)); // NOI18N
+        btn_reg1.setForeground(new java.awt.Color(254, 254, 254));
+        btn_reg1.setText("Cancelar");
+        pan_reg.add(btn_reg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 110, 40));
+
+        getContentPane().add(pan_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 530));
 
         pack();
         setLocationRelativeTo(null);
@@ -149,12 +183,15 @@ public class Registro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_reg;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JButton btn_reg1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JLabel lbl_alert;
+    public javax.swing.JLabel lbl_closereg;
+    public javax.swing.JLabel lbl_okay;
     private javax.swing.JPanel pan_reg;
     public javax.swing.JTextField txt_email;
     public javax.swing.JTextField txt_nreg;

@@ -118,8 +118,9 @@ public class Login extends javax.swing.JFrame {
         lbl_close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_close.setText("X");
         lbl_close.setToolTipText("cerrar");
+        lbl_close.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(177, 33, 33)));
         lbl_close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(lbl_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 9, 30, 30));
+        jPanel2.add(lbl_close, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 8, 30, 30));
 
         lbl_logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel2.add(lbl_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 220, 140));

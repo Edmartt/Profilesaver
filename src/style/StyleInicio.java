@@ -23,7 +23,7 @@ import javax.swing.ImageIcon;
  */
 public class StyleInicio {
 
-    ImageIcon us, men, show, ad, lok, log, set, ok;
+    ImageIcon us, men, show, ad, lok, log, set, ok, logo;
 
     public static void changeColor(Login log) {
         log.pan_login.setBackground(new Color(254, 254, 254, 100));
@@ -33,7 +33,7 @@ public class StyleInicio {
 
     public void setImage(Inicio init) {
         us = new ImageIcon(getClass().getResource("/img/person-icon.png"));
-        init.lbl_user.setIcon(new ImageIcon(us.getImage().getScaledInstance(init.lbl_user.getWidth(), init.lbl_user.getHeight(), Image.SCALE_AREA_AVERAGING))); 
+        init.lbl_user.setIcon(new ImageIcon(us.getImage().getScaledInstance(init.lbl_user.getWidth(), init.lbl_user.getHeight(), Image.SCALE_AREA_AVERAGING)));
         show = new ImageIcon(getClass().getResource("/img/eye2.png"));
         init.lbl_press.setIcon(new ImageIcon(show.getImage().getScaledInstance(init.lbl_press.getWidth(), init.lbl_press.getHeight(), Image.SCALE_AREA_AVERAGING)));
         ad = new ImageIcon(getClass().getResource("/img/edit.png"));
@@ -46,7 +46,8 @@ public class StyleInicio {
         init.lbl_iconset.setIcon(new ImageIcon(log.getImage().getScaledInstance(init.lbl_iconset.getWidth(), init.lbl_iconset.getHeight(), Image.SCALE_AREA_AVERAGING)));
         ok = new ImageIcon(getClass().getResource("/img/okay.png"));
         init.lbl_iconokay.setIcon(new ImageIcon(ok.getImage().getScaledInstance(init.lbl_iconokay.getWidth(), init.lbl_iconokay.getHeight(), Image.SCALE_AREA_AVERAGING)));
-
+        logo = new ImageIcon(getClass().getResource("/img/log2.png"));
+        init.lbl_logoinit.setIcon(new ImageIcon(logo.getImage().getScaledInstance(250, 200, Image.SCALE_AREA_AVERAGING)));
     }
 
     public static void setPlaceholder(Login log) {

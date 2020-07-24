@@ -89,8 +89,11 @@ public class Inicio extends javax.swing.JFrame {
         txa_nota = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         pan_sup = new javax.swing.JPanel();
+        lbl_logoinit = new javax.swing.JLabel();
+        lbl_off = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -438,6 +441,17 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.add(pan_tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 600));
 
         pan_sup.setBackground(new java.awt.Color(17, 138, 178));
+        pan_sup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pan_sup.add(lbl_logoinit, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 190, 50));
+
+        lbl_off.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        lbl_off.setForeground(new java.awt.Color(254, 254, 254));
+        lbl_off.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_off.setText("X");
+        lbl_off.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
+        lbl_off.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pan_sup.add(lbl_off, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
         jPanel1.add(pan_sup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
@@ -519,7 +533,9 @@ public class Inicio extends javax.swing.JFrame {
     public javax.swing.JLabel lbl_iconokay;
     public javax.swing.JLabel lbl_iconset;
     public javax.swing.JLabel lbl_log;
+    public javax.swing.JLabel lbl_logoinit;
     public javax.swing.JLabel lbl_look;
+    public javax.swing.JLabel lbl_off;
     public javax.swing.JLabel lbl_press;
     public javax.swing.JLabel lbl_set;
     public javax.swing.JLabel lbl_user;

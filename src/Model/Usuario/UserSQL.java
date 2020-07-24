@@ -8,8 +8,6 @@ import GUI.Login;
 import GUI.Registro;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -56,10 +54,10 @@ public class UserSQL {
         return band;
     }
 
-    @SuppressWarnings("unchecked")
+   
     public ArrayList getDatos() {
         con = Conexion.getConnection();
-        ArrayList datos = new ArrayList(10);
+        ArrayList <String> datos = new ArrayList<>(10);
         String sql = "SELECT * FROM Usuario WHERE user_id=?";
         try {
             ps = con.prepareStatement(sql);
@@ -127,11 +125,11 @@ public class UserSQL {
             } else {
                 System.out.println("Ha ocurrido un error");
             }
-            con.close();
+            
         } catch (MySQLIntegrityConstraintViolationException e) {
             System.out.println("Est\u00e1 ingresando un dato ya existente. Puede ser el email o el nombre de usuario");
         } catch (SQLException ex) {
-            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
     }
 
