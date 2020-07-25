@@ -26,7 +26,6 @@ public class UserSQL {
     Connection con = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    public static String un;
 
     public static boolean comprobar(String password, int used_id) {
         com.mysql.jdbc.Connection con = null;
@@ -54,10 +53,9 @@ public class UserSQL {
         return band;
     }
 
-   
     public ArrayList getDatos() {
         con = Conexion.getConnection();
-        ArrayList <String> datos = new ArrayList<>(10);
+        ArrayList<String> datos = new ArrayList<>(10);
         String sql = "SELECT * FROM Usuario WHERE user_id=?";
         try {
             ps = con.prepareStatement(sql);
@@ -122,10 +120,10 @@ public class UserSQL {
             int res = ps.executeUpdate();
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente");
+                limpiar(reg);
             } else {
                 System.out.println("Ha ocurrido un error");
             }
-            
         } catch (MySQLIntegrityConstraintViolationException e) {
             System.out.println("Est\u00e1 ingresando un dato ya existente. Puede ser el email o el nombre de usuario");
         } catch (SQLException ex) {
@@ -133,6 +131,20 @@ public class UserSQL {
         }
     }
 
+    /**
+     * Realiza una consulta a la base de datos, enviando los argumentos de la
+     * clase usuario. Tanto el nombre de usuario como la contraseña que ha sido
+     * previamente cifrada con el método estático getSHA256 en la clase
+     * MetodosEventos.
+     *
+     * Si los hashes coinciden se usa el método setUserId de la clase usuario
+     * para asignar el id de de usuario de la base de datos al atributo id de la
+     * clase Usuario
+     *
+     * @param user
+     * @param init
+     * @param log
+     */
     public void iniciarSesion(Usuario user, Inicio init, Login log) {
 
         con = Conexion.getConnection();
@@ -141,7 +153,7 @@ public class UserSQL {
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
             rs = ps.executeQuery();
-            
+
             if (rs.next()) {
                 user.setUserId(rs.getInt("user_id"));
                 JOptionPane.showMessageDialog(null, "Sesi\u00f3n Iniciada");
@@ -150,7 +162,7 @@ public class UserSQL {
                 init.setVisible(true);
                 Inicio.lbl_user_id.setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(null,"El usuario o la contraseña podrían estar errados");
+                JOptionPane.showMessageDialog(null, "El usuario o la contraseña podrían estar errados");
                 limpiar(log);
             }
         } catch (SQLException e) {
@@ -158,6 +170,16 @@ public class UserSQL {
         }
     }
 
+    /**
+     * Modifica la contraseña de usuario de sistema en la opción ajustes de la
+     * ventana principal. Se envía la cadena cifrada con un algoritmo SHA256,
+     * del cual se hace llamado a un método estático que hace dicha tarea. Al
+     * iniciar sesión no se comparan contraseñas, se comparan los hashes
+     * guardados en la base de datos con los ingresados por el usuario en el
+     * campo de password correspondiente
+     *
+     * @param user
+     */
     public void modPassword(Usuario user) {
         con = Conexion.getConnection();
         try {
@@ -175,8 +197,40 @@ public class UserSQL {
         }
     }
 
-    private void limpiar(Login log) {
-        log.txt_name.setText(null);
-        log.txt_pass.setText(null);
+    /**
+     * limpiar deja las cajas de texto de las ventanas Inicio Registro y Login
+     * en blanco.Según el objeto que se pase como argumento de estas tres
+     * ventanas/clases se evalúa la condición y se hace el respectivo casting a
+     * la clase correspondiente
+     *
+     * @param obj
+     */
+    public static void limpiar(Object obj) {
+        if (obj instanceof Login) {
+            Login log = (Login) obj;
+            log.txt_name.setText(null);
+            log.txt_pass.setText(null);
+        } else if (obj instanceof Registro) {
+            Registro reg = (Registro) obj;
+            reg.txt_email.setText(null);
+            reg.txt_nreg.setText(null);
+            reg.txt_passreg.setText(null);
+            reg.txt_passconf.setText(null);
+            reg.lbl_alert.setText(null);
+            reg.lbl_okay.setVisible(false);
+        } else if (obj instanceof Inicio) {
+            Inicio init = (Inicio) obj;
+            init.txt_url.setText(null);
+            init.txt_username.setText(null);
+            init.txa_rnota.setText(null);
+            init.txt_email.setText(null);
+            init.txt_pass.setText(null);
+            init.txt_pass1.setText(null);
+            init.lbl_alert.setText(null);
+            init.lbl_iconokay.setVisible(false);
+            init.pan_ajustes.setVisible(false);
+            init.pan_form.setVisible(false);
+            init.pan_tab.setVisible(false);
+        }
     }
 }
