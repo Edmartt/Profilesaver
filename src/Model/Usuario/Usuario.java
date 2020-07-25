@@ -4,6 +4,7 @@ package Model.Usuario;
  *
  * @author sam
  */
+
 /**
  * Esta clase se encarga de recibir los datos relacionados con los usuarios del
  * sistema. Sirve como capa intermedia para pasar los datos obtenidos en los
