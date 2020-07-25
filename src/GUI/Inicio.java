@@ -370,7 +370,7 @@ public class Inicio extends javax.swing.JFrame {
         lbl_press.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         lbl_press.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_press.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eye.png"))); // NOI18N
-        pan_tab.add(lbl_press, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 310, 30, 20));
+        pan_tab.add(lbl_press, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 310, 25, 15));
 
         txt_fpass.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
         txt_fpass.setForeground(new java.awt.Color(1, 1, 1));

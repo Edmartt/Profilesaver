@@ -27,13 +27,13 @@ import javax.swing.JOptionPane;
  *
  */
 public class MetodosEventos {
-
+    
     public void loguearse(Login log, UserSQL sql, Usuario user, Inicio init) {
         user.setUsername(log.txt_name.getText());
         user.setPassword(SHA256.getSHA256(new String(log.txt_pass.getPassword())));
         sql.iniciarSesion(user, init, log);
     }
-
+    
     public void registrarUser(Registro reg, UserSQL sql, Usuario user) {
         user.setUsername(reg.txt_nreg.getText());
         user.setEmail(reg.txt_email.getText());
@@ -51,18 +51,18 @@ public class MetodosEventos {
             JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
         }
     }
-
+    
     public void updateUsername(ModUsername mod, UserSQL usersql, Usuario user, Inicio init) {
         user.setUserId(Integer.parseInt(Inicio.lbl_user_id.getText()));
         user.setUsername(mod.txt_confname.getText());
         int resp = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el nombre de usuario?", "Modificar", JOptionPane.YES_NO_OPTION);
         init.toBack();
-
+        
         if (resp == 0) {
             usersql.modUsername(user);
         }
     }
-
+    
     public void updateEmail(UserSQL usersql, Usuario user, Inicio init, ModEmail mod) {
         user.setUserId(Integer.parseInt(Inicio.lbl_user_id.getText()));
         user.setEmail(mod.txt_confemail.getText());
@@ -71,7 +71,7 @@ public class MetodosEventos {
             usersql.modEmail(user);
         }
     }
-
+    
     public void updatePassword(ModPassword modpass, Usuario user, UserSQL usersql) {
         if (new String(modpass.txt_newpass.getPassword()).equals(new String(modpass.txt_conpass.getPassword()))) {
             user.setPassword(new String(modpass.txt_conpass.getPassword()));
@@ -84,7 +84,7 @@ public class MetodosEventos {
             JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
         }
     }
-
+    
     public void registrarWeb(Inicio init, WebSite web, WebSQL websql) {
         web.setWeb_name(init.txt_url.getText());
         web.setWeb_username(init.txt_username.getText());
@@ -93,13 +93,14 @@ public class MetodosEventos {
         web.setNota(init.txa_rnota.getText());
         if (new String(init.txt_pass.getPassword()).equals(new String(init.txt_pass1.getPassword()))) {
             websql.agregarWeb(web);
+            UserSQL.limpiar(init);
         } else {
             JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
         }
     }
-
+    
     public void comparePass(Object ini) {
-
+        
         if (ini instanceof Inicio) {
             Inicio init = (Inicio) ini;
             if (!new String(init.txt_pass.getPassword()).equals(new String(init.txt_pass1.getPassword()))) {
@@ -120,7 +121,7 @@ public class MetodosEventos {
             }
         }
     }
-
+    
     public void updateWebs(Inicio init, WebSQL websql, WebSite web) {
         web.setWeb_name(init.txt_fname.getText());
         web.setWeb_username(init.txt_fusername.getText());
@@ -132,14 +133,14 @@ public class MetodosEventos {
             websql.actualizarWeb(web, init);
         }
     }
-
+    
     public void deleteWeb(WebSQL websql, Inicio init) {
         int res = JOptionPane.showConfirmDialog(null, "¿Desea eliminar este perfil?", "Eliminar", JOptionPane.YES_NO_OPTION);
         if (res == 0) {
             websql.eliminarWeb(init);
         }
     }
-
+    
     public void mostrarDatos(Inicio init) {
         init.txt_fname.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 2).toString().trim());
         init.txt_fusername.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 3).toString().trim());
@@ -147,5 +148,5 @@ public class MetodosEventos {
         init.txt_fpass.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 5).toString().trim());
         init.txa_nota.setText(init.tb_mostrar.getValueAt(init.tb_mostrar.getSelectedRow(), 6).toString().trim());
     }
-
+    
 }

@@ -2,6 +2,7 @@ package Model.websites;
 
 import Extras.Conexion;
 import GUI.Inicio;
+import Model.Usuario.UserSQL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,11 +13,10 @@ import javax.swing.JOptionPane;
  *
  * @author sam
  */
-
 /**
- * En esta clase se encuentran todos los métodos relacionados con
- * consultas SQL de la clase Website. Los métodos que se pueden encontrar son
- * agregarWeb, actualizarWeb y eliminarWeb
+ * En esta clase se encuentran todos los métodos relacionados con consultas SQL
+ * de la clase Website. Los métodos que se pueden encontrar son agregarWeb,
+ * actualizarWeb y eliminarWeb
  */
 public class WebSQL {
 
@@ -24,7 +24,7 @@ public class WebSQL {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public void actualizarWeb(WebSite web,Inicio init) {
+    public void actualizarWeb(WebSite web, Inicio init) {
         con = Conexion.getConnection();
         String sql = "UPDATE Website SET web_name=?,web_username=?,web_email=?,web_pass=?,nota=? WHERE web_id=?";
 
@@ -44,6 +44,7 @@ public class WebSQL {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+
     /**
      * Método que se encarga de establecer conexión con la BD con el fin de
      * ingresar datos de los sitios web que se quieran guardar de forma

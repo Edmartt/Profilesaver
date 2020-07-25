@@ -13,6 +13,7 @@ import Extras.Conexion;
 import GUI.Inicio;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -101,6 +102,7 @@ public class TablaWebSite {
     }
 
     public static void ajustarTabla(Inicio init) {
+        init.tb_mostrar.setIntercellSpacing(new Dimension(0,0));
         init.scroll.getViewport().setBackground(Color.WHITE); //Fondo del contenedor de la tabla
         init.tb_mostrar.getTableHeader().setFont(new Font("Liberation Sans", Font.BOLD, 13));
         init.tb_mostrar.getTableHeader().setOpaque(true);

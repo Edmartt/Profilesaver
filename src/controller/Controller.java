@@ -82,6 +82,7 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         log.lbl_crear.addMouseListener(this);
         log.lbl_close.addMouseListener(this);
         log.lbl_iconeye.addMouseListener(this);
+        log.lbl_iconeye.addMouseListener(this);
         reg.btn_reg.addActionListener(this);
         reg.lbl_closereg.addMouseListener(this);
         init.btn_reg.addActionListener(this);
@@ -105,6 +106,7 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         modpass.lbl_cerrarpass.addMouseListener(this);
         init.txt_pass1.addKeyListener(this);
         init.lbl_off.addMouseListener(this);
+        reg.btn_cancel.addActionListener(this);
         reg.txt_passconf.addKeyListener(this);
     }
     
@@ -119,7 +121,14 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         } else if (ae.getSource() == reg.btn_reg) {
             event.registrarUser(reg, sql, user);
             
-        } else if (ae.getSource() == init.btn_reg) {
+        } else if (ae.getSource()==reg.btn_cancel) {
+            int res=JOptionPane.showConfirmDialog(null, "¿Desea cancelar el registro?","Cancelar",JOptionPane.YES_NO_OPTION);
+            if (res==0) {
+                reg.dispose();
+                UserSQL.limpiar(reg);
+            }
+        }  
+        else if (ae.getSource() == init.btn_reg) {
             event.registrarWeb(init, web, websql);
             
         } else if (ae.getSource() == init.btn_mod) {
@@ -179,6 +188,7 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             int resp = JOptionPane.showConfirmDialog(null, "¿Desea cerrar la sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION);
             if (resp == 0) {
                 init.dispose();
+                UserSQL.limpiar(init);
                 log.setVisible(true);
             }
         } else if (me.getSource() == log.lbl_close) {
@@ -201,6 +211,8 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
     public void mousePressed(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
             init.txt_fpass.setEchoChar((char) 0);
+        } else if (me.getSource() == log.lbl_iconeye) {
+            log.txt_pass.setEchoChar((char) 0);
         }
     }
     
@@ -208,6 +220,8 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
     public void mouseReleased(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
             init.txt_fpass.setEchoChar('•');
+        } else if (me.getSource() == log.lbl_iconeye) {
+            log.txt_pass.setEchoChar('•');
         }
     }
     

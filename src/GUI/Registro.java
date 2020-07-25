@@ -41,10 +41,9 @@ public class Registro extends javax.swing.JFrame {
         lbl_okay = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lbl_closereg = new javax.swing.JLabel();
-        btn_reg1 = new javax.swing.JButton();
+        btn_cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(600, 530));
         setMinimumSize(new java.awt.Dimension(600, 530));
         setUndecorated(true);
         setResizable(false);
@@ -126,11 +125,11 @@ public class Registro extends javax.swing.JFrame {
 
         pan_reg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 40));
 
-        btn_reg1.setBackground(new java.awt.Color(192, 46, 58));
-        btn_reg1.setFont(new java.awt.Font("Lato Black", 0, 14)); // NOI18N
-        btn_reg1.setForeground(new java.awt.Color(254, 254, 254));
-        btn_reg1.setText("Cancelar");
-        pan_reg.add(btn_reg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 110, 40));
+        btn_cancel.setBackground(new java.awt.Color(192, 46, 58));
+        btn_cancel.setFont(new java.awt.Font("Lato Black", 0, 14)); // NOI18N
+        btn_cancel.setForeground(new java.awt.Color(254, 254, 254));
+        btn_cancel.setText("Cancelar");
+        pan_reg.add(btn_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 110, 40));
 
         getContentPane().add(pan_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 530));
 
@@ -182,8 +181,8 @@ public class Registro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btn_cancel;
     public javax.swing.JButton btn_reg;
-    public javax.swing.JButton btn_reg1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
