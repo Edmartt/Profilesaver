@@ -2,7 +2,6 @@ package Model.websites;
 
 import Extras.Conexion;
 import GUI.Inicio;
-import Model.Usuario.UserSQL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,6 +41,8 @@ public class WebSQL {
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(null, "No ha seleccionado nada");
         }
     }
 
@@ -69,7 +70,7 @@ public class WebSQL {
                 System.out.println("Ha ocurrido un error");
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "El correo debe contener un formato válido");
         }
     }
 
@@ -86,6 +87,8 @@ public class WebSQL {
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(null, "No ha seleccionado nada");
         }
     }
 }

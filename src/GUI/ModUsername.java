@@ -30,7 +30,7 @@ public class ModUsername extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         lbl_cerraruser = new javax.swing.JLabel();
-        txt_modname = new javax.swing.JTextField();
+        txt_curname = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txt_confname = new javax.swing.JTextField();
@@ -67,9 +67,9 @@ public class ModUsername extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 498, -1));
 
-        txt_modname.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        txt_modname.setEnabled(false);
-        jPanel1.add(txt_modname, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 89, 210, 46));
+        txt_curname.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        txt_curname.setEnabled(false);
+        jPanel1.add(txt_curname, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 89, 210, 46));
 
         jLabel1.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 15)); // NOI18N
         jLabel1.setText("Nombre de Usuario Actual");
@@ -150,6 +150,6 @@ public class ModUsername extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel lbl_cerraruser;
     public javax.swing.JTextField txt_confname;
-    public javax.swing.JTextField txt_modname;
+    public javax.swing.JTextField txt_curname;
     // End of variables declaration//GEN-END:variables
 }

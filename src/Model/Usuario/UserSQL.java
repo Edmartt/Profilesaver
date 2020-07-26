@@ -27,30 +27,22 @@ public class UserSQL {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public static boolean comprobar(String password, int used_id) {
-        com.mysql.jdbc.Connection con = null;
-        PreparedStatement ps;
-        ResultSet rs;
-        String sql = "SELECT * FROM Usuario WHERE user_id=?";
-        boolean band = false;
-        Conexion.getConnection();
+    public int comprobarEmail(Usuario user) {
+        con = Conexion.getConnection();
+        int n = 0;
+        String sql = "SELECT COUNT(email) FROM Usuario WHERE email=?";
         try {
-            ps = Conexion.getConnection().prepareStatement(sql);
-            ps.setInt(1, used_id);
+            ps = con.prepareStatement(sql);
+            ps.setString(1, user.getEmail());
             rs = ps.executeQuery();
             if (rs.next()) {
-                if (rs.getString("password").equals(Usuario.password1)) {
-                    band = true;
-                    return band;
-                }
-            } else {
-                band = false;
-                return band;
+                n = 1;
+                return n;
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e);
         }
-        return band;
+        return n;
     }
 
     public ArrayList getDatos() {

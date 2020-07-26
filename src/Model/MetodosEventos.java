@@ -42,29 +42,42 @@ public class MetodosEventos {
         user.setPassword(SHA256.getSHA256(password2));
         char[] pass2 = reg.txt_passconf.getPassword();
         String password3 = new String(pass2);
+       
         if ((!reg.txt_email.getText().isBlank() && !reg.txt_nreg.getText().isBlank() && !new String(reg.txt_passreg.getPassword()).isBlank() && !new String(reg.txt_passconf.getPassword()).isBlank())) {
-            if (user.getPassword().equals(SHA256.getSHA256(password3))) {
-                int resp = JOptionPane.showConfirmDialog(null, "¿Desea crear el usuario?", "Crear", JOptionPane.YES_NO_OPTION);
-                if (resp == 0) {
-                    sql.crearUsuario(user, reg);
+            if (sql.comprobarEmail(user) == 0) {
+                if (new String(reg.txt_passreg.getPassword()).length() >= 8) {
+                    if (user.getPassword().equals(SHA256.getSHA256(password3))) {
+                        int resp = JOptionPane.showConfirmDialog(null, "¿Desea crear el usuario?", "Crear", JOptionPane.YES_NO_OPTION);
+                        if (resp == 0) {
+                            sql.crearUsuario(user, reg);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+                    }
+                } else if (new String(reg.txt_passreg.getPassword()).length() < 8) {
+                    JOptionPane.showMessageDialog(null, "La contraseña debe contener mínimo 8 caracteres");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+                JOptionPane.showMessageDialog(null, "El email ingresado ya existe");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
         }
-
     }
 
     public void updateUsername(ModUsername mod, UserSQL usersql, Usuario user, Inicio init) {
-        user.setUserId(Integer.parseInt(Inicio.lbl_user_id.getText()));
-        user.setUsername(mod.txt_confname.getText());
-        int resp = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el nombre de usuario?", "Modificar", JOptionPane.YES_NO_OPTION);
-        init.toBack();
 
-        if (resp == 0) {
-            usersql.modUsername(user);
+        if (!mod.txt_confname.getText().isBlank()) {
+            user.setUserId(Integer.parseInt(Inicio.lbl_user_id.getText()));
+            user.setUsername(mod.txt_confname.getText());
+            int resp = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el nombre de usuario?", "Modificar", JOptionPane.YES_NO_OPTION);
+            init.toBack();
+
+            if (resp == 0) {
+                usersql.modUsername(user);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe escribir un nombre de usuario en el campo");
         }
     }
 
@@ -96,11 +109,15 @@ public class MetodosEventos {
         web.setWeb_email(init.txt_email.getText());
         web.setWeb_pass(new String(init.txt_pass.getPassword()));
         web.setNota(init.txa_rnota.getText());
-        if (new String(init.txt_pass.getPassword()).equals(new String(init.txt_pass1.getPassword()))) {
-            websql.agregarWeb(web);
-            UserSQL.limpiar(init);
+        if (!init.txt_url.getText().isBlank() && !init.txt_username.getText().isBlank() && !new String(init.txt_pass.getPassword()).isBlank() && !new String(init.txt_pass1.getPassword()).isBlank() && !init.txt_email.getText().isBlank()) {
+            if (new String(init.txt_pass.getPassword()).equals(new String(init.txt_pass1.getPassword()))) {
+                websql.agregarWeb(web);
+                UserSQL.limpiar(init);
+            } else {
+                JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+            JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos");
         }
     }
 
