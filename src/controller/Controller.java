@@ -14,6 +14,7 @@ import Model.Usuario.Usuario;
 import Model.websites.WebSQL;
 import Model.websites.WebSite;
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -83,6 +84,8 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         log.lbl_close.addMouseListener(this);
         log.lbl_iconeye.addMouseListener(this);
         log.lbl_iconeye.addMouseListener(this);
+        log.txt_pass.addKeyListener(this);
+        log.txt_pass.addMouseListener(this);
         reg.btn_reg.addActionListener(this);
         reg.lbl_closereg.addMouseListener(this);
         init.btn_reg.addActionListener(this);
@@ -128,7 +131,10 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
                 UserSQL.limpiar(reg);
             }
         } else if (ae.getSource() == init.btn_reg) {
-            event.registrarWeb(init, web, websql);
+            int resp = JOptionPane.showConfirmDialog(null, "¿Desea guardar este perfil?", "Guardar", JOptionPane.YES_NO_OPTION);
+            if (resp == 0) {
+                event.registrarWeb(init, web, websql);
+            }
 
         } else if (ae.getSource() == init.btn_mod) {
             event.updateWebs(init, websql, web);
@@ -222,6 +228,13 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             init.txt_fpass.setEchoChar('•');
         } else if (me.getSource() == log.lbl_iconeye) {
             log.txt_pass.setEchoChar('•');
+        } else if (me.getSource() == log.txt_pass) {
+            boolean activo = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+            if (activo) {
+                log.message.setText("Mayúsculas está activado");
+            } else if (activo == false) {
+                log.message.setText(null);
+            }
         }
     }
 
@@ -240,6 +253,7 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent ke) {
+
     }
 
     @Override
@@ -248,6 +262,15 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             event.comparePass(init);
         } else if (ke.getSource() == reg.txt_passconf) {
             event.comparePass(reg);
+        }
+        //Se asigna el estado de la tecla a un boolean
+        boolean activo = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+        if (ke.getSource() == log.txt_pass) {
+            if (activo) {
+                log.message.setText("Mayúsculas está activado");
+            } else if (activo == false) {
+                log.message.setText(null);
+            }
         }
     }
 

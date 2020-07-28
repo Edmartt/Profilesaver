@@ -27,22 +27,24 @@ public class UserSQL {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
-    public int comprobarEmail(Usuario user) {
+    public int existeUsuario(Usuario user) {
         con = Conexion.getConnection();
-        int n = 0;
-        String sql = "SELECT COUNT(email) FROM Usuario WHERE email=?";
+        
+        String sql = "SELECT COUNT(user_id) FROM Usuario WHERE username=?";
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, user.getEmail());
+            ps.setString(1, user.getUsername());
             rs = ps.executeQuery();
-            if (rs.next()) {
-                n = 1;
-                return n;
+            if (rs.next()) {             
+                return rs.getInt(1);
+            }
+            else {
+                return 1;
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        return n;
+        return 1;
     }
 
     public ArrayList getDatos() {
@@ -61,7 +63,6 @@ public class UserSQL {
             }
         } catch (SQLException e) {
         }
-
         return datos;
     }
 
@@ -117,7 +118,7 @@ public class UserSQL {
                 System.out.println("Ha ocurrido un error");
             }
         } catch (MySQLIntegrityConstraintViolationException e) {
-            System.out.println("Est\u00e1 ingresando un dato ya existente. Puede ser el email o el nombre de usuario");
+            JOptionPane.showMessageDialog(null, "El email debe tener un formato válido");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -221,7 +222,7 @@ public class UserSQL {
             init.lbl_alert.setText(null);
             init.lbl_iconokay.setVisible(false);
             init.pan_ajustes.setVisible(false);
-            init.pan_form.setVisible(false);
+            //init.pan_form.setVisible(false);
             init.pan_tab.setVisible(false);
         }
     }

@@ -37,16 +37,12 @@ public class MetodosEventos {
     public void registrarUser(Registro reg, UserSQL sql, Usuario user) {
         user.setUsername(reg.txt_nreg.getText());
         user.setEmail(reg.txt_email.getText());
-        char[] pass1 = reg.txt_passreg.getPassword();
-        String password2 = new String(pass1);
-        user.setPassword(SHA256.getSHA256(password2));
-        char[] pass2 = reg.txt_passconf.getPassword();
-        String password3 = new String(pass2);
-       
+        user.setPassword(SHA256.getSHA256(new String(reg.txt_passreg.getPassword())));
+
         if ((!reg.txt_email.getText().isBlank() && !reg.txt_nreg.getText().isBlank() && !new String(reg.txt_passreg.getPassword()).isBlank() && !new String(reg.txt_passconf.getPassword()).isBlank())) {
-            if (sql.comprobarEmail(user) == 0) {
+            if (sql.existeUsuario(user) == 0) {
                 if (new String(reg.txt_passreg.getPassword()).length() >= 8) {
-                    if (user.getPassword().equals(SHA256.getSHA256(password3))) {
+                    if (user.getPassword().equals(SHA256.getSHA256(new String(reg.txt_passconf.getPassword())))) {
                         int resp = JOptionPane.showConfirmDialog(null, "¿Desea crear el usuario?", "Crear", JOptionPane.YES_NO_OPTION);
                         if (resp == 0) {
                             sql.crearUsuario(user, reg);
@@ -58,7 +54,7 @@ public class MetodosEventos {
                     JOptionPane.showMessageDialog(null, "La contraseña debe contener mínimo 8 caracteres");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "El email ingresado ya existe");
+                JOptionPane.showMessageDialog(null, "El usuario ya existe");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
@@ -66,7 +62,6 @@ public class MetodosEventos {
     }
 
     public void updateUsername(ModUsername mod, UserSQL usersql, Usuario user, Inicio init) {
-
         if (!mod.txt_confname.getText().isBlank()) {
             user.setUserId(Integer.parseInt(Inicio.lbl_user_id.getText()));
             user.setUsername(mod.txt_confname.getText());
@@ -111,8 +106,8 @@ public class MetodosEventos {
         web.setNota(init.txa_rnota.getText());
         if (!init.txt_url.getText().isBlank() && !init.txt_username.getText().isBlank() && !new String(init.txt_pass.getPassword()).isBlank() && !new String(init.txt_pass1.getPassword()).isBlank() && !init.txt_email.getText().isBlank()) {
             if (new String(init.txt_pass.getPassword()).equals(new String(init.txt_pass1.getPassword()))) {
-                websql.agregarWeb(web);
-                UserSQL.limpiar(init);
+                websql.agregarWeb(web, init);
+
             } else {
                 JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
             }
@@ -121,10 +116,10 @@ public class MetodosEventos {
         }
     }
 
-    public void comparePass(Object ini) {
+    public void comparePass(Object obj) {
 
-        if (ini instanceof Inicio) {
-            Inicio init = (Inicio) ini;
+        if (obj instanceof Inicio) {
+            Inicio init = (Inicio) obj;
             if (!new String(init.txt_pass.getPassword()).equals(new String(init.txt_pass1.getPassword()))) {
                 init.lbl_iconokay.setVisible(false);
                 init.lbl_alert.setText("Las contraseñas no coinciden");
@@ -132,8 +127,8 @@ public class MetodosEventos {
                 init.lbl_alert.setText(null);
                 init.lbl_iconokay.setVisible(true);
             }
-        } else if (ini instanceof Registro) {
-            Registro reg = (Registro) ini;
+        } else if (obj instanceof Registro) {
+            Registro reg = (Registro) obj;
             if (!new String(reg.txt_passreg.getPassword()).equals(new String(reg.txt_passconf.getPassword()))) {
                 reg.lbl_okay.setVisible(false);
                 reg.lbl_alert.setText("Las contraseñas no coinciden");

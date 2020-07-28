@@ -2,6 +2,7 @@ package Model.websites;
 
 import Extras.Conexion;
 import GUI.Inicio;
+import Model.Usuario.UserSQL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,6 +39,7 @@ public class WebSQL {
             int res = ps.executeUpdate();
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Datos actualizados");
+                limpiarWeb(init);
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
@@ -52,8 +54,9 @@ public class WebSQL {
      * persistente
      *
      * @param web
+     * @param init
      */
-    public void agregarWeb(WebSite web) {
+    public void agregarWeb(WebSite web,Inicio init) {
         con = Conexion.getConnection();
         try {
             ps = con.prepareStatement("INSERT INTO Website(user_id,web_name,web_username,web_email,web_pass,nota) VALUES(?,?,?,?,?,?)");
@@ -66,6 +69,7 @@ public class WebSQL {
             int res = ps.executeUpdate();
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Perfil agregado");
+                UserSQL.limpiar(init);
             } else {
                 System.out.println("Ha ocurrido un error");
             }
@@ -84,11 +88,20 @@ public class WebSQL {
 
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Sitio Web Eliminado");
+                limpiarWeb(init);
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         } catch (ArrayIndexOutOfBoundsException ex) {
             JOptionPane.showMessageDialog(null, "No ha seleccionado nada");
         }
+    }
+    
+    private void limpiarWeb(Inicio init){
+        init.txt_fname.setText(null);
+        init.txt_femail.setText(null);
+        init.txt_fpass.setText(null);
+        init.txt_fusername.setText(null);
+        init.txa_nota.setText(null);
     }
 }

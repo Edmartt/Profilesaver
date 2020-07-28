@@ -50,6 +50,7 @@ public class Login extends javax.swing.JFrame {
         lbl_logo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lbl_iconpass = new javax.swing.JLabel();
+        message = new javax.swing.JLabel();
         lbl_fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,7 +85,7 @@ public class Login extends javax.swing.JFrame {
         btn_log.setFont(new java.awt.Font("L M Mono Caps10", 1, 18)); // NOI18N
         btn_log.setForeground(new java.awt.Color(7, 59, 76));
         btn_log.setText("Login");
-        pan_login.add(btn_log, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 350, 81, -1));
+        pan_login.add(btn_log, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 81, -1));
 
         lbl_iconeye.setBackground(new java.awt.Color(17, 138, 178));
         lbl_iconeye.setOpaque(true);
@@ -133,6 +134,11 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("¿No tienes una cuenta?");
         pan_login.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 400, 40));
         pan_login.add(lbl_iconpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 285, 30, 30));
+
+        message.setFont(new java.awt.Font("Cantarell", 3, 12)); // NOI18N
+        message.setForeground(new java.awt.Color(254, 254, 254));
+        message.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pan_login.add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 270, 30));
 
         jPanel1.add(pan_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -7, 410, 610));
 
@@ -206,6 +212,7 @@ public class Login extends javax.swing.JFrame {
     public javax.swing.JLabel lbl_iconuser;
     public javax.swing.JLabel lbl_logo;
     public javax.swing.JLabel lbl_rec;
+    public javax.swing.JLabel message;
     public javax.swing.JPanel pan_login;
     private javax.swing.JSeparator sep1;
     private javax.swing.JSeparator sep2;
