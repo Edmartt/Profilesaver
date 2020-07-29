@@ -14,12 +14,14 @@ import Model.Usuario.Usuario;
 import Model.websites.WebSQL;
 import Model.websites.WebSite;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.border.SoftBevelBorder;
 import style.StyleInicio;
@@ -35,7 +37,7 @@ import style.StyleReg;
  * deberían dar una respuesta concreta a la acción, lo que desata eventos.
  */
 public class Controller implements ActionListener, MouseListener, KeyListener {
-
+    
     private Login log;
     private Inicio init;
     private Usuario user;
@@ -50,7 +52,7 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
     private ModUsername mod;
     private ModEmail modEm;
     private ModPassword modpass;
-
+    
     public Controller() {
         reg = new Registro();
         event = new MetodosEventos();
@@ -74,10 +76,10 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         init.pan_slide.setBorder(new SoftBevelBorder(0, null, null, null, Color.black));
         user = new Usuario();
         log.setVisible(true);
-
+        
         buttons();
     }
-
+    
     private void buttons() {
         log.btn_log.addActionListener(this);
         log.lbl_crear.addMouseListener(this);
@@ -86,6 +88,7 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         log.lbl_iconeye.addMouseListener(this);
         log.txt_pass.addKeyListener(this);
         log.txt_pass.addMouseListener(this);
+        log.lbl_min.addMouseListener(this);
         reg.btn_reg.addActionListener(this);
         reg.lbl_closereg.addMouseListener(this);
         init.btn_reg.addActionListener(this);
@@ -109,10 +112,11 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         modpass.lbl_cerrarpass.addMouseListener(this);
         init.txt_pass1.addKeyListener(this);
         init.lbl_off.addMouseListener(this);
+        init.lbl_min.addMouseListener(this);
         reg.btn_cancel.addActionListener(this);
         reg.txt_passconf.addKeyListener(this);
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == log.btn_log) {
@@ -120,10 +124,10 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             event.loguearse(log, sql, user, init);
             Inicio.lbl_user_id.setText(String.valueOf(user.getUserId()));
             init.lbl_username.setText(user.getUsername());
-
+            
         } else if (ae.getSource() == reg.btn_reg) {
             event.registrarUser(reg, sql, user);
-
+            
         } else if (ae.getSource() == reg.btn_cancel) {
             int res = JOptionPane.showConfirmDialog(null, "¿Desea cancelar el registro?", "Cancelar", JOptionPane.YES_NO_OPTION);
             if (res == 0) {
@@ -135,11 +139,11 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             if (resp == 0) {
                 event.registrarWeb(init, web, websql);
             }
-
+            
         } else if (ae.getSource() == init.btn_mod) {
             event.updateWebs(init, websql, web);
             tb.mostrarWebs(init);
-
+            
         } else if (ae.getSource() == init.btn_del) {
             event.deleteWeb(websql, init);
             tb.mostrarWebs(init);
@@ -150,7 +154,7 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         } else if (ae.getSource() == init.btn_username) {
             mod.txt_curname.setText(init.lbl_username.getText());
             mod.setVisible(true);
-
+            
         } else if (ae.getSource() == modEm.btn_cambemail) {
             event.updateEmail(sql, user, init, modEm);
             modEm.toFront();
@@ -165,28 +169,30 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             modpass.toFront();
         }
     }
-
+    
     @Override
     public void mouseClicked(MouseEvent me) {
-
+        
         if (me.getSource() == this.log.lbl_crear) {
             reg.setVisible(true);
         } else if (me.getSource() == init.lbl_add) {
             init.pan_form.setVisible(true);
             init.pan_tab.setVisible(false);
             init.pan_ajustes.setVisible(false);
-
+            
         } else if (me.getSource() == init.lbl_look) {
             TablaWebSite.ajustarTabla(init);
             init.pan_tab.setVisible(true);
             tb.mostrarWebs(init);
             init.pan_form.setVisible(false);
             init.pan_ajustes.setVisible(false);
-
+            
         } else if (me.getSource() == init.lbl_set) {
             init.pan_form.setVisible(false);
             init.pan_tab.setVisible(false);
             init.pan_ajustes.setVisible(true);
+        } else if (me.getSource() == init.lbl_min) {
+            init.setExtendedState(Cursor.CROSSHAIR_CURSOR);
         } else if (me.getSource() == init.tb_mostrar) {
             event.mostrarDatos(init);
         } else if (me.getSource() == init.lbl_off) {
@@ -201,6 +207,8 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             if (resp == 0) {
                 System.exit(0);
             }
+        } else if (me.getSource() == log.lbl_min) {
+            log.setExtendedState(Cursor.CROSSHAIR_CURSOR);
         } else if (me.getSource() == mod.lbl_cerraruser) {
             mod.dispose();
             init.toFront();
@@ -212,7 +220,7 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             reg.dispose();
         }
     }
-
+    
     @Override
     public void mousePressed(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
@@ -221,7 +229,7 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             log.txt_pass.setEchoChar((char) 0);
         }
     }
-
+    
     @Override
     public void mouseReleased(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
@@ -237,25 +245,25 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             }
         }
     }
-
+    
     @Override
     public void mouseEntered(MouseEvent me) {
     }
-
+    
     @Override
     public void mouseExited(MouseEvent me) {
     }
-
+    
     @Override
     public void keyTyped(KeyEvent ke) {
-
+        
     }
-
+    
     @Override
     public void keyPressed(KeyEvent ke) {
-
+        
     }
-
+    
     @Override
     public void keyReleased(KeyEvent ke) {
         if (ke.getSource() == init.txt_pass1) {
@@ -273,5 +281,5 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             }
         }
     }
-
+    
 }

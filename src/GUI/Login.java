@@ -48,6 +48,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lbl_close = new javax.swing.JLabel();
         lbl_logo = new javax.swing.JLabel();
+        lbl_min = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lbl_iconpass = new javax.swing.JLabel();
         message = new javax.swing.JLabel();
@@ -125,6 +126,14 @@ public class Login extends javax.swing.JFrame {
 
         lbl_logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel2.add(lbl_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 220, 140));
+
+        lbl_min.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        lbl_min.setForeground(new java.awt.Color(204, 43, 43));
+        lbl_min.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_min.setText("-");
+        lbl_min.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(177, 33, 33)));
+        lbl_min.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(lbl_min, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 8, 30, 30));
 
         pan_login.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 150));
 
@@ -211,6 +220,7 @@ public class Login extends javax.swing.JFrame {
     public javax.swing.JLabel lbl_iconpass;
     public javax.swing.JLabel lbl_iconuser;
     public javax.swing.JLabel lbl_logo;
+    public javax.swing.JLabel lbl_min;
     public javax.swing.JLabel lbl_rec;
     public javax.swing.JLabel message;
     public javax.swing.JPanel pan_login;

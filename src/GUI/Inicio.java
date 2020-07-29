@@ -91,6 +91,7 @@ public class Inicio extends javax.swing.JFrame {
         pan_sup = new javax.swing.JPanel();
         lbl_logoinit = new javax.swing.JLabel();
         lbl_off = new javax.swing.JLabel();
+        lbl_min = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -452,6 +453,14 @@ public class Inicio extends javax.swing.JFrame {
         lbl_off.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pan_sup.add(lbl_off, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
 
+        lbl_min.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        lbl_min.setForeground(new java.awt.Color(254, 254, 254));
+        lbl_min.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_min.setText("-");
+        lbl_min.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
+        lbl_min.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pan_sup.add(lbl_min, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 30, 30));
+
         jPanel1.add(pan_sup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
@@ -535,6 +544,7 @@ public class Inicio extends javax.swing.JFrame {
     public javax.swing.JLabel lbl_log;
     public javax.swing.JLabel lbl_logoinit;
     public javax.swing.JLabel lbl_look;
+    public javax.swing.JLabel lbl_min;
     public javax.swing.JLabel lbl_off;
     public javax.swing.JLabel lbl_press;
     public javax.swing.JLabel lbl_set;
