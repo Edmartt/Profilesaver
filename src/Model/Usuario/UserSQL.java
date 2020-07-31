@@ -27,18 +27,32 @@ public class UserSQL {
     PreparedStatement ps = null;
     ResultSet rs = null;
 
+    public boolean comprobarUser(Usuario user) {
+        con = Conexion.getConnection();
+        String sql = "SELECT username FROM Usuario WHERE username=?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, user.getUsername());
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+        }
+
+        return false;
+    }
+
     public int existeUsuario(Usuario user) {
         con = Conexion.getConnection();
-        
+
         String sql = "SELECT COUNT(user_id) FROM Usuario WHERE username=?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, user.getUsername());
             rs = ps.executeQuery();
-            if (rs.next()) {             
+            if (rs.next()) {
                 return rs.getInt(1);
-            }
-            else {
+            } else {
                 return 1;
             }
         } catch (SQLException e) {

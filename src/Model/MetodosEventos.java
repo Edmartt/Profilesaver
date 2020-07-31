@@ -34,34 +34,51 @@ public class MetodosEventos {
         sql.iniciarSesion(user, init, log);
     }
 
+    public boolean prohibirChar(Registro reg) {
+        return reg.txt_nreg.getText() != null && reg.txt_nreg.getText().matches("^[a-zA-Z0-9]*$");
+    }
+
     public void registrarUser(Registro reg, UserSQL sql, Usuario user) {
         user.setUsername(reg.txt_nreg.getText());
         user.setEmail(reg.txt_email.getText());
         user.setPassword(SHA256.getSHA256(new String(reg.txt_passreg.getPassword())));
 
         if ((!reg.txt_email.getText().isBlank() && !reg.txt_nreg.getText().isBlank() && !new String(reg.txt_passreg.getPassword()).isBlank() && !new String(reg.txt_passconf.getPassword()).isBlank())) {
-            if (sql.existeUsuario(user) == 0) {
-                if (new String(reg.txt_passreg.getPassword()).length() >= 8) {
-                    if (user.getPassword().equals(SHA256.getSHA256(new String(reg.txt_passconf.getPassword())))) {
-                        int resp = JOptionPane.showConfirmDialog(null, "¿Desea crear el usuario?", "Crear", JOptionPane.YES_NO_OPTION);
-                        if (resp == 0) {
-                            sql.crearUsuario(user, reg);
+
+            if (prohibirChar(reg)) {
+                if (reg.txt_nreg.getText().length() > 6) {
+
+                    if (sql.existeUsuario(user) == 0) {
+
+                        if (new String(reg.txt_passreg.getPassword()).length() >= 8) {
+
+                            if (user.getPassword().equals(SHA256.getSHA256(new String(reg.txt_passconf.getPassword())))) {
+                                int resp = JOptionPane.showConfirmDialog(null, "¿Desea crear el usuario?", "Crear", JOptionPane.YES_NO_OPTION);
+                                if (resp == 0) {
+                                    sql.crearUsuario(user, reg);
+                                }
+                            } else {
+                                reg.lbl_alert.setText("Las contraseñas no coinciden");
+                            }
+                        } else if (new String(reg.txt_passreg.getPassword()).length() < 8) {
+                            reg.lbl_alert.setText("La contraseña debe contener mínimo 8 caracteres");
                         }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden");
+                        reg.lbl_alert.setText("El usuario ya existe");
                     }
-                } else if (new String(reg.txt_passreg.getPassword()).length() < 8) {
-                    JOptionPane.showMessageDialog(null, "La contraseña debe contener mínimo 8 caracteres");
+                } else {
+                    reg.lbl_alert.setText("El nombre de usuario debe contener al menos 6 caracteres");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "El usuario ya existe");
+                reg.lbl_alert.setText("No se admiten nombres con caracteres raros");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
+            reg.lbl_alert.setText("Todos los campos son obligatorios");
         }
     }
 
     public void updateUsername(ModUsername mod, UserSQL usersql, Usuario user, Inicio init) {
+
         if (!mod.txt_confname.getText().isBlank()) {
             user.setUserId(Integer.parseInt(Inicio.lbl_user_id.getText()));
             user.setUsername(mod.txt_confname.getText());
