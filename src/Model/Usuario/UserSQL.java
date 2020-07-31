@@ -169,7 +169,7 @@ public class UserSQL {
                 init.setVisible(true);
                 Inicio.lbl_user_id.setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(null, "El usuario o la contraseña podrían estar errados");
+                log.message.setText("El usuario o la contraseña podrían estar errados");
                 limpiar(log);
             }
         } catch (SQLException e) {
@@ -217,7 +217,9 @@ public class UserSQL {
             Login log = (Login) obj;
             log.txt_name.setText(null);
             log.txt_pass.setText(null);
-        } else if (obj instanceof Registro) {
+        } 
+        
+        else if (obj instanceof Registro) {
             Registro reg = (Registro) obj;
             reg.txt_email.setText(null);
             reg.txt_nreg.setText(null);
@@ -225,7 +227,9 @@ public class UserSQL {
             reg.txt_passconf.setText(null);
             reg.lbl_alert.setText(null);
             reg.lbl_okay.setVisible(false);
-        } else if (obj instanceof Inicio) {
+        } 
+        
+        else if (obj instanceof Inicio) {
             Inicio init = (Inicio) obj;
             init.txt_url.setText(null);
             init.txt_username.setText(null);
@@ -236,7 +240,6 @@ public class UserSQL {
             init.lbl_alert.setText(null);
             init.lbl_iconokay.setVisible(false);
             init.pan_ajustes.setVisible(false);
-            //init.pan_form.setVisible(false);
             init.pan_tab.setVisible(false);
         }
     }

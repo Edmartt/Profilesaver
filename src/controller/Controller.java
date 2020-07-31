@@ -87,7 +87,10 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         log.lbl_iconeye.addMouseListener(this);
         log.txt_pass.addKeyListener(this);
         log.txt_pass.addMouseListener(this);
+        log.txt_pass.addKeyListener(this);
         log.lbl_min.addMouseListener(this);
+        log.btn_log.addKeyListener(this);
+        log.txt_name.addKeyListener(this);
         reg.btn_reg.addActionListener(this);
         reg.lbl_closereg.addMouseListener(this);
         init.btn_reg.addActionListener(this);
@@ -261,7 +264,13 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent ke) {
-
+        if (ke.getSource() == log.btn_log && ke.getKeyCode() == KeyEvent.VK_ENTER) {
+            event.loguearse(log, sql, user, init);
+        } else if (ke.getSource() == log.txt_name && ke.getKeyCode() == KeyEvent.VK_ENTER) {
+            event.loguearse(log, sql, user, init);
+        } else if (ke.getSource() == log.txt_pass && ke.getKeyCode() == KeyEvent.VK_ENTER) {
+            event.loguearse(log, sql, user, init);
+        }
     }
 
     @Override
@@ -278,12 +287,10 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             } else if (activo == false) {
                 log.message.setText(null);
             }
-        }
-        else if (ke.getSource()==reg.txt_nreg) {
-            if (event.prohibirChar(reg)==false) {
+        } else if (ke.getSource() == reg.txt_nreg) {
+            if (event.prohibirChar(reg) == false) {
                 reg.lbl_alert.setText("No se admiten caracteres raros");
-            }
-            else if (event.prohibirChar(reg)) {
+            } else if (event.prohibirChar(reg)) {
                 reg.lbl_alert.setText(null);
             }
         }
