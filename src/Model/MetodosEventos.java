@@ -30,7 +30,11 @@ public class MetodosEventos {
 
     public void loguearse(Login log, UserSQL sql, Usuario user, Inicio init) {
         user.setUsername(log.txt_name.getText());
+        init.pan_ajustes.setVisible(false);
         user.setPassword(SHA256.getSHA256(new String(log.txt_pass.getPassword())));
+        
+        System.out.println(Inicio.lbl_user_id.getText());
+        init.lbl_username.setText(user.getUsername());
         sql.iniciarSesion(user, init, log);
     }
 

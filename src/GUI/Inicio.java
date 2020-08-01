@@ -36,10 +36,10 @@ public class Inicio extends javax.swing.JFrame {
         btn_password = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         pan_slide = new javax.swing.JPanel();
+        lbl_username = new javax.swing.JLabel();
         lbl_iconset = new javax.swing.JLabel();
         lbl_iconlook = new javax.swing.JLabel();
         lbl_user = new javax.swing.JLabel();
-        lbl_username = new javax.swing.JLabel();
         lbl_set = new javax.swing.JLabel();
         lbl_icoadd = new javax.swing.JLabel();
         lbl_add = new javax.swing.JLabel();
@@ -140,15 +140,15 @@ public class Inicio extends javax.swing.JFrame {
 
         pan_slide.setBackground(new java.awt.Color(17, 138, 178));
         pan_slide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbl_username.setForeground(new java.awt.Color(254, 254, 254));
+        lbl_username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pan_slide.add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, 30));
         pan_slide.add(lbl_iconset, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 30, 30));
         pan_slide.add(lbl_iconlook, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 30, 30));
 
         lbl_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user.png"))); // NOI18N
         pan_slide.add(lbl_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 40, 90, 90));
-
-        lbl_username.setForeground(new java.awt.Color(254, 254, 254));
-        lbl_username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        pan_slide.add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, 30));
 
         lbl_set.setBackground(new java.awt.Color(254, 254, 254));
         lbl_set.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 11)); // NOI18N

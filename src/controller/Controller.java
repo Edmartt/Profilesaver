@@ -32,7 +32,7 @@ import style.StyleReg;
  */
 /**
  * Esta clase es la encargada de gestionar las acciones llevadas a cabo por el
- * usuario del sitema, tales como clicks de botones, movimientos de mouse, que
+ * usuario del sistema, tales como clicks de botones, movimientos de mouse, que
  * deberían dar una respuesta concreta a la acción, lo que desata eventos.
  */
 public class Controller implements ActionListener, MouseListener, KeyListener {
@@ -52,6 +52,12 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
     private ModEmail modEm;
     private ModPassword modpass;
 
+    /**
+     * Método constructor. Generamos las instancias de los objetos que
+     * iniciaremos, tales como las ventanas o los mensajes de ayuda según las
+     * interacciones de usuario
+     *
+     */
     public Controller() {
         reg = new Registro();
         event = new MetodosEventos();
@@ -65,20 +71,26 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         mod = new ModUsername();
         modEm = new ModEmail();
         modpass = new ModPassword();
-        stylein.setImage(init);
-        stylereg.setIcon(reg);
-        init.pan_tab.setVisible(false);
+        stylein.setImage(init);//Usamos el método para ajustar los iconos en los labels del login
+        stylereg.setIcon(reg);//Usamos el método para ajustarlos iconos en los labels de la ventana de registro de Usuario
+        init.pan_tab.setVisible(false);//Para que no se vea el panel de la tabla de datos
         tb = new TablaWebSite();
-        init.pan_form.setVisible(false);
-        init.lbl_iconokay.setVisible(false);
+        init.pan_form.setVisible(false);//Para que no se vea el formulario al iniciar
+        init.lbl_iconokay.setVisible(false);//Para que no se vea el icono de que la contraseña está bien al iniciar
         reg.lbl_okay.setVisible(false);
-        init.pan_slide.setBorder(new SoftBevelBorder(0, null, null, null, Color.black));
+        init.pan_slide.setBorder(new SoftBevelBorder(0, null, null, null, Color.black));//Ajustamos los bordes del panel lateral
         user = new Usuario();
         log.setVisible(true);
 
         buttons();
     }
 
+    /**
+     * Buttons es un método simple, que lo único que hace es contener las
+     * acciones asignadas a cada boton, label y componente en general que serán
+     * usadas, y evitar que nos genere un warning cuando asignamos el tipo de
+     * acción que debe gestionar en el constructor
+     */
     private void buttons() {
         log.btn_log.addActionListener(this);
         log.lbl_crear.addMouseListener(this);
@@ -120,14 +132,20 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         reg.txt_nreg.addKeyListener(this);
     }
 
+    /**
+     * En este método solo se ejecutan las acciones según en el componente con
+     * el que se esté interactuando.El método actionPerformed solo funciona con
+     * botones. La serie de condicionales en el código se da según sea en un
+     * botón en un formulario u otro
+     *
+     * @param ae el argumento de la clase ActionEvent para obtener la fuente de
+     * la acción
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == log.btn_log) {
-            init.pan_ajustes.setVisible(false);
             event.loguearse(log, sql, user, init);
             Inicio.lbl_user_id.setText(String.valueOf(user.getUserId()));
-            init.lbl_username.setText(user.getUsername());
-
         } else if (ae.getSource() == reg.btn_reg) {
             event.registrarUser(reg, sql, user);
 
@@ -173,6 +191,15 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         }
     }
 
+    /**
+     * Este método nos ayuda a gestionar las acciones de todos los componentes
+     * que no sean botones, tales como labels.Acciones como dar click se
+     * gestionan aquí con una serie de condicionales que según sea el componente
+     * donde se desate la acción se obtendrá un resultado
+     *
+     * @param me argumento para obtener la fuente de la acción, es decir, en qué
+     * componente se está dando la acción
+     */
     @Override
     public void mouseClicked(MouseEvent me) {
 
@@ -182,14 +209,12 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
             init.pan_form.setVisible(true);
             init.pan_tab.setVisible(false);
             init.pan_ajustes.setVisible(false);
-
         } else if (me.getSource() == init.lbl_look) {
             TablaWebSite.ajustarTabla(init);
             init.pan_tab.setVisible(true);
             tb.mostrarWebs(init);
             init.pan_form.setVisible(false);
             init.pan_ajustes.setVisible(false);
-
         } else if (me.getSource() == init.lbl_set) {
             init.pan_form.setVisible(false);
             init.pan_tab.setVisible(false);
@@ -224,6 +249,17 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         }
     }
 
+    /**
+     * Gestiona todas las acciones o eventos que estén relacionados a mantener
+     * el mouse presionado Puede también usarse para gestionar eventos de
+     * clicks. En ambos casos de las condiciones lo que se pretende es que al
+     * dar click y mantener presiona el mouse, se revele momentáneamente el
+     * password (Al soltarlo volvería a su estado original)
+     *
+     * @param me argumento de clase MouseEvent para obtener la fuente del
+     * eventoy asignar acción específica
+     */
+
     @Override
     public void mousePressed(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
@@ -233,6 +269,17 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         }
     }
 
+    /**
+     * Gestiona acciones para cuando el click es soltado (Después de tenerlo
+     * sostenido) Un click normal implica presionar y soltar.En el primer
+     * condicional se especifica que al soltar el click en un label del
+     * formulario de la ventana principal o Inicio (no login), en el campo de
+     * password se mostrarán los caracteres en forma de puntos negros para ser
+     * ocultado
+     *
+     * @param me argumento de clase MouseEvent para obtener la fuente de la
+     * acción
+     */
     @Override
     public void mouseReleased(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
@@ -264,15 +311,16 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent ke) {
-        if (ke.getSource() == log.btn_log && ke.getKeyCode() == KeyEvent.VK_ENTER) {
-            event.loguearse(log, sql, user, init);
-        } else if (ke.getSource() == log.txt_name && ke.getKeyCode() == KeyEvent.VK_ENTER) {
-            event.loguearse(log, sql, user, init);
-        } else if (ke.getSource() == log.txt_pass && ke.getKeyCode() == KeyEvent.VK_ENTER) {
-            event.loguearse(log, sql, user, init);
-        }
+
     }
 
+    /**
+     * Al soltar la tecla desencada una acción según el componente en el que se
+     * cumpla la condición
+     *
+     * @param ke argumento de clase KeyEvent para obtener la fuente de la acción
+     *
+     */
     @Override
     public void keyReleased(KeyEvent ke) {
         if (ke.getSource() == init.txt_pass1) {
@@ -282,6 +330,7 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
         } //Se asigna el estado de la tecla a un boolean
         else if (ke.getSource() == log.txt_pass) {
             boolean activo = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+
             if (activo) {
                 log.message.setText("Mayúsculas está activado");
             } else if (activo == false) {

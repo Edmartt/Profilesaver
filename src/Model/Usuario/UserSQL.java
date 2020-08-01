@@ -22,26 +22,27 @@ import java.util.ArrayList;
  * datos del usuario del sistema
  */
 public class UserSQL {
-
+/**
+ * Almacenaremos el resultado de la conexión a la BD
+ */
     Connection con = null;
+    /**
+     * Almacenamos objeto donde estará nuestra consulta SQL
+     */
     PreparedStatement ps = null;
+    /**
+     * Los resultados arrojados de nuestra consulta estarán en un objeto booleano
+     */
     ResultSet rs = null;
 
-    public boolean comprobarUser(Usuario user) {
-        con = Conexion.getConnection();
-        String sql = "SELECT username FROM Usuario WHERE username=?";
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setString(1, user.getUsername());
-            if (rs.next()) {
-                return true;
-            }
-        } catch (SQLException e) {
-        }
-
-        return false;
-    }
-
+/**
+ * Comprueba la existencia del usuario en la BD.debe retornar en caso de existir, el conteo total de usuarios con
+ dicho nombre de usuario.Si no hay resultados devolverá el entero 1
+ Se entiende que devolverá el resultado con 0 coincidencias si el usuario no existe
+ y si existe devuelve el número de usuarios existentes
+     * @param user el parámetro indica que debe recibir una instancia de la clase usuario
+     * @return 
+ */
     public int existeUsuario(Usuario user) {
         con = Conexion.getConnection();
 
@@ -60,7 +61,13 @@ public class UserSQL {
         }
         return 1;
     }
-
+/**
+ * Este método lo que hace es devolvernos ciertos datos del usuario
+ * con el que iniciamos sesión y dichos datos los usamos para mostrarlos
+ * en el panel de ajustes y poder saber lo que estamos modificando en caso 
+ * de querer hacerlo
+     * @return retorna un arraylist con los datos
+ */
     public ArrayList getDatos() {
         con = Conexion.getConnection();
         ArrayList<String> datos = new ArrayList<>(10);
@@ -79,7 +86,9 @@ public class UserSQL {
         }
         return datos;
     }
-
+/**
+ * 
+ */
     public void modUsername(Usuario user) {
         con = Conexion.getConnection();
         try {
@@ -168,9 +177,9 @@ public class UserSQL {
                 log.dispose();
                 init.setVisible(true);
                 Inicio.lbl_user_id.setVisible(false);
-            } else {
+            } else if(rs.next()==false){
                 log.message.setText("El usuario o la contraseña podrían estar errados");
-                limpiar(log);
+                
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
