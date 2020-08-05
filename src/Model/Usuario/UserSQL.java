@@ -1,7 +1,7 @@
 package Model.Usuario;
 
 import GUI.Inicio;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
+import java.sql.SQLException;
 import Extras.Conexion;
 import Extras.SHA256;
 import GUI.Login;
@@ -140,10 +140,8 @@ public class UserSQL {
             } else {
                 System.out.println("Ha ocurrido un error");
             }
-        } catch (MySQLIntegrityConstraintViolationException e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "El email debe tener un formato válido");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
         }
     }
 

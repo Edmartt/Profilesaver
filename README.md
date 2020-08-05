@@ -1,3 +1,3 @@
 # Profilesaver
-A little project for managing passwords and practice MVC pattern
-still developing
+This project was inspired in KeePass project. I know it's not the same but with time I'll do it better.
+Advices and collaboration are welcome.

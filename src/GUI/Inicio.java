@@ -387,7 +387,7 @@ public class Inicio extends javax.swing.JFrame {
         btn_mod.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
         btn_mod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_mod.setRequestFocusEnabled(false);
-        pan_tab.add(btn_mod, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 100, 40));
+        pan_tab.add(btn_mod, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, 100, 40));
 
         lbl_user_id.setOpaque(true);
         pan_tab.add(lbl_user_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, 40, 40));
@@ -423,7 +423,7 @@ public class Inicio extends javax.swing.JFrame {
         btn_del.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
         btn_del.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_del.setRequestFocusEnabled(false);
-        pan_tab.add(btn_del, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 100, 40));
+        pan_tab.add(btn_del, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 500, 100, 40));
 
         txa_nota.setColumns(10);
         txa_nota.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
