@@ -345,28 +345,28 @@ public class Inicio extends javax.swing.JFrame {
             tb_mostrar.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        pan_tab.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 600, 190));
+        pan_tab.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 600, 170));
 
         txt_femail.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
         txt_femail.setForeground(new java.awt.Color(1, 1, 1));
         txt_femail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_femail.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txt_femail.setOpaque(false);
-        pan_tab.add(txt_femail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 210, 40));
+        pan_tab.add(txt_femail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 210, 40));
 
         txt_fname.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
         txt_fname.setForeground(new java.awt.Color(1, 1, 1));
         txt_fname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_fname.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txt_fname.setOpaque(false);
-        pan_tab.add(txt_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 210, 40));
+        pan_tab.add(txt_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 210, 40));
 
         txt_fusername.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
         txt_fusername.setForeground(new java.awt.Color(1, 1, 1));
         txt_fusername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_fusername.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txt_fusername.setOpaque(false);
-        pan_tab.add(txt_fusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 210, 40));
+        pan_tab.add(txt_fusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 210, 40));
 
         lbl_press.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         lbl_press.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -378,7 +378,7 @@ public class Inicio extends javax.swing.JFrame {
         txt_fpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_fpass.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txt_fpass.setOpaque(false);
-        pan_tab.add(txt_fpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 210, 40));
+        pan_tab.add(txt_fpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 210, 40));
 
         btn_mod.setBackground(new java.awt.Color(17, 138, 178));
         btn_mod.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 14)); // NOI18N
@@ -387,7 +387,7 @@ public class Inicio extends javax.swing.JFrame {
         btn_mod.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
         btn_mod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_mod.setRequestFocusEnabled(false);
-        pan_tab.add(btn_mod, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 100, 40));
+        pan_tab.add(btn_mod, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, 100, 40));
 
         lbl_user_id.setOpaque(true);
         pan_tab.add(lbl_user_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, 40, 40));
@@ -396,19 +396,19 @@ public class Inicio extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(7, 59, 76));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Password");
-        pan_tab.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 250, 30));
+        pan_tab.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, 250, 30));
 
         jLabel6.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(7, 59, 76));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Nombre del Sitio");
-        pan_tab.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 250, 30));
+        pan_tab.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 250, 30));
 
         jLabel7.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(7, 59, 76));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Nombre de Usuario");
-        pan_tab.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 250, 30));
+        pan_tab.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 250, 30));
 
         jLabel8.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(7, 59, 76));
@@ -423,7 +423,7 @@ public class Inicio extends javax.swing.JFrame {
         btn_del.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
         btn_del.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_del.setRequestFocusEnabled(false);
-        pan_tab.add(btn_del, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 100, 40));
+        pan_tab.add(btn_del, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 490, 100, 40));
 
         txa_nota.setColumns(10);
         txa_nota.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
@@ -431,13 +431,13 @@ public class Inicio extends javax.swing.JFrame {
         txa_nota.setRows(5);
         jScrollPane1.setViewportView(txa_nota);
 
-        pan_tab.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 300, -1));
+        pan_tab.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 300, -1));
 
         jLabel9.setFont(jLabel6.getFont());
         jLabel9.setForeground(jLabel6.getForeground());
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Nota:");
-        pan_tab.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 40, 40));
+        pan_tab.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 40, 40));
 
         jPanel1.add(pan_tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 600));
 

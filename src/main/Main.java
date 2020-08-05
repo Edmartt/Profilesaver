@@ -1,5 +1,6 @@
 package main;
 
+import Model.Tablas;
 import controller.Controller;
 
 
@@ -10,7 +11,8 @@ import controller.Controller;
 public class Main {
 
     public static void main(String[] args) {
-
+        Tablas tb=new Tablas();
+        tb.crearTable();
         Controller cont = new Controller();
     }
 }
