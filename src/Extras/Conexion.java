@@ -23,11 +23,7 @@ public class Conexion {
         if (con == null) {
             try {
                 Class.forName("org.sqlite.JDBC");
-
-                con = DriverManager.getConnection("jdbc:sqlite:test.db");
-
                 con = DriverManager.getConnection("jdbc:sqlite:database.db");
-
                 System.out.println("Conexión realizada");
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "No hay conexión, verifique contraseña o BD");
