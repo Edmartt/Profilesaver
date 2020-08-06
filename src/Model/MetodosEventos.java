@@ -32,14 +32,14 @@ public class MetodosEventos {
         user.setUsername(log.txt_name.getText());
         init.pan_ajustes.setVisible(false);
         user.setPassword(SHA256.getSHA256(new String(log.txt_pass.getPassword())));
-        
+
         System.out.println(Inicio.lbl_user_id.getText());
         init.lbl_username.setText(user.getUsername());
         sql.iniciarSesion(user, init, log);
     }
 
     public boolean prohibirChar(Registro reg) {
-        return reg.txt_nreg.getText() != null && reg.txt_nreg.getText().matches("^[a-zA-Z0-9]*$");
+        return reg.txt_nreg.getText() != null && reg.txt_nreg.getText().matches("^[a-zA-Z0-9]*$");//El nombre de usuario solo puede contener letras de la a la z y números de 0 a 9
     }
 
     public void registrarUser(Registro reg, UserSQL sql, Usuario user) {

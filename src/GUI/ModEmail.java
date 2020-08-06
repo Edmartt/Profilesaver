@@ -76,8 +76,11 @@ public class ModEmail extends javax.swing.JFrame {
 
         txt_confemail.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
 
+        btn_cambemail.setBackground(new java.awt.Color(17, 138, 178));
         btn_cambemail.setFont(new java.awt.Font("AvantGarde LT Medium", 3, 12)); // NOI18N
+        btn_cambemail.setForeground(new java.awt.Color(254, 254, 254));
         btn_cambemail.setText("Modificar");
+        btn_cambemail.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

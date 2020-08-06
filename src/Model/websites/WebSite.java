@@ -1,9 +1,7 @@
 package Model.websites;
 
-import Model.Usuario.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
-import java.util.Scanner;
 import java.sql.ResultSet;
 
 /**

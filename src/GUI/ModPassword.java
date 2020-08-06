@@ -76,8 +76,11 @@ public class ModPassword extends javax.swing.JFrame {
         jLabel2.setText("Nuevo Password");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, 36));
 
+        btn_campass.setBackground(new java.awt.Color(17, 138, 178));
         btn_campass.setFont(new java.awt.Font("AvantGarde LT Medium", 3, 12)); // NOI18N
+        btn_campass.setForeground(new java.awt.Color(254, 254, 254));
         btn_campass.setText("Modificar");
+        btn_campass.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btn_campass, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 230, 92, 44));
         jPanel1.add(txt_curpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 69, 225, 40));
         jPanel1.add(txt_conpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 225, 40));
