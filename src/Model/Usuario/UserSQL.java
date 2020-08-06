@@ -1,7 +1,6 @@
 package Model.Usuario;
 
 import GUI.Inicio;
-import java.sql.SQLException;
 import Extras.Conexion;
 import Extras.SHA256;
 import GUI.Login;
