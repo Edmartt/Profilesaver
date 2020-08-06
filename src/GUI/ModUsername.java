@@ -82,7 +82,9 @@ public class ModUsername extends javax.swing.JFrame {
         txt_confname.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jPanel1.add(txt_confname, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 153, 210, 44));
 
+        btn_camuser.setBackground(new java.awt.Color(17, 138, 178));
         btn_camuser.setFont(new java.awt.Font("AvantGarde LT Medium", 3, 12)); // NOI18N
+        btn_camuser.setForeground(new java.awt.Color(254, 254, 254));
         btn_camuser.setText("Modificar");
         jPanel1.add(btn_camuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 230, 92, 44));
 

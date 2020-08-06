@@ -254,7 +254,8 @@ public class Inicio extends javax.swing.JFrame {
         btn_reg.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 14)); // NOI18N
         btn_reg.setForeground(new java.awt.Color(254, 254, 254));
         btn_reg.setText("Registrar");
-        pan_form.add(btn_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 480, 120, 40));
+        btn_reg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pan_form.add(btn_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 120, 40));
 
         jLabel10.setFont(new java.awt.Font("Expansiva", 1, 14)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -371,7 +372,7 @@ public class Inicio extends javax.swing.JFrame {
         lbl_press.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         lbl_press.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_press.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eye.png"))); // NOI18N
-        pan_tab.add(lbl_press, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 310, 25, 15));
+        pan_tab.add(lbl_press, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, 25, 15));
 
         txt_fpass.setFont(new java.awt.Font("Carlito", 1, 14)); // NOI18N
         txt_fpass.setForeground(new java.awt.Color(1, 1, 1));
@@ -387,9 +388,8 @@ public class Inicio extends javax.swing.JFrame {
         btn_mod.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
         btn_mod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_mod.setRequestFocusEnabled(false);
-        pan_tab.add(btn_mod, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, 100, 40));
-
         pan_tab.add(btn_mod, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, 100, 40));
+
         lbl_user_id.setOpaque(true);
         pan_tab.add(lbl_user_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, 40, 40));
 
@@ -415,7 +415,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(7, 59, 76));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Correo");
-        pan_tab.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 250, 30));
+        pan_tab.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 250, 30));
 
         btn_del.setBackground(new java.awt.Color(183, 22, 32));
         btn_del.setFont(new java.awt.Font("AvantGarde LT Medium", 1, 14)); // NOI18N
@@ -424,23 +424,21 @@ public class Inicio extends javax.swing.JFrame {
         btn_del.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
         btn_del.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_del.setRequestFocusEnabled(false);
-
-        pan_tab.add(btn_del, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 500, 100, 40));
-
         pan_tab.add(btn_del, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 490, 100, 40));
+
         txa_nota.setColumns(10);
         txa_nota.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         txa_nota.setLineWrap(true);
         txa_nota.setRows(5);
         jScrollPane1.setViewportView(txa_nota);
 
-        pan_tab.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 300, -1));
+        pan_tab.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 300, -1));
 
         jLabel9.setFont(jLabel6.getFont());
         jLabel9.setForeground(jLabel6.getForeground());
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Nota:");
-        pan_tab.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 40, 40));
+        pan_tab.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 40, 40));
 
         jPanel1.add(pan_tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 600));
 

@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 /**
  * Esta clase contiene todos los métodos relacionados con consultas SQL sobre
- * datos del usuario del sistema
+ * datos de usuario del sistema
  */
 public class UserSQL {
 /**
@@ -82,11 +82,15 @@ public class UserSQL {
                 return datos;
             }
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
         return datos;
     }
 /**
+ * Modifica el nombre de usuario actual y una vez guardado, lo muestra
+ * en el panel lateral actualizado
  * 
+     * @param user Instancia de la clase Usuario
  */
     public void modUsername(Usuario user) {
         con = Conexion.getConnection();
@@ -98,13 +102,13 @@ public class UserSQL {
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Nombre de usuario actualizado");
             } else {
-                System.out.println("Ha ocurrido un error al actualizar.");
+                JOptionPane.showMessageDialog(null,"Ha ocurrido un error al actualizar.");
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-
+//En construcción
     public void eliminarUser(int userId) {
     }
 
@@ -137,7 +141,7 @@ public class UserSQL {
                 JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente");
                 limpiar(reg);
             } else {
-                System.out.println("Ha ocurrido un error");
+                JOptionPane.showMessageDialog(null,"Ha ocurrido un error");
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "El email debe tener un formato válido");

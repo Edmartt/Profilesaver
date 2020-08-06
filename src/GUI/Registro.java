@@ -108,6 +108,7 @@ public class Registro extends javax.swing.JFrame {
         btn_reg.setFont(new java.awt.Font("Lato Black", 0, 14)); // NOI18N
         btn_reg.setForeground(new java.awt.Color(254, 254, 254));
         btn_reg.setText("Registrar");
+        btn_reg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pan_reg.add(btn_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 110, 40));
         pan_reg.add(lbl_okay, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 30, 30));
 
@@ -129,6 +130,7 @@ public class Registro extends javax.swing.JFrame {
         btn_cancel.setFont(new java.awt.Font("Lato Black", 0, 14)); // NOI18N
         btn_cancel.setForeground(new java.awt.Color(254, 254, 254));
         btn_cancel.setText("Cancelar");
+        btn_cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pan_reg.add(btn_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 110, 40));
 
         getContentPane().add(pan_reg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 530));

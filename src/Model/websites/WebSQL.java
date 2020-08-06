@@ -71,7 +71,7 @@ public class WebSQL {
                 JOptionPane.showMessageDialog(null, "Perfil agregado");
                 UserSQL.limpiar(init);
             } else {
-                System.out.println("Ha ocurrido un error");
+                JOptionPane.showMessageDialog(null,"Ha ocurrido un error");
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "El correo debe contener un formato válido");
