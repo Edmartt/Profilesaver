@@ -143,49 +143,74 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
+        
         if (ae.getSource() == log.btn_log) {
             event.loguearse(log, sql, user, init);
             Inicio.lbl_user_id.setText(String.valueOf(user.getUserId()));
-        } else if (ae.getSource() == reg.btn_reg) {
+        } 
+        
+        else if (ae.getSource() == reg.btn_reg) {
             event.registrarUser(reg, sql, user);
 
-        } else if (ae.getSource() == reg.btn_cancel) {
+        }
+        
+        else if (ae.getSource() == reg.btn_cancel) {
             int res = JOptionPane.showConfirmDialog(null, "¿Desea cancelar el registro?", "Cancelar", JOptionPane.YES_NO_OPTION);
+            
             if (res == 0) {
                 reg.dispose();
                 UserSQL.limpiar(reg);
             }
-        } else if (ae.getSource() == init.btn_reg) {
+        } 
+        
+        else if (ae.getSource() == init.btn_reg) {
             int resp = JOptionPane.showConfirmDialog(null, "¿Desea guardar este perfil?", "Guardar", JOptionPane.YES_NO_OPTION);
+            
             if (resp == 0) {
                 event.registrarWeb(init, web, websql);
             }
 
-        } else if (ae.getSource() == init.btn_mod) {
+        } 
+        
+        else if (ae.getSource() == init.btn_mod) {
             event.updateWebs(init, websql, web);
             tb.mostrarWebs(init);
 
-        } else if (ae.getSource() == init.btn_del) {
+        } 
+        
+        else if (ae.getSource() == init.btn_del) {
             event.deleteWeb(websql, init);
             tb.mostrarWebs(init);
-        } else if (ae.getSource() == mod.btn_camuser) {
+        } 
+        
+        else if (ae.getSource() == mod.btn_camuser) {
             event.updateUsername(mod, sql, user, init);
             init.lbl_username.setText(user.getUsername());
             mod.toFront();
-        } else if (ae.getSource() == init.btn_username) {
+        } 
+        
+        else if (ae.getSource() == init.btn_username) {
             mod.txt_curname.setText(init.lbl_username.getText());
             mod.setVisible(true);
 
-        } else if (ae.getSource() == modEm.btn_cambemail) {
+        } 
+        
+        else if (ae.getSource() == modEm.btn_cambemail) {
             event.updateEmail(sql, user, init, modEm);
             modEm.toFront();
-        } else if (ae.getSource() == init.btn_email) {
+        } 
+        
+        else if (ae.getSource() == init.btn_email) {
             modEm.txt_modemail.setText(sql.getDatos().get(1).toString());
             modEm.setVisible(true);
-        } else if (ae.getSource() == init.btn_password) {
+        } 
+        
+        else if (ae.getSource() == init.btn_password) {
             modpass.txt_curpass.setText(sql.getDatos().get(2).toString());
             modpass.setVisible(true);
-        } else if (ae.getSource() == modpass.btn_campass) {
+        } 
+        
+        else if (ae.getSource() == modpass.btn_campass) {
             event.updatePassword(modpass, user, sql);
             modpass.toFront();
         }
@@ -205,46 +230,72 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
 
         if (me.getSource() == this.log.lbl_crear) {
             reg.setVisible(true);
-        } else if (me.getSource() == init.lbl_add) {
+        } 
+        
+        else if (me.getSource() == init.lbl_add) {
             init.pan_form.setVisible(true);
             init.pan_tab.setVisible(false);
             init.pan_ajustes.setVisible(false);
-        } else if (me.getSource() == init.lbl_look) {
+        } 
+        
+        else if (me.getSource() == init.lbl_look) {
             TablaWebSite.ajustarTabla(init);
             init.pan_tab.setVisible(true);
             tb.mostrarWebs(init);
             init.pan_form.setVisible(false);
             init.pan_ajustes.setVisible(false);
-        } else if (me.getSource() == init.lbl_set) {
+        } 
+        
+        else if (me.getSource() == init.lbl_set) {
             init.pan_form.setVisible(false);
             init.pan_tab.setVisible(false);
             init.pan_ajustes.setVisible(true);
-        } else if (me.getSource() == init.lbl_min) {
+        } 
+        
+        else if (me.getSource() == init.lbl_min) {
             init.setExtendedState(Cursor.CROSSHAIR_CURSOR);
-        } else if (me.getSource() == init.tb_mostrar) {
+        } 
+        
+        else if (me.getSource() == init.tb_mostrar) {
             event.mostrarDatos(init);
-        } else if (me.getSource() == init.lbl_off) {
+        } 
+        
+        else if (me.getSource() == init.lbl_off) {
             int resp = JOptionPane.showConfirmDialog(null, "¿Desea cerrar la sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION);
+            
             if (resp == 0) {
                 init.dispose();
                 UserSQL.limpiar(init);
                 log.setVisible(true);
             }
-        } else if (me.getSource() == log.lbl_close) {
+        } 
+        
+        else if (me.getSource() == log.lbl_close) {
             int resp = JOptionPane.showConfirmDialog(null, "¿Desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
+            
             if (resp == 0) {
                 System.exit(0);
             }
-        } else if (me.getSource() == log.lbl_min) {
+        } 
+        
+        else if (me.getSource() == log.lbl_min) {
             log.setExtendedState(Cursor.CROSSHAIR_CURSOR);
-        } else if (me.getSource() == mod.lbl_cerraruser) {
+        } 
+        
+        else if (me.getSource() == mod.lbl_cerraruser) {
             mod.dispose();
             init.toFront();
-        } else if (me.getSource() == modEm.lbl_cerrarmail) {
+        } 
+        
+        else if (me.getSource() == modEm.lbl_cerrarmail) {
             modEm.dispose();
-        } else if (me.getSource() == modpass.lbl_cerrarpass) {
+        } 
+        
+        else if (me.getSource() == modpass.lbl_cerrarpass) {
             modpass.dispose();
-        } else if (me.getSource() == reg.lbl_closereg) {
+        } 
+        
+        else if (me.getSource() == reg.lbl_closereg) {
             reg.dispose();
         }
     }
@@ -264,7 +315,9 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
     public void mousePressed(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
             init.txt_fpass.setEchoChar((char) 0);
-        } else if (me.getSource() == log.lbl_iconeye) {
+        } 
+        
+        else if (me.getSource() == log.lbl_iconeye) {
             log.txt_pass.setEchoChar((char) 0);
         }
     }
@@ -284,10 +337,15 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
     public void mouseReleased(MouseEvent me) {
         if (me.getSource() == init.lbl_press) {
             init.txt_fpass.setEchoChar('•');
-        } else if (me.getSource() == log.lbl_iconeye) {
+        } 
+        
+        else if (me.getSource() == log.lbl_iconeye) {
             log.txt_pass.setEchoChar('•');
-        } else if (me.getSource() == log.txt_pass) {
+        } 
+        
+        else if (me.getSource() == log.txt_pass) {
             boolean activo = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+            
             if (activo) {
                 log.message.setText("Mayúsculas está activado");
             } else if (activo == false) {
@@ -325,21 +383,32 @@ public class Controller implements ActionListener, MouseListener, KeyListener {
     public void keyReleased(KeyEvent ke) {
         if (ke.getSource() == init.txt_pass1) {
             event.comparePass(init);
-        } else if (ke.getSource() == reg.txt_passconf) {
+        } 
+        
+        else if (ke.getSource() == reg.txt_passconf) {
             event.comparePass(reg);
-        } //Se asigna el estado de la tecla a un boolean
+        } 
+
+        //Se asigna el estado de la tecla a un boolean        
         else if (ke.getSource() == log.txt_pass) {
             boolean activo = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
 
             if (activo) {
                 log.message.setText("Mayúsculas está activado");
-            } else if (activo == false) {
+            } 
+            
+            else if (activo == false) {
                 log.message.setText(null);
             }
-        } else if (ke.getSource() == reg.txt_nreg) {
+        } 
+        
+        else if (ke.getSource() == reg.txt_nreg) {
+            
             if (event.prohibirChar(reg) == false) {
                 reg.lbl_alert.setText("No se admiten caracteres raros");
-            } else if (event.prohibirChar(reg)) {
+            } 
+            
+            else if (event.prohibirChar(reg)) {
                 reg.lbl_alert.setText(null);
             }
         }
