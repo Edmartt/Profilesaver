@@ -34,7 +34,7 @@ import style.StyleInicio;
  */
 public class ControllerInicio implements ActionListener, MouseListener, KeyListener {
 
-    private Login cont;
+    private ControllerLogin cont;
     private Inicio init;
     private StyleInicio stylein;
     private ModUsername mod;
@@ -164,7 +164,7 @@ public class ControllerInicio implements ActionListener, MouseListener, KeyListe
                 init.dispose();
                 UserSQL.limpiar(init);
                 //log.setVisible(true);
-                cont=new Login(); //generamos la instancia del controlador del Login para volver al login con todos los eventos disponibles
+                cont=new ControllerLogin(); //generamos la instancia del controlador del Login para volver al login con todos los eventos disponibles
             }
         } else if (me.getSource() == mod.lbl_cerraruser) {
             mod.dispose();
