@@ -3,7 +3,7 @@ package main;
 
 import Extras.Tablas;
 
-import controller.Controller;
+import controller.ControllerLogin;
 
 
 /**
@@ -15,6 +15,6 @@ public class Main {
     public static void main(String[] args) {
         Tablas tb=new Tablas();
         tb.crearTable();
-        Controller cont = new Controller();
+        ControllerLogin cont = new ControllerLogin();
     }
 }
