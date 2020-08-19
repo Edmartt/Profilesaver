@@ -20,3 +20,6 @@ La primera vez que inicies el programa, necesitas crear un nuevo usuario en la o
 Llenas el formulario con los datos y ahora podrás iniciar sesión. El password de inicio se almacena con cifrado con un algoritmo sha2 y de momento
 no he desarrollado un mecanismo para recuperar la cuenta.
 
+Demo:
+
+![Gif Animado](animacion.gif)
